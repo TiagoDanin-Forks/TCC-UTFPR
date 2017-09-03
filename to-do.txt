@@ -1,0 +1,20 @@
+# Etapa 1: Coletar os seguintes dados:
+> Número de novatos mensais (via Repositório)
+> Número de contribuições/commits (via Repositório)
+> Número de pull-requests (via GitHub API)
+> Número de estrelas (via GitHub API) -- Já coletado
+> Número de cópias (via GitHub API) -- Já coletado
+
+% Relatório desta etapa:
+Coletar novos contribuidores mensais foi um desafio. A quantidade de commits, quando coletados via API, não estava completa. 
+Aparentemente a API só apresenta aos usuários os commits que foram realizados dentro do GitHub. Como foram analisados
+projetos populares, e por muitas vezes antigos, nem todos começaram nesta plataforma de codificação. Ou seja, em certos casos,
+o número de commits da API não condiz com o númeo real. O repositório do Linux, por exemplo, só possui 23 mil commits cadastrados, de mais de 600 mil.
+ 
+Em pouquíssimos casos o shellscript, via git, retornou um valor vazio para a data.
+
+Ideias:
+    Comparar novos contribuidores mensais com commits, estrelas, pull-requests
+
+>> Implementar um coletor de estrelas (usando o header especial pra pegar a data)
+>> Implementar um coletor de forks
