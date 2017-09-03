@@ -153,7 +153,7 @@ if os.path.isfile('projects.json'):
         for repository in repositories:
             folder = 'Dataset' + '/' + language + '/' + repository['name']
             Chart = RepositoryChart(folder)
-            # Chart.newcomers()
-            Chart.newcomers_and_contributions()
+            Chart.newcomers()
+            # Chart.newcomers_and_contributions()
 else:
     print '[Error] You should collect the projects list first. Use collector .py.'

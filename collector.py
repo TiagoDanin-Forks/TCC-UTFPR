@@ -100,7 +100,7 @@ class RepositoryCollector():
 crawler = GitCrawler.Crawler(
     '4161a8257efaea420c94', 'd814ec48927a6bd62c55c058cd028a949e5362d4')
 
-languages = ['C', 'C++', 'Clojure', 'Erlang',
+languages = ['C', 'CoffeeScript', 'Clojure', 'Erlang',
              'Go', 'Haskell', 'Java', 'JavaScript', 'Objective-C',
              'Perl', 'PHP', 'Python', 'Ruby', 'Scala', 'TypeScript']
 
@@ -114,14 +114,15 @@ for language in dictionary.keys():
     # We'll use just the first three projects per language
     repositories = dictionary[language]['items'][0:3]
     for repository in repositories:
-        folder = 'Dataset' + '/' + language + '/' + repository['name']
-        R = RepositoryCollector(repository, folder, crawler)
-        # R.clone()  # Clone the repository
-        # R.about()  # Create a file with the repository main information
-        # R.first_contributions()  # Create a file with the first contribution
-        # of each contributor in repository
-        # R.languages()  # Create a file with the languages used in the
-        # repository
-        # R.pull_requests()  # Create a file with all the pull requests created
-        # in the repository
-        R.contributions()
+        if not 'linux' in repository['name']:
+            folder = 'Dataset' + '/' + language + '/' + repository['name']
+            R = RepositoryCollector(repository, folder, crawler)
+            R.clone()  # Clone the repository
+            R.about()  # Create a file with the repository main information
+            R.first_contributions()  # Create a file with the first contribution
+            # of each contributor in repository
+            R.languages()  # Create a file with the languages used in the
+            # repository
+            R.pull_requests()  # Create a file with all the pull requests created
+            # in the repository
+            R.contributions()  # Create a file with all commits created in the repository
