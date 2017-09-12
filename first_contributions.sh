@@ -17,6 +17,7 @@ git log --format='%aN' | sort -u > ../raw_contributors.txt
 cat ../raw_contributors.txt | while read line
 do
     contributor=$line
+    echo "$contributor"
     first_contribution=$(git log --reverse  --date=short --pretty='format:%cd' -E --author="^${contributor}\s<(.+)>$" | head -1)
     echo "$contributor, $first_contribution" >> ../raw_first_contributions.txt
 done

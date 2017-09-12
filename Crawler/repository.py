@@ -250,3 +250,72 @@ class Repository:
                 page_number = page_number + 1
 
         return contributors
+
+
+    def stars(self, page_range=None):
+        stars = []
+
+        if page_range is not None:
+            first_page = page_range[0]
+            last_page = page_range[1]
+
+            print '[Repository] Returning stars in a page range'
+
+            for page_number in range(first_page, last_page):
+                request = self.github.request('repos/' + self.organization + '/' + self.name +
+                                              '/stargazers', ['page=' + str(page_number)])
+
+                for star in request:
+                    stars.append(star)
+        else:
+            print '[Repository] Returning all stars in the project'
+            request = ['Waiting for requisition']
+            page_number = 1
+
+            while(request):
+                request = self.github.request('repos/' + self.organization + '/' + self.name +
+                                              '/stargazers', ['page=' + str(page_number)])
+
+                if request:
+                    for star in request:
+                        stars.append(star)
+
+                page_number = page_number + 1
+
+        return stars
+
+    def forks(self, sort=None, page_range=None):
+        forks = []
+        parameters = []
+
+        if sort is not None:
+            parameters.append(sort)
+
+        if page_range is not None:
+            first_page = page_range[0]
+            last_page = page_range[1]
+
+            print '[Repository] Returning forks in a page range'
+
+            for page_number in range(first_page, last_page):
+                request = self.github.request('repos/' + self.organization + '/' + self.name +
+                                              '/forks', parameters + ['page=' + str(page_number)])
+
+                for fork in request:
+                    forks.append(fork)
+        else:
+            print '[Repository] Returning all forks in the project'
+            request = ['Waiting for requisition']
+            page_number = 1
+
+            while(request):
+                request = self.github.request('repos/' + self.organization + '/' + self.name +
+                                              '/forks', parameters + ['page=' + str(page_number)])
+
+                if request:
+                    for fork in request:
+                        forks.append(fork)
+
+                page_number = page_number + 1
+
+        return forks
