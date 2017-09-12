@@ -112,17 +112,17 @@ with open('projects.json', 'r') as file:
 
 for language in dictionary.keys():
     # We'll use just the first three projects per language
-    repositories = dictionary[language]['items'][0:3]
+    repositories = dictionary[language]['items']
     for repository in repositories:
-        if not 'linux' in repository['name']:
-            folder = 'Dataset' + '/' + language + '/' + repository['name']
-            R = RepositoryCollector(repository, folder, crawler)
-            R.clone()  # Clone the repository
-            R.about()  # Create a file with the repository main information
-            R.first_contributions()  # Create a file with the first contribution
-            # of each contributor in repository
-            R.languages()  # Create a file with the languages used in the
-            # repository
-            R.pull_requests()  # Create a file with all the pull requests created
-            # in the repository
-            R.contributions()  # Create a file with all commits created in the repository
+	if not 'linux' in repository['name']:
+	    folder = 'Dataset' + '/' + language + '/' + repository['name']
+	    R = RepositoryCollector(repository, folder, crawler)
+	    R.clone()  # Clone the repository
+	    R.about()  # Create a file with the repository main information
+	    R.first_contributions()  # Create a file with the first contribution
+	    # of each contributor in repository
+	    R.languages()  # Create a file with the languages used in the
+	    # repository
+	    R.pull_requests()  # Create a file with all the pull requests created
+	    # in the repository
+	    R.contributions()  # Create a file with all commits created in the repository
