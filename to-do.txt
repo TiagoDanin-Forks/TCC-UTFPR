@@ -19,5 +19,10 @@ As contribuições mensais foram facilmente coletadas, visto que elas já haviam
 Pode-se dizer que esta etapa foi concluída com sucesso em um curto período de tempo, aproximadamente duas semana. Houveram algumas pequenas barreiras na implementação dos códigos e no armazenamento das informações. O dataset desta etapa ao final de toda a coleta, contando arquivos JSON e cópias dos repositórios, totalizou +15GB em dados.
 
 Ameaças a validade:
-    Em pouquíssimos casos o script, via git, retornou um valor vazio para a data dos novatos. Em apenas um caso no repositório do Go, a data de entrada do contribuidor foi coletada como sendo 1974. Análises foram realizadas para avaliar a veracidade dos dados coletados, e para todos os demais casos, as informações condiziam com as presentes nos repositórios.
+    Em pouquíssimos casos o script, via git, retornou um valor vazio para a data dos novatos. Em apenas um caso no repositório do Go, a data de entrada do contribuidor foi coletada como sendo 1976. Análises foram realizadas para avaliar a veracidade dos dados coletados, e para todos os demais casos, as informações condiziam com as presentes nos repositórios.
 
+# Coletar estrelas
+# Coletar cópias (forks)
+# Gerar gráfico de três eixos para ambos
+# Fazer o timeseries forecasting usando o seguinte tutorial
+	*** https://www.digitalocean.com/community/tutorials/a-guide-to-time-series-forecasting-with-arima-in-python-3
