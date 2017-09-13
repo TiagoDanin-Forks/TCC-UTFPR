@@ -41,9 +41,9 @@ class Crawler:
                     '&' + '&'.join(parameters)
 
             if 'stargazer' in url:
-                request = urllib2.Request(url)
-                request.add_header('Accept','application/vnd.github.v3.star+json')
-                response = urllib2.urlopen(request)
+                request_header = urllib2.Request(url)
+                request_header.add_header('Accept','application/vnd.github.v3.star+json')
+                response = urllib2.urlopen(request_header)
             else:
                 response = urllib2.urlopen(url)
 

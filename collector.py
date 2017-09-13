@@ -15,7 +15,7 @@ try:
 except ImportError as error:
 	raise ImportError(error)
 
-
+# This method collects, from a list of languages, the main projects listed in GitHub, sorted by number of stars.
 def popular_projects_per_language(languages, crawler):
 	search = GitSearch.Search(crawler)
 	repositories = {}
@@ -32,7 +32,7 @@ def popular_projects_per_language(languages, crawler):
 
 
 class RepositoryCollector():
-
+	
 	def __init__(self, repository, folder, crawler):
 		self.organization, self.name = repository['full_name'].split('/')
 		self.folder = folder
@@ -114,9 +114,12 @@ class RepositoryCollector():
 		else:
 			print '[Warning] A first contributions file already exists. Delete it first.'
 
+# Main method. Instantiate one object for each of the projects, and collects the data separately.
+# Please, retrieve your own client id and secret in this page: https://github.com/settings/applications/new
 
-crawler = GitCrawler.Crawler(
-	'4161a8257efaea420c94', 'd814ec48927a6bd62c55c058cd028a949e5362d4')
+api_client_id = '4161a8257efaea420c94'
+api_client_secret = 'd814ec48927a6bd62c55c058cd028a949e5362d4'
+crawler = GitCrawler.Crawler(api_client_id, api_client_secret)
 
 languages = ['C', 'CoffeeScript', 'Clojure', 'Erlang',
 			 'Go', 'Haskell', 'Java', 'JavaScript', 'Objective-C',
@@ -129,21 +132,15 @@ with open('projects.json', 'r') as file:
 	dictionary = json.load(file)
 
 for language in dictionary.keys():
-	# We'll use just the first three projects per language
 	repositories = dictionary[language]['items']
 	for repository in repositories:
-		if 'yesod' in repository['name']:
-			print repository['name']
-			folder = 'Dataset' + '/' + language + '/' + repository['name']
-			R = RepositoryCollector(repository, folder, crawler)
-			R.stars()
-			R.forks()
-			R.clone()  # Clone the repository
-			R.about()  # Create a file with the repository main information
-			R.first_contributions()  # Create a file with the first contribution
-			# of each contributor in repository
-			R.languages()  # Create a file with the languages used in the
-			# repository
-			R.pull_requests()  # Create a file with all the pull requests created
-			# in the repository
-			R.contributions()  # Create a file with all commits created in the repository
+		folder = 'Dataset' + '/' + language + '/' + repository['name']
+		R = RepositoryCollector(repository, folder, crawler)
+		R.clone()  # Clone the repository
+		R.about()  # Creates a general information file
+		R.first_contributions()  # Creates a file with the first contribution of each contributor in the repository
+		R.languages()  # Creates a file with the languages used in the repository
+		R.pull_requests()  # Creates a file with all the pull requests submmited to the repository
+		R.contributions()  # Creates a file with all the contributions submmited to the repository
+		R.stars() # Creates a file with all stars evaluated in the repository (Include evaluation date)
+		R.forks() # Creates a file with all the copies created from the repository

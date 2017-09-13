@@ -254,6 +254,7 @@ class Repository:
 
     def stars(self, page_range=None):
         stars = []
+        parameters = []
 
         if page_range is not None:
             first_page = page_range[0]
@@ -263,7 +264,7 @@ class Repository:
 
             for page_number in range(first_page, last_page):
                 request = self.github.request('repos/' + self.organization + '/' + self.name +
-                                              '/stargazers', ['page=' + str(page_number)])
+                                              '/stargazers', parameters + ['page=' + str(page_number)])
 
                 for star in request:
                     stars.append(star)
@@ -274,7 +275,7 @@ class Repository:
 
             while(request):
                 request = self.github.request('repos/' + self.organization + '/' + self.name +
-                                              '/stargazers', ['page=' + str(page_number)])
+                                              '/stargazers', parameters + ['page=' + str(page_number)])
 
                 if request:
                     for star in request:
