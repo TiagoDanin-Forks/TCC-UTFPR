@@ -50,13 +50,17 @@ class RepositoryCollector():
 
 			subprocess.call(['git', 'clone', git_url,
 							 self.folder + '/repository'])
+		else:
+			print('Error processing ' + self.name + ' project.')
+        	print('\033[97m\033[1m-> Repository folder already exists.\033[0m Please, delete it first.')
 
 	def about(self):
 		if not os.path.isfile(self.folder + '/about.json'):
 			with open(self.folder + '/about.json', 'w') as about_file:
 				json.dump(repository, about_file, indent=4)
 		else:
-			print '[Warning] A about file already exists. Delete it first.'
+			print('Error processing ' + self.name + ' project.')
+            print('\033[97m\033[1m-> About file already exists.\033[0m Please, delete it first.')
 
 	def languages(self):
 		if not os.path.isfile(self.folder + '/languages.json'):
@@ -65,7 +69,8 @@ class RepositoryCollector():
 			with open(self.folder + '/languages.json', 'w') as languages_file:
 				json.dump(languages, languages_file, indent=4)
 		else:
-			print '[Warning] A languages file already exists. Delete it first.'
+			print('Error processing ' + self.name + ' project.')
+            print('\033[97m\033[1m-> Languages file already exists.\033[0m Please, delete it first.')
 
 	def stars(self):
 		if not os.path.isfile(self.folder + '/stars.json'):
@@ -74,7 +79,8 @@ class RepositoryCollector():
 			with open(self.folder + '/stars.json', 'w') as stars_file:
 				json.dump(stars, stars_file, indent=4)
 		else:
-			print '[Warning] A stars file already exists. Delete it first.'
+			print('Error processing ' + self.name + ' project.')
+            print('\033[97m\033[1m-> Stars file already exists.\033[0m Please, delete it first.')
 
 	def forks(self):
 		if not os.path.isfile(self.folder + '/forks.json'):
@@ -83,7 +89,8 @@ class RepositoryCollector():
 			with open(self.folder + '/forks.json', 'w') as forks_file:
 				json.dump(forks, forks_file, indent=4)
 		else:
-			print '[Warning] A forks file already exists. Delete it first.'
+			print('Error processing ' + self.name + ' project.')
+            print('\033[97m\033[1m-> Forks file already exists.\033[0m Please, delete it first.')
 
 	def pull_requests(self):
 		if not os.path.isfile(self.folder + '/pull_requests.json'):
@@ -92,7 +99,8 @@ class RepositoryCollector():
 			with open(self.folder + '/pull_requests.json', 'w') as pulls_file:
 				json.dump(pull_requests, pulls_file, indent=4)
 		else:
-			print '[Warning] A pull requests file already exists. Delete it first.'
+			print('Error processing ' + self.name + ' project.')
+            print('\033[97m\033[1m-> Pull requests file already exists.\033[0m Please, delete it first.')
 
 	def contributions(self):
 		if not os.path.isfile(self.folder + '/contributions.txt'):
@@ -100,9 +108,11 @@ class RepositoryCollector():
 				subprocess.call(['sh', 'contributions.sh',
 								 self.folder + '/repository'])
 			else:
-				print '[Error] Repository has not been cloned yet! Use the clone() method to create one.'
+				print('Error processing ' + self.name + ' project.')
+            	print('\033[97m\033[1m-> Repository has not been cloned yet.\033[0m Contributions file failed.')
 		else:
-			print '[Warning] A contributions file already exists. Delete it first.'
+			print('Error processing ' + self.name + ' project.')
+            print('\033[97m\033[1m-> Contributions file already exists.\033[0m Please, delete it first.')
 
 	def first_contributions(self):
 		if not os.path.isfile(self.folder + '/first_contributions.txt'):
@@ -110,9 +120,11 @@ class RepositoryCollector():
 				subprocess.call(['sh', 'first_contributions.sh',
 								 self.folder + '/repository'])
 			else:
-				print '[Error] Repository has not been cloned yet! Use the clone() method to create one.'
+				print('Error processing ' + self.name + ' project.')
+            	print('\033[97m\033[1m-> Repository has not been cloned yet.\033[0m Newcomers file failed.')
 		else:
-			print '[Warning] A first contributions file already exists. Delete it first.'
+			print('Error processing ' + self.name + ' project.')
+            print('\033[97m\033[1m-> Newcomers file already exists.\033[0m Please, delete it first.')
 
 # Main method. Instantiate one object for each of the projects, and collects the data separately.
 # Please, retrieve your own client id and secret in this page: https://github.com/settings/applications/new
