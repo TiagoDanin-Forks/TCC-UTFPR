@@ -12,7 +12,9 @@ try:
     from mpl_toolkits.axes_grid1 import host_subplot
     import mpl_toolkits.axisartist as AA
     from matplotlib.ticker import MultipleLocator
-    import warnings
+    import itertools
+    import pandas
+    import statsmodels.api as sm
     import json
     import os
 except ImportError as error:
@@ -30,7 +32,7 @@ class RepositoryChart():
 
     # Line chart method. Creates a time series chart comparing pull requests, newcomers and commits. 
     def newcomers_pulls_and_contributions(self):
-        if not os.path.isfile(self.folder + '/pull_requests.json') and os.path.isfile(self.folder + '/first_contributions.txt') and os.path.isfile(self.folder + '/contributions.txt'):
+        if os.path.isfile(self.folder + '/pull_requests.json') and os.path.isfile(self.folder + '/first_contributions.txt') and os.path.isfile(self.folder + '/contributions.txt'):
             contribution_file = open(self.folder + '/contributions.txt', 'r')
             pull_file = json.load(
                 open(self.folder + '/pull_requests.json', 'r'))
@@ -138,6 +140,85 @@ class RepositoryChart():
             print('Error processing ' + self.project_name + ' project.')
             print('\033[97m\033[1m-> Newcomer or pull request file does not exist.\033[0m Please, collect them first.')
 
+    def newcomers_forecasting(self):
+        if os.path.isfile(self.folder + '/first_contributions.txt'):
+            newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
+            dates = []            
+
+            for line in newcomer_file:
+                entry_date = line.rsplit(',', 1)[1].strip()
+
+                if entry_date:
+                    dates.append({'Date': entry_date, 'Occorrence': 1})
+
+            data_frame = pandas.DataFrame(dates)
+            data_frame = data_frame.set_index('Date')
+            data_frame.index.name = None
+            data_frame.index = pandas.to_datetime(data_frame.index)
+            y = data_frame['Occorrence'].resample('MS').sum()
+            y = y.fillna(y.bfill())
+
+            p = d = q = range(0, 2)
+            pdq = list(itertools.product(p, d, q))
+            seasonal_pdq = [(x[0], x[1], x[2], 12) for x in list(itertools.product(p, d, q))]
+
+            aic_dictionary = {}
+            for param in pdq:
+                for param_seasonal in seasonal_pdq:
+                    try:
+                        mod = sm.tsa.statespace.SARIMAX(y,
+                                                        order=param,
+                                                        seasonal_order=param_seasonal,
+                                                        enforce_stationarity=False,
+                                                        enforce_invertibility=False)
+
+                        results = mod.fit()
+                        aic_dictionary[results.aic] = [param, param_seasonal]
+                    except:
+                        continue
+
+            best_order, best_seasonal_order = aic_dictionary[min(aic_dictionary, key=aic_dictionary.get)]
+            print min(aic_dictionary, key=aic_dictionary.get)
+
+            mod = sm.tsa.statespace.SARIMAX(y,
+                                order=best_order,
+                                seasonal_order=best_seasonal_order,
+                                enforce_stationarity=False,
+                                enforce_invertibility=False)
+
+            results = mod.fit()
+            last = max(y.index)
+            '''
+            No tipo estatico, os resultados do mean squared error foram muito altos. Deveriam ser baixos. 
+            pred = results.get_prediction(start=last.replace(month = last.month - 6).date(),dynamic=False)
+            pred_ci = pred.conf_int()
+            y_forecasted = pred.predicted_mean
+            mse = ((y_forecasted - y) ** 2).mean()
+            print('The Mean Squared Error of our forecasts is {}'.format(round(mse, 2)))
+            Abaixo eu tento usar a predicao dinamica:
+            '''
+            pred_dynamic = results.get_prediction(start=last.replace(month = last.month - 6).date(), dynamic=True, full_results=True)
+            pred_dynamic_ci = pred_dynamic.conf_int()
+            y_forecasted = pred_dynamic.predicted_mean
+            mse = ((y_forecasted - y) ** 2).mean()
+            print('The Mean Squared Error of our forecasts is {}'.format(round(mse, 2)))
+            pred_uc = results.get_forecast(steps=12)
+            pred_ci = pred_uc.conf_int()
+
+            ax = y.plot(label='Newcomers', figsize=(20, 15))
+            pred_uc.predicted_mean.plot(ax=ax, label='Forecast')
+            ax.fill_between(pred_ci.index,
+                            pred_ci.iloc[:, 0],
+                            pred_ci.iloc[:, 1], color='k', alpha=.25)
+            ax.set_xlabel('Date')
+            ax.set_ylabel('# Newcomers')
+
+            plt.legend()
+            plt.show()
+            # results.plot_diagnostics(figsize=(15, 12))
+            # plt.show()
+            raw_input()
+
 # Main method. Instantiate one object for each of the projects.
 languages = ['C', 'C++', 'Clojure', 'Erlang',
              'Go', 'Haskell', 'Java', 'JavaScript', 'Objective-C',
@@ -152,7 +233,8 @@ if os.path.isfile('projects.json'):
         for repository in repositories:
             folder = 'Dataset' + '/' + language + '/' + repository['name']
             Chart = RepositoryChart(folder, repository['name'])
-            Chart.newcomers_pulls_and_contributions()
+            # Chart.newcomers_pulls_and_contributions()
+            Chart.newcomers_forecasting()
 else:
     print('Error processing projects.json file.')
     print('\033[97m\033[1m-> A file with a projects list does not exist. \033[0m Please, collect it first.')
