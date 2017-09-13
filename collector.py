@@ -52,7 +52,7 @@ class RepositoryCollector():
 							 self.folder + '/repository'])
 		else:
 			print('Error processing ' + self.name + ' project.')
-        	print('\033[97m\033[1m-> Repository folder already exists.\033[0m Please, delete it first.')
+			print('\033[97m\033[1m-> Repository folder already exists.\033[0m Please, delete it first.')
 
 	def about(self):
 		if not os.path.isfile(self.folder + '/about.json'):
@@ -60,7 +60,7 @@ class RepositoryCollector():
 				json.dump(repository, about_file, indent=4)
 		else:
 			print('Error processing ' + self.name + ' project.')
-            print('\033[97m\033[1m-> About file already exists.\033[0m Please, delete it first.')
+			print('\033[97m\033[1m-> About file already exists.\033[0m Please, delete it first.')
 
 	def languages(self):
 		if not os.path.isfile(self.folder + '/languages.json'):
@@ -70,7 +70,7 @@ class RepositoryCollector():
 				json.dump(languages, languages_file, indent=4)
 		else:
 			print('Error processing ' + self.name + ' project.')
-            print('\033[97m\033[1m-> Languages file already exists.\033[0m Please, delete it first.')
+			print('\033[97m\033[1m-> Languages file already exists.\033[0m Please, delete it first.')
 
 	def stars(self):
 		if not os.path.isfile(self.folder + '/stars.json'):
@@ -80,7 +80,7 @@ class RepositoryCollector():
 				json.dump(stars, stars_file, indent=4)
 		else:
 			print('Error processing ' + self.name + ' project.')
-            print('\033[97m\033[1m-> Stars file already exists.\033[0m Please, delete it first.')
+			print('\033[97m\033[1m-> Stars file already exists.\033[0m Please, delete it first.')
 
 	def forks(self):
 		if not os.path.isfile(self.folder + '/forks.json'):
@@ -90,7 +90,7 @@ class RepositoryCollector():
 				json.dump(forks, forks_file, indent=4)
 		else:
 			print('Error processing ' + self.name + ' project.')
-            print('\033[97m\033[1m-> Forks file already exists.\033[0m Please, delete it first.')
+			print('\033[97m\033[1m-> Forks file already exists.\033[0m Please, delete it first.')
 
 	def pull_requests(self):
 		if not os.path.isfile(self.folder + '/pull_requests.json'):
@@ -100,7 +100,7 @@ class RepositoryCollector():
 				json.dump(pull_requests, pulls_file, indent=4)
 		else:
 			print('Error processing ' + self.name + ' project.')
-            print('\033[97m\033[1m-> Pull requests file already exists.\033[0m Please, delete it first.')
+			print('\033[97m\033[1m-> Pull requests file already exists.\033[0m Please, delete it first.')
 
 	def contributions(self):
 		if not os.path.isfile(self.folder + '/contributions.txt'):
@@ -109,10 +109,10 @@ class RepositoryCollector():
 								 self.folder + '/repository'])
 			else:
 				print('Error processing ' + self.name + ' project.')
-            	print('\033[97m\033[1m-> Repository has not been cloned yet.\033[0m Contributions file failed.')
+				print('\033[97m\033[1m-> Repository has not been cloned yet.\033[0m Contributions file failed.')
 		else:
 			print('Error processing ' + self.name + ' project.')
-            print('\033[97m\033[1m-> Contributions file already exists.\033[0m Please, delete it first.')
+			print('\033[97m\033[1m-> Contributions file already exists.\033[0m Please, delete it first.')
 
 	def first_contributions(self):
 		if not os.path.isfile(self.folder + '/first_contributions.txt'):
@@ -121,10 +121,10 @@ class RepositoryCollector():
 								 self.folder + '/repository'])
 			else:
 				print('Error processing ' + self.name + ' project.')
-            	print('\033[97m\033[1m-> Repository has not been cloned yet.\033[0m Newcomers file failed.')
+				print('\033[97m\033[1m-> Repository has not been cloned yet.\033[0m Newcomers file failed.')
 		else:
 			print('Error processing ' + self.name + ' project.')
-            print('\033[97m\033[1m-> Newcomers file already exists.\033[0m Please, delete it first.')
+			print('\033[97m\033[1m-> Newcomers file already exists.\033[0m Please, delete it first.')
 
 # Main method. Instantiate one object for each of the projects, and collects the data separately.
 # Please, retrieve your own client id and secret in this page: https://github.com/settings/applications/new
