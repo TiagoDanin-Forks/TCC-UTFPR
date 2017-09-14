@@ -27,13 +27,16 @@ class GeneralChart():
             for repository in repositories:
                 folder = 'Dataset' + '/' + \
                     language + '/' + repository['name']
+
                 if os.path.isfile(folder + '/about.json'):
                     with open(folder + '/about.json', 'r') as about_file:
                         json_about_file = json.load(about_file)
                         self.about_list.append(json_about_file)
+
                 else:
-                    print '[Error] About.json file does not exists for: ' + repository['name']
-                    print 'You should collect project about file first. Use collector.py!'
+                    print('Error processing ' + repository['name'])
+                    print(
+                        '\033[97m\033[1m-> About file does not exist.\033[0m Please, collect it first.')
 
     def stars_forks_and_watchers(self):
         stars = []
@@ -52,6 +55,9 @@ class GeneralChart():
         plt.setp(boxplot['whiskers'], linewidth=1.5)
         plt.setp(boxplot['caps'], linewidth=1.5)
         plt.setp(boxplot['medians'], linewidth=1.5)
+
+        for patch in boxplot['medians']:
+            patch.set_color('black')
 
         for patch in boxplot['boxes']:
             patch.set_facecolor('white')
@@ -77,17 +83,26 @@ class GeneralChart():
                 has_wiki = has_wiki + 1
 
         fix, ax = plt.subplots()
+        print total_of_projects
         bar_width = 0.4
-        plt.bar(1, has_issues, color='lightblue',
-                edgecolor='black', linewidth=1, width=bar_width)
-        plt.bar(2, has_projects, color='lightgreen',
-                edgecolor='black', linewidth=1, width=bar_width)
-        plt.bar(3, has_wiki, color='coral',
-                edgecolor='black', linewidth=1, width=bar_width)
-        plt.xticks([1, 2, 3], ('Issues', 'Projects', 'Wiki'))
+        bar_issues = plt.bar(1, has_issues, color='white',
+                             edgecolor='black', linewidth=1, width=bar_width, label='Has the feature')
+        plt.bar(1, total_of_projects - has_issues, color='silver',
+                edgecolor='black', linewidth=1, width=bar_width, label='Does not have the feature', bottom=has_issues, hatch='//')
+        bar_projects = plt.bar(2, has_projects, color='white',
+                               edgecolor='black', linewidth=1, width=bar_width)
+        plt.bar(2, total_of_projects - has_projects, color='silver',
+                edgecolor='black', linewidth=1, width=bar_width, bottom=has_projects, hatch='//')
+        bar_wiki = plt.bar(3, has_wiki, color='white',
+                           edgecolor='black', linewidth=1, width=bar_width)
+        plt.bar(3, total_of_projects - has_wiki, color='silver',
+                edgecolor='black', linewidth=1, width=bar_width, bottom=has_wiki, hatch='//')
+
+        plt.xticks([1, 2, 3], ('Issue Tracker', 'Project Board', 'Wiki'))
         plt.ylabel('# Projects using this feature')
         plt.ylim(0, total_of_projects + 1)
-        plt.show()
+        plt.legend()
+        plt.savefig('has_features.png', bbox_inches='tight')
 
 if os.path.isfile('projects.json'):
     with open('projects.json', 'r') as file:
@@ -96,4 +111,5 @@ if os.path.isfile('projects.json'):
     G.stars_forks_and_watchers()
     G.has_issues_projects_and_wiki()
 else:
-    print '[Error] Projects.json file does not exists. Use collector.py!'
+    print('Error processing projects.json file.')
+    print('\033[97m\033[1m-> A file with a projects list does not exist. \033[0m Please, collect it first.')
