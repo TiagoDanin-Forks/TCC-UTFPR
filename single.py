@@ -23,6 +23,7 @@ except ImportError as error:
 # Sets chart stylesheet (Matplotlib Gallery)
 plt.style.use('bmh')
 
+
 class RepositoryChart():
 
     # Initial method. Sets values used during the entire process.
@@ -30,7 +31,8 @@ class RepositoryChart():
         self.folder = folder
         self.project_name = project_name
 
-    # Line chart method. Creates a time series chart comparing pull requests, newcomers and commits. 
+    # Line chart method. Creates a time series chart comparing pull requests,
+    # newcomers and commits.
     def newcomers_pulls_and_contributions(self):
         if os.path.isfile(self.folder + '/pull_requests.json') and os.path.isfile(self.folder + '/first_contributions.txt') and os.path.isfile(self.folder + '/contributions.txt'):
             contribution_file = open(self.folder + '/contributions.txt', 'r')
@@ -88,7 +90,7 @@ class RepositoryChart():
             contribution_y_axis = [contribution_tuple[1]
                                    for contribution_tuple in contribution_ordered_list]
 
-            ax = host_subplot(111,axes_class=AA.Axes)
+            ax = host_subplot(111, axes_class=AA.Axes)
             plt.subplots_adjust(right=0.75)
 
             ax_second = ax.twinx()
@@ -96,7 +98,7 @@ class RepositoryChart():
             offset = 60
             new_fixed_axis = ax_third.get_grid_helper().new_fixed_axis
             ax_third.axis["right"] = new_fixed_axis(loc="right", axes=ax_third,
-                                        offset=(offset, 0))
+                                                    offset=(offset, 0))
             ax_third.axis["right"].toggle(all=True)
 
             ax.set_xlabel(u'Years')
@@ -138,12 +140,13 @@ class RepositoryChart():
 
         else:
             print('Error processing ' + self.project_name + ' project.')
-            print('\033[97m\033[1m-> Newcomer or pull request file does not exist.\033[0m Please, collect them first.')
+            print(
+                '\033[97m\033[1m-> Newcomer or pull request file does not exist.\033[0m Please, collect them first.')
 
     def newcomers_forecasting(self):
         if os.path.isfile(self.folder + '/first_contributions.txt'):
             newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
-            dates = []            
+            dates = []
 
             for line in newcomer_file:
                 entry_date = line.rsplit(',', 1)[1].strip()
@@ -160,7 +163,8 @@ class RepositoryChart():
 
             p = d = q = range(0, 2)
             pdq = list(itertools.product(p, d, q))
-            seasonal_pdq = [(x[0], x[1], x[2], 12) for x in list(itertools.product(p, d, q))]
+            seasonal_pdq = [(x[0], x[1], x[2], 12)
+                            for x in list(itertools.product(p, d, q))]
 
             aic_dictionary = {}
             for param in pdq:
@@ -177,14 +181,15 @@ class RepositoryChart():
                     except:
                         continue
 
-            best_order, best_seasonal_order = aic_dictionary[min(aic_dictionary, key=aic_dictionary.get)]
+            best_order, best_seasonal_order = aic_dictionary[
+                min(aic_dictionary, key=aic_dictionary.get)]
             print min(aic_dictionary, key=aic_dictionary.get)
 
             mod = sm.tsa.statespace.SARIMAX(y,
-                                order=best_order,
-                                seasonal_order=best_seasonal_order,
-                                enforce_stationarity=False,
-                                enforce_invertibility=False)
+                                            order=best_order,
+                                            seasonal_order=best_seasonal_order,
+                                            enforce_stationarity=False,
+                                            enforce_invertibility=False)
 
             results = mod.fit()
             last = max(y.index)
@@ -197,7 +202,8 @@ class RepositoryChart():
             print('The Mean Squared Error of our forecasts is {}'.format(round(mse, 2)))
             Abaixo eu tento usar a predicao dinamica:
             '''
-            pred_dynamic = results.get_prediction(start=last.replace(month = last.month - 6).date(), dynamic=True, full_results=True)
+            pred_dynamic = results.get_prediction(start=last.replace(
+                month=last.month - 6).date(), dynamic=True, full_results=True)
             pred_dynamic_ci = pred_dynamic.conf_int()
             y_forecasted = pred_dynamic.predicted_mean
             mse = ((y_forecasted - y) ** 2).mean()
@@ -215,9 +221,6 @@ class RepositoryChart():
 
             plt.legend()
             plt.show()
-            # results.plot_diagnostics(figsize=(15, 12))
-            # plt.show()
-            raw_input()
 
 # Main method. Instantiate one object for each of the projects.
 languages = ['C', 'C++', 'Clojure', 'Erlang',
