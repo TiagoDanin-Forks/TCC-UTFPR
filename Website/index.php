@@ -30,12 +30,22 @@
 
 <body id="page-top">
 
+<?php
+$dir    = '../Dataset';
+$files1 = scandir($dir);
+$files2 = scandir($dir, 1);
+
+print_r($files1);
+print_r($files2);
+?>
+
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">NEWCOMER'S GUIDE <i class="fa fa-map-o" aria-hidden="true"></i></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Options
+        MAP
         <i class="fa fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -80,7 +90,7 @@
           <p>Open source projects usually require outside contributions to stay active in the development process. However, even with this need, new contributors often face barriers when attempting to submit contributions to an open source project.<a href="http://dl.acm.org/citation.cfm?id=2675215" target="__blank" style="color: black;">¹</a><p>
             <p>A barrier in this context may be related to several aspects, such as aspects related to the newcomers knowledge, cultural aspects and related to the receptivity of the project.<a href="http://www.igor.pro.br/publica/papers/OSS2014.pdf" target="__blank" style="color: black">²</a></p>
             <p>Our goal at this moment is to present to newcomers a research of open source projects, presenting an analysis of the receptivity of new contributors in these repositories based on metrics studied by the researchers of this initiative.</p>
-            <a href="#research" class="btn btn-outline btn-xl js-scroll-trigger" style="background-color: black;">Meet our research!</a>
+            <center><a href="#research" class="btn btn-outline btn-xl js-scroll-trigger" style="background-color: black;">Meet our research!</a></center>
           </div>
         </div>
       </div>
@@ -109,113 +119,89 @@
              <p class="text-muted">And an analysis of open source projects</p>
            </div>
            <p>Open source projects usually require outside contributions to stay active in the development process. However, even with this need, new contributors often face barriers when attempting to submit contributions to an open source project.<a href="http://dl.acm.org/citation.cfm?id=2675215" target="__blank" style="color: black;">¹</a><p>
-           </div>
-         </div>
-       </div>
-     </section>
-
-<!--
-    <section class="research text-center" id="research">
-      <div class="container">
-        <div class="section-heading text-center">
-          <h2>research</h2>
-          <p class="text-muted">Check out what you can do with this app theme!</p>
-          <hr>
-        </div>
-          <div class="col-md-8 my-auto">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="feature-item">
-                    <i class="icon-screen-smartphone text-primary"></i>
-                    <h3>Device Mockups</h3>
-                    <p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="feature-item">
-                    <i class="icon-camera text-primary"></i>
-                    <h3>Flexible Use</h3>
-                    <p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="feature-item">
-                    <i class="icon-present text-primary"></i>
-                    <h3>Free to Use</h3>
-                    <p class="text-muted">As always, this theme is free to barriers and use for any purpose!</p>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="feature-item">
-                    <i class="icon-lock-open text-primary"></i>
-                    <h3>Open Source</h3>
-                    <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <center><a href="#find_a_project" class="btn btn-outline btn-xl" style="background-color: black;">Visualize a project!</a></center>
           </div>
         </div>
+      </div>
     </section>
-  -->
 
-  <section class="team" id="team">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 mx-auto">
-          <h2 class="text-center">Research Team</h2>
-          <div class="container">
-          <div class="row">
+    <section class="team" id="team">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mx-auto">
+            <h2 class="text-center">Research Team</h2>
+            <div class="container">
+              <div class="row">
                 <div class="col-md-3">
-              <img src="img/profile_felipe.jpg" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
-              <p class="team-profile-name">Luiz Felipe Fronchetti Dias</p>
-              <p class="team-profile-email">luizdias@alunos.utfpr.edu.br</p>
-              <p class="team-profile-university">Federal University of Technology – Paraná</p>         
+                  <img src="img/profile_felipe.jpg" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
+                  <p class="team-profile-name">Luiz Felipe Fronchetti Dias</p>
+                  <p class="team-profile-email">luizdias@alunos.utfpr.edu.br</p>
+                  <p class="team-profile-university">Federal University of Technology – Paraná</p>         
+                </div>
+                <div class="col-md-3">
+                  <img src="#" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
+                  <p class="team-profile-name">Igor Scaliante Wiese</p>
+                  <p class="team-profile-email">igor@utfpr.edu.br</p>
+                  <p class="team-profile-university">Federal University of Technology – Paraná</p>         
+                </div>  
+                <div class="col-md-3">
+                  <img src="#" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
+                  <p class="team-profile-name">Igor Steinmacher</p>
+                  <p class="team-profile-email">igorfs@utfpr.edu.br</p>
+                  <p class="team-profile-university">Federal University of Technology – Paraná</p>         
+                </div>
+                <div class="col-md-3">
+                  <img src="#" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
+                  <p class="team-profile-name">Gustavo Pinto</p>
+                  <p class="team-profile-email">gpinto@ufpa.br</p>
+                  <p class="team-profile-university">Federal University of Pará</p>         
+                </div>      
+              </div>
             </div>
-            <div class="col-md-3">
-              <img src="#" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
-              <p class="team-profile-name">Igor Scaliante Wiese</p>
-              <p class="team-profile-email">igor@utfpr.edu.br</p>
-              <p class="team-profile-university">Federal University of Technology – Paraná</p>         
-            </div>  
-            <div class="col-md-3">
-              <img src="#" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
-              <p class="team-profile-name">Igor Steinmacher</p>
-              <p class="team-profile-email">igorfs@utfpr.edu.br</p>
-              <p class="team-profile-university">Federal University of Technology – Paraná</p>         
-            </div>
-            <div class="col-md-3">
-              <img src="#" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
-              <p class="team-profile-name">Gustavo Pinto</p>
-              <p class="team-profile-email">gpinto@ufpa.br</p>
-              <p class="team-profile-university">Federal University of Pará</p>         
-            </div>      
           </div>
+        </section>
+
+        <footer>
+          <div class="container">
+            <p>Our website source code is hosted at <a href="https://github.com/fronchetti/" target="__blank" style="color: white; font-weight: bold; text-decoration: none;"> GitHub ❤</a>.</p>
+            <p>Website template developed by <a href="https://startbootstrap.com/template-overviews/new-age/" target="__blank" style="color: white; font-weight: bold; text-decoration: none;">StartBootstrap</a>.</p>
           </div>
+        </footer>
+
+        <div id="find_a_project">
+          <button type="button" class="close">×</button>
+          <form action="welcome.php">
+            <input type="search" value="" placeholder="Enter the name of the project" required="required"/>
+            <center><button type="submit" class="btn btn-outline btn-xl">Search</button></center>
+          </form>
         </div>
-      </section>
 
-      <footer>
-        <div class="container">
-          <p>Our website source code is hosted at <a href="https://github.com/fronchetti/" target="__blank" style="color: white; font-weight: bold; text-decoration: none;"> GitHub ❤</a>.</p>
-          <p>Website template developed by <a href="https://startbootstrap.com/template-overviews/new-age/" target="__blank" style="color: white; font-weight: bold; text-decoration: none;">StartBootstrap</a>.</p>
-        </div>
-      </footer>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/popper/popper.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-      <!-- Bootstrap core JavaScript -->
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/popper/popper.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-      <!-- Plugin JavaScript -->
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="js/new-age.min.js"></script>
 
-      <!-- Custom scripts for this template -->
-      <script src="js/new-age.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    $('a[href="#find_a_project"]').on('click', function(event) {
+      event.preventDefault();
+      $('#find_a_project').addClass('open');
+      $('#find_a_project > form > input[type="search"]').focus();
+    });
 
-    </body>
+    $('#find_a_project, #find_a_project button.close').on('click keyup', function(event) {
+      if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
+        $(this).removeClass('open');
+      }
+    });
+    });
+  </script>
+</body>
 
-    </html>
+</html>
