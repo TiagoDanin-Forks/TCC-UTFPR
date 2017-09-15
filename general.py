@@ -63,6 +63,7 @@ class GeneralChart():
             patch.set_facecolor('white')
 
         plt.title('Dataset')
+        plt.ylabel('Amount')
         plt.xticks([1, 2, 3], ['# Stars', '# Forks',
                                '# Watchers'], fontsize=12)
         plt.ylim(0, 50000)
@@ -99,7 +100,7 @@ class GeneralChart():
                 edgecolor='black', linewidth=1, width=bar_width, bottom=has_wiki, hatch='//')
 
         plt.xticks([1, 2, 3], ('Issue Tracker', 'Project Board', 'Wiki'))
-        plt.ylabel('# Projects using this feature')
+        plt.ylabel('# of projects')
         plt.ylim(0, total_of_projects + 1)
         plt.legend()
         plt.savefig('has_features.png', bbox_inches='tight')
