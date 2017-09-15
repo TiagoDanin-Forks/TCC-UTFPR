@@ -31,12 +31,20 @@
 <body id="page-top">
 
 <?php
-$dir    = '../Dataset';
-$files1 = scandir($dir);
-$files2 = scandir($dir, 1);
+$dataset_path = '../Dataset/';
+$dataset_dir = glob($dataset_path . '*', GLOB_ONLYDIR);
 
-print_r($files1);
-print_r($files2);
+foreach ($dataset_dir as &$language){
+  $language_path = $language . '/';
+  $language_dir = glob($language_path . '*', GLOB_ONLYDIR);
+  $project_array = array();
+
+  foreach ($language_dir as &$project) {
+    $project_name = substr($project, strrpos($project, '/') + 1);
+    $project_array[$project_name] = $project . '/';
+  } 
+}
+
 ?>
 
 
@@ -171,10 +179,11 @@ print_r($files2);
         <div id="find_a_project">
           <button type="button" class="close">×</button>
           <form action="welcome.php">
-            <input type="search" value="" placeholder="Enter the name of the project" required="required"/>
+            <input type="search" value="" placeholder="Enter the name of the project" required="required" id="project-input" />
             <center><button type="submit" class="btn btn-outline btn-xl">Search</button></center>
           </form>
         </div>
+
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
@@ -188,18 +197,23 @@ print_r($files2);
 <script src="js/new-age.min.js"></script>
 
 <script type="text/javascript">
-  $(function () {
-    $('a[href="#find_a_project"]').on('click', function(event) {
-      event.preventDefault();
-      $('#find_a_project').addClass('open');
-      $('#find_a_project > form > input[type="search"]').focus();
-    });
+  <?php
+  $js_array = json_encode($project_array);
+  echo "var javascript_array = ". $js_array . ";\n";
+  ?>
 
-    $('#find_a_project, #find_a_project button.close').on('click keyup', function(event) {
-      if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
-        $(this).removeClass('open');
-      }
-    });
+  $(function () {
+      $('a[href="#find_a_project"]').on('click', function(event) {
+        event.preventDefault();
+        $('#find_a_project').addClass('open');
+        $('#find_a_project > form > input[type="search"]').focus();
+      });
+
+      $('#find_a_project, #find_a_project button.close').on('click keyup', function(event) {
+        if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
+          $(this).removeClass('open');
+        }
+      });
     });
   </script>
 </body>
