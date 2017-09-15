@@ -20,12 +20,9 @@
   <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
-  <!-- Plugin CSS -->
-  <link rel="stylesheet" href="device-mockups/device-mockups.css">
-
   <!-- Custom styles for this template -->
   <link href="css/new-age.css" rel="stylesheet">
-
+  <link href="css/awesomplete.css">
 </head>
 
 <body id="page-top">
@@ -33,18 +30,17 @@
 <?php
 $dataset_path = '../Dataset/';
 $dataset_dir = glob($dataset_path . '*', GLOB_ONLYDIR);
+$project_array = array();
 
 foreach ($dataset_dir as &$language){
   $language_path = $language . '/';
   $language_dir = glob($language_path . '*', GLOB_ONLYDIR);
-  $project_array = array();
 
   foreach ($language_dir as &$project) {
     $project_name = substr($project, strrpos($project, '/') + 1);
-    $project_array[$project_name] = $project . '/';
+    $project_array[$project_name] = $project;
   } 
 }
-
 ?>
 
 
@@ -178,12 +174,11 @@ foreach ($dataset_dir as &$language){
 
         <div id="find_a_project">
           <button type="button" class="close">×</button>
-          <form action="welcome.php">
-            <input type="search" value="" placeholder="Enter the name of the project" required="required" id="project-input" />
+          <form action="project.php" method="get">
+            <input type="search" placeholder="Enter the name of the project" required="required" list="project-list" name="name" />
             <center><button type="submit" class="btn btn-outline btn-xl">Search</button></center>
           </form>
         </div>
-
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
@@ -195,13 +190,18 @@ foreach ($dataset_dir as &$language){
 
 <!-- Custom scripts for this template -->
 <script src="js/new-age.min.js"></script>
+<script src="js/awesomplete.min.js"></script>
+
+<?php
+
+  echo '<datalist id="project-list">';
+  foreach ($project_array as $key => $value) {
+    echo '<option>' . $key . '</option>';
+  }
+  echo '</datalist>';
+?>
 
 <script type="text/javascript">
-  <?php
-  $js_array = json_encode($project_array);
-  echo "var javascript_array = ". $js_array . ";\n";
-  ?>
-
   $(function () {
       $('a[href="#find_a_project"]').on('click', function(event) {
         event.preventDefault();
