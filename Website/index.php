@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>▶ Newcomer's Guide to Open Source Projects</title>
+  <title>Newcomer's Guide to Open Source Projects</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -94,7 +94,7 @@ foreach ($dataset_dir as &$language){
           <p>Open source projects usually require outside contributions to keep your development process active<a href="https://www.statmodel.com/download/2011-ORM-14-1.pdf" target="__blank" style="color: black;">¹</a>. However, even with this need, new contributors often face barriers when attempting to submit contributions to these kind of project, leading them to give up<a href="http://dl.acm.org/citation.cfm?id=2593704" target="__blank" style="color: black;">²</a>.<p>
             <p>A barrier in this context may be related to several difficulties newcomers face, and can be grouped between categories, such as social interaction, newcomers previous knowledge and technical hurdles <a href="http://dl.acm.org/citation.cfm?id=2675215" target="__blank" style="color: black">³</a>. In previous studies, a <a href="https://www.ime.usp.br/~cpg/teses/Tese-IgorFabioSteinmacher.pdf" style="font-weight: bold; color: black;">group of barriers</a> faced by newcomers were evidenced by Steinmacher et. al, leading us to believe that barriers in open source softwares may also be related to difficulties of the project itself.</p>
             <p>Our goal at this moment is to present to newcomers a variety of open source projects that are willing to accept new contributors, and for core members of these repositories an analysis of the receptivity of their projects, based on metrics studied by the researchers of this initiative. In this way, giving newcomers a set of repositories to start with, and core developers gaps to be addressed.</p>
-            <center><a href="#research" class="btn btn-outline btn-xl js-scroll-trigger" style="background-color: black;">Meet our research!</a></center>
+            <center><a href="#research" class="btn btn-outline btn-xl js-scroll-trigger" style="background-color: black; min-width: 20vw;">Meet Our Research</a></center>
           </div>
         </div>
       </div>
@@ -108,8 +108,9 @@ foreach ($dataset_dir as &$language){
              <h2>Our Research</h2>
              <p class="text-muted" style="color: #757575 !important;">An analysis of receptivity in open source projects</p>
            </div>
-           <p>With the purpose of contributing with the entry of newcomers in open source projects, our research consists of an exploratory study on receptivity indicators. Receptivity indicators can be defined as a set of metrics ​​capable of scaling up how receptive open source projects are. These indicators were selected after a correlation between them and the time distribution of new contributors in a set of projects.<p>
-           <p>Indicators that have a significant relationship with the number of new contributors per month in a project were defined as indicators of receptivity. On this page, you will be able to visualize time series that correlate the distribution of new contributors with established receptivity indicators.</p>
+           <p>With the purpose of contributing with the entry of newcomers in open source projects, our research consists of an exploratory study on receptivity indicators. Receptivity indicators can be defined as a set of metrics ​​capable of scaling up how receptive open source projects are. These indicators were selected after a correlation between them and the time distribution of new contributors in a set of projects. Indicators that have a significant relationship with the number of new contributors per month in a project were defined as indicators of receptivity.<p>
+           <p>On this page, you will be able to visualize time series that correlate the distribution of new contributors with established receptivity indicators, and will be able to observe predictions from new contributors in projects of our dataset.</p>
+            <center><a href="#dataset" class="btn btn-outline btn-xl js-scroll-trigger" style="background-color: black; min-width: 20vw;">Visit The Dataset</a></center>
 
            </div>
          </div>
@@ -124,7 +125,7 @@ foreach ($dataset_dir as &$language){
              <h2>Dataset</h2>
            </div>
            <p>Our dataset consists of 450 open source projects hosted on the GitHub coding platform, selected in descending order from the number of stars, and among 15 leading programming languages. To extract the indicators in these projects, the <a href="https://developer.github.com/v3/" target="__blank" style="font-weight: bold; color: black;">GitHub API</a> and the code repository of each project were used.<p>
-            <center><a href="#find_a_project" class="btn btn-outline btn-xl" style="background-color: black;">Visualize a project!</a></center>
+            <center><a href="#find_a_project" class="btn btn-outline btn-xl" style="background-color: black;">Visualize a project</a></center>
           </div>
         </div>
       </div>
@@ -134,7 +135,7 @@ foreach ($dataset_dir as &$language){
       <div class="container">
         <div class="row">
           <div class="col-md-12 mx-auto">
-            <h2 class="text-center">Authors</h2>
+            <h2 class="text-center"><b>Authors</b></h2>
             <div class="container">
               <div class="row">
                 <div class="col-md-3">
