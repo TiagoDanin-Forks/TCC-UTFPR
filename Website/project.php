@@ -131,7 +131,6 @@ foreach ($dataset_dir as &$language){
 <script src="js/awesomplete.min.js"></script>
 
 <?php
-
   echo '<datalist id="project-list">';
   foreach ($project_array as $key => $value) {
     echo '<option>' . $key . '</option>';

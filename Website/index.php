@@ -109,9 +109,32 @@ foreach ($dataset_dir as &$language){
              <p class="text-muted" style="color: #757575 !important;">An analysis of receptivity in open source projects</p>
            </div>
            <p>With the purpose of contributing with the entry of newcomers in open source projects, our research consists of an exploratory study on receptivity indicators. Receptivity indicators can be defined as a set of metrics ​​capable of scaling up how receptive open source projects are. These indicators were selected after a correlation between them and the time distribution of new contributors in a set of projects. Indicators that have a significant relationship with the number of new contributors per month in a project were defined as indicators of receptivity.<p>
-           <p>On this page, you will be able to visualize time series that correlate the distribution of new contributors with established receptivity indicators, and will be able to observe predictions from new contributors in projects of our dataset.</p>
-            <center><a href="#dataset" class="btn btn-outline btn-xl js-scroll-trigger" style="background-color: black; min-width: 20vw;">Visit The Dataset</a></center>
+           
+           <div class="row">
+            <div class="col-md-6">
+              <i class="research-indicators-icon fa fa-star" aria-hidden="true"></i>
+              <h3 class="research-indicators-title">Stars</h3>
+              <p class="research-indicators-description">Related to project popularity</p>
+            </div>
+            <div class="col-md-6">
+              <i class="research-indicators-icon fa fa-code-fork" aria-hidden="true"></i>
+              <h3 class="research-indicators-title">Forks</h3>
+              <p class="research-indicators-description">Copies of the repository</p></div>
+           </div>
+           <div class="row">
+            <div class="col-md-6">
+              <i class="research-indicators-icon fa fa-share" aria-hidden="true"></i>
+              <h3 class="research-indicators-title">Pull requests</h3>
+              <p class="research-indicators-description">External contributions submitted for evaluation</p>
+            </div>
+            <div class="col-md-6">
+              <i class="research-indicators-icon fa fa-file-code-o" aria-hidden="true"></i>
+              <h3 class="research-indicators-title">Commits</h3>
+              <p class="research-indicators-description">Contributions attached to the source code</p></div>
+           </div>
 
+           <p>On this page, you will be able to visualize characteristics of each project, time series that correlate the distribution of new contributors with established receptivity indicators, and will be able to observe predictions from new contributors.</p>
+            <center><a href="#dataset" class="btn btn-outline btn-xl js-scroll-trigger" style="background-color: black; min-width: 20vw;">Visit The Dataset</a></center>
            </div>
          </div>
        </div>
@@ -195,7 +218,6 @@ foreach ($dataset_dir as &$language){
 <script src="js/awesomplete.min.js"></script>
 
 <?php
-
   echo '<datalist id="project-list">';
   foreach ($project_array as $key => $value) {
     echo '<option>' . $key . '</option>';
