@@ -21,8 +21,8 @@
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/project.css" rel="stylesheet">
-  <link href="css/awesomplete.css">
+  <link rel="stylesheet" type="text/css" href="css/project.css">
+  <link rel="stylesheet" type="text/css" href="css/awesomplete.css">
 </head>
 
 <body id="page-top">
@@ -127,7 +127,7 @@ foreach ($dataset_dir as &$language){
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for this template -->
-<script src="js/new-age.min.js"></script>
+<script src="js/index.js"></script>
 <script src="js/awesomplete.min.js"></script>
 
 <?php

@@ -6,6 +6,7 @@
 # questions, mail me.
 
 try:
+    from matplotlib.ticker import MultipleLocator
     import matplotlib.pyplot as plt
     import json
     import os
@@ -13,6 +14,11 @@ except ImportError as error:
     raise ImportError(error)
 plt.style.use('bmh')
 
+def file_len(fname):
+    with open(fname) as f:
+        for i, l in enumerate(f):
+            pass
+    return i + 1
 
 class GeneralChart():
 
@@ -23,7 +29,7 @@ class GeneralChart():
 
     def populate_about_list(self):
         for language in self.dictionary.keys():
-            repositories = self.dictionary[language]['items'][0:3]
+            repositories = self.dictionary[language]['items']
             for repository in repositories:
                 folder = 'Dataset' + '/' + \
                     language + '/' + repository['name']
@@ -62,12 +68,50 @@ class GeneralChart():
         for patch in boxplot['boxes']:
             patch.set_facecolor('white')
 
-        plt.title('Dataset')
-        plt.ylabel('Amount')
         plt.xticks([1, 2, 3], ['# Stars', '# Forks',
                                '# Watchers'], fontsize=12)
-        plt.ylim(0, 50000)
+        plt.ylim(0, 35000)
         plt.savefig('stars_forks_and_watchers.png', bbox_inches='tight')
+
+    def contributors_pulls_and_commits(self):
+        contributors = []
+        pull_requests = []
+        contributions = []
+
+        for language in self.dictionary.keys():
+            repositories = self.dictionary[language]['items']
+            for repository in repositories:
+                folder = 'Dataset' + '/' + \
+                    language + '/' + repository['name']
+
+                number_of_contributors = file_len(folder + '/first_contributions.txt')
+                number_of_commits = file_len(folder + '/first_contributions.txt')
+
+                with open(folder + '/pull_requests.json', 'r') as pulls_file:
+                    number_of_pulls = len(json.load(pulls_file))
+
+                contributors.append(int(number_of_contributors))
+                contributions.append(int(number_of_commits))
+                pull_requests.append(int(number_of_pulls))
+
+        fig = plt.figure()
+        boxplot = plt.boxplot([contributors, contributions, pull_requests],
+                              showfliers=False, patch_artist=True)
+        plt.setp(boxplot['boxes'], linewidth=1.5)
+        plt.setp(boxplot['whiskers'], linewidth=1.5)
+        plt.setp(boxplot['caps'], linewidth=1.5)
+        plt.setp(boxplot['medians'], linewidth=1.5)
+
+        for patch in boxplot['medians']:
+            patch.set_color('black')
+
+        for patch in boxplot['boxes']:
+            patch.set_facecolor('white')
+
+        plt.xticks([1, 2, 3], ['# Contributors', '# Commits',
+                               '# Pull requests'], fontsize=12)
+        plt.ylim(0, 3001)
+        plt.savefig('contributors_pulls_and_commits.png', bbox_inches='tight')
 
     def has_issues_projects_and_wiki(self):
         has_issues = 0
@@ -101,7 +145,7 @@ class GeneralChart():
 
         plt.xticks([1, 2, 3], ('Issue Tracker', 'Project Board', 'Wiki'))
         plt.ylabel('# of projects')
-        plt.ylim(0, total_of_projects + 1)
+        plt.ylim(0, total_of_projects + 51)
         plt.legend()
         plt.savefig('has_features.png', bbox_inches='tight')
 
@@ -109,8 +153,9 @@ if os.path.isfile('projects.json'):
     with open('projects.json', 'r') as file:
         projects_file = json.load(file)
     G = GeneralChart(projects_file)
-    G.stars_forks_and_watchers()
-    G.has_issues_projects_and_wiki()
+    # G.stars_forks_and_watchers()
+    G.contributors_pulls_and_commits()
+    # G.has_issues_projects_and_wiki()
 else:
     print('Error processing projects.json file.')
     print('\033[97m\033[1m-> A file with a projects list does not exist. \033[0m Please, collect it first.')
