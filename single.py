@@ -220,7 +220,10 @@ class RepositoryChart():
             ax.set_ylabel('# Newcomers')
 
             plt.legend()
-            plt.show()
+            plt.savefig(self.folder + '/newcomers_predict.png',
+                        bbox_inches='tight')
+            plt.clf()
+
 
 # Main method. Instantiate one object for each of the projects.
 languages = ['C', 'C++', 'Clojure', 'Erlang',
@@ -236,7 +239,7 @@ if os.path.isfile('projects.json'):
         for repository in repositories:
             folder = 'Dataset' + '/' + language + '/' + repository['name']
             Chart = RepositoryChart(folder, repository['name'])
-            # Chart.newcomers_pulls_and_contributions()
+            Chart.newcomers_pulls_and_contributions()
             Chart.newcomers_forecasting()
 else:
     print('Error processing projects.json file.')
