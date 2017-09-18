@@ -77,7 +77,7 @@ foreach ($dataset_dir as &$language){
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
             <h1 class="mb-5">Newcomers often face barriers when trying to contribute with open source projects. Our mission is to help them in the contribution process.</h1>
-            <a href="#barriers" class="btn btn-outline btn-xl js-scroll-trigger">Learn more!</a>
+            <a href="#barriers" class="btn btn-outline btn-xl js-scroll-trigger">Know more!</a>
           </div>
         </div>
         <div class="col-lg-5 my-auto">
@@ -92,7 +92,7 @@ foreach ($dataset_dir as &$language){
         <div class="col-md-8 mx-auto">
           <h2 class="section-heading">Barriers</h2>
           <p>Open source projects usually require outside contributions to keep your development process active<a href="https://www.statmodel.com/download/2011-ORM-14-1.pdf" target="__blank" style="color: black;">¹</a>. However, even with this need, new contributors often face barriers when attempting to submit contributions to these kind of project, leading them to give up<a href="http://dl.acm.org/citation.cfm?id=2593704" target="__blank" style="color: black;">²</a>.<p>
-            <p>A barrier in this context may be related to several difficulties newcomers face, and can be grouped between categories, such as social interaction, newcomers previous knowledge and technical hurdles <a href="http://dl.acm.org/citation.cfm?id=2675215" target="__blank" style="color: black">³</a>. In previous studies, a <a href="https://www.ime.usp.br/~cpg/teses/Tese-IgorFabioSteinmacher.pdf" style="font-weight: bold; color: black;">group of barriers</a> faced by newcomers were evidenced by Steinmacher et. al, leading us to believe that barriers in open source softwares may also be related to difficulties of the project itself.</p>
+            <p>A barrier in this context may be related to several difficulties newcomers face, and can be grouped between categories, such as social interaction, newcomers previous knowledge and technical hurdles <a href="http://dl.acm.org/citation.cfm?id=2675215" target="__blank" style="color: black">³</a>. In previous studies, a <a href="https://www.ime.usp.br/~cpg/teses/Tese-IgorFabioSteinmacher.pdf" style="font-weight: bold; color: black;" target="__blank">group of barriers</a> faced by newcomers were evidenced by Steinmacher et. al, leading us to believe that barriers in open source softwares may also be related to difficulties of the project itself.</p>
             <p>Our goal at this moment is to present to newcomers a variety of open source projects that are willing to accept new contributors, and for core members of these repositories an analysis of the receptivity of their projects, based on metrics studied by the researchers of this initiative. In this way, giving newcomers a set of repositories to start with, and core developers gaps to be addressed.</p>
             <center><a href="#research" class="btn btn-outline btn-xl js-scroll-trigger" style="background-color: black; min-width: 20vw;">Meet Our Research</a></center>
           </div>
@@ -125,12 +125,12 @@ foreach ($dataset_dir as &$language){
             <div class="col-md-6">
               <i class="research-indicators-icon fa fa-share" aria-hidden="true"></i>
               <h3 class="research-indicators-title">Pull requests</h3>
-              <p class="research-indicators-description">External contributions submitted for evaluation</p>
+              <p class="research-indicators-description">Contributions submitted for evaluation</p>
             </div>
             <div class="col-md-6">
               <i class="research-indicators-icon fa fa-file-code-o" aria-hidden="true"></i>
               <h3 class="research-indicators-title">Commits</h3>
-              <p class="research-indicators-description">Contributions attached to the source code</p></div>
+              <p class="research-indicators-description">Contributions made to the source code</p></div>
            </div>
 
            <p>On this page, you will be able to visualize characteristics of each project, time series that correlate the distribution of new contributors with established receptivity indicators, and will be able to observe predictions from new contributors.</p>
