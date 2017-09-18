@@ -134,7 +134,7 @@ class RepositoryChart():
             plt.legend((line_newcomer, line_pull, line_contribution),
                        ('Newcomers', 'Pull requests', 'Commits'))
             plt.title(self.project_name)
-            plt.savefig(self.folder + '/newcomers_contributions_pulls.eps',
+            plt.savefig(self.folder + '/newcomers_contributions_pulls.png',
                         bbox_inches='tight')
             plt.clf()
 

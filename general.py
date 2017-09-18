@@ -153,8 +153,8 @@ if os.path.isfile('projects.json'):
     with open('projects.json', 'r') as file:
         projects_file = json.load(file)
     G = GeneralChart(projects_file)
-    # G.stars_forks_and_watchers()
-    G.contributors_pulls_and_commits()
+    G.stars_forks_and_watchers()
+    # G.contributors_pulls_and_commits()
     # G.has_issues_projects_and_wiki()
 else:
     print('Error processing projects.json file.')

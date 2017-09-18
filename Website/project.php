@@ -28,9 +28,22 @@
 <body id="page-top">
 
 <?php
+function lineCounter($file_path) {
+    $linecount = 0;
+    $handle = fopen($file_path, 'r');
+    while(!feof($handle)){
+      $line = fgets($handle);
+      $linecount++;
+    }
+
+    fclose($handle);
+    return $linecount;
+}
+ 
 $dataset_path = '../Dataset/';
 $dataset_dir = glob($dataset_path . '*', GLOB_ONLYDIR);
-$project_array = array();
+$get_project_name = $_GET['name'];
+$project_array = Array();
 
 foreach ($dataset_dir as &$language){
   $language_path = $language . '/';
@@ -39,6 +52,12 @@ foreach ($dataset_dir as &$language){
   foreach ($language_dir as &$project) {
     $project_name = substr($project, strrpos($project, '/') + 1);
     $project_array[$project_name] = $project;
+
+    if ($get_project_name == $project_name) {
+          $project_path = $project;
+          $project_about = json_decode(file_get_contents($project_path . '/about.json'), true);
+          $contributors_count = lineCounter($project_path . '/first_contributions.txt');
+    }
   } 
 }
 ?>
@@ -68,9 +87,9 @@ foreach ($dataset_dir as &$language){
       <div class="row">
         <div class="col-md-12 mx-auto">
           <div class="project-heading">
-           <h2>Ruby</h2>
-           <p class="project-description text-muted">The Ruby Programming Language</p>
-           <p><a class="project-website text-muted" href="https://www.ruby-lang.org/" target="__blank">https://www.ruby-lang.org/</a></p>
+          <h2><?php echo ucfirst($project_about['name']) ?></h2>
+           <p class="project-description text-muted"><?php echo $project_about['description'] ?></p>
+           <p><a class="project-website text-muted" href="<?php echo $project_about['homepage'] ?>" target="__blank"><?php echo $project_about['homepage'] ?></a></p>
          </div>
 
          <div class="project-statistics text-center" style="color: black;">
@@ -81,10 +100,10 @@ foreach ($dataset_dir as &$language){
              <div class="col-md-3">Number of Contributors</div>
            </div>
            <div class="project-statistics-icons row">
-             <div class="col-md-3"><i class="project-icon fa fa-star" aria-hidden="true"></i>20,123</div>
-             <div class="col-md-3"><i class="project-icon fa fa-code-fork" aria-hidden="true"></i>20,123</div>
-             <div class="col-md-3"><i class="project-icon fa fa-eye" aria-hidden="true"></i>20,123</div>
-             <div class="col-md-3"><i class="project-icon fa fa-user-circle" aria-hidden="true"></i>20,123</div>
+             <div class="col-md-3"><i class="project-icon fa fa-star" aria-hidden="true"></i><?php echo $project_about['stargazers_count'] ?></div>
+             <div class="col-md-3"><i class="project-icon fa fa-code-fork" aria-hidden="true"></i><?php echo $project_about['forks_count'] ?></div>
+             <div class="col-md-3"><i class="project-icon fa fa-eye" aria-hidden="true"></i><?php echo $project_about['watchers_count'] ?></div>
+             <div class="col-md-3"><i class="project-icon fa fa-user-circle" aria-hidden="true"></i><?php echo $contributors_count ?></div>
            </div>
          </div>
         </div>
