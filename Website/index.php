@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Newcomer's Guide to Open Source Projects</title>
+  <title>Newcomers Guide to Open Source Software</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@ foreach ($dataset_dir as &$language){
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">NEWCOMER'S GUIDE <i class="fa fa-map-o" aria-hidden="true"></i></a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">NEWCOMERS GUIDE <i class="fa fa-map-o" aria-hidden="true"></i></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         MAP
         <i class="fa fa-bars"></i>
@@ -79,7 +79,7 @@ foreach ($dataset_dir as &$language){
             <h1 class="mb-5">Newcomers often face barriers when trying to contribute with open source projects. Our mission is to help them in the contribution process.</h1>
             <a href="#barriers" class="btn btn-outline btn-xl js-scroll-trigger">Know more!</a>
             <br>
-            <a href="#find_a_project" style="color: white; text-decoration: none; padding-left: 10px; padding-top: 10px;">Skip intro and preview a project</a>
+            <a href="#find_a_project" class="skip-intro">Skip intro and preview a project</a>
           </div>
         </div>
         <div class="col-lg-5 my-auto">
@@ -132,7 +132,7 @@ foreach ($dataset_dir as &$language){
             <div class="col-md-6">
               <i class="research-indicators-icon fa fa-file-code-o" aria-hidden="true"></i>
               <h3 class="research-indicators-title">Commits</h3>
-              <p class="research-indicators-description">Contributions made to the source code</p></div>
+              <p class="research-indicators-description">Contributions attached to the source code</p></div>
            </div>
 
            <p>On this page, you will be able to visualize characteristics of each project, time series that correlate the distribution of new contributors with established receptivity indicators, and will be able to observe predictions from new contributors.</p>
@@ -164,7 +164,7 @@ foreach ($dataset_dir as &$language){
            <div class="row">
              <img class="img-responsive center-block" style="margin: 0 auto;" src="../has_features.png">
            </div>
-           <p>Now we invite you to check the data of each repository. Any questions, criticisms or suggestions, please get in touch.</p>  
+           <p>Now we invite you to check the data of each repository. Any questions or suggestions, please get in touch.</p>  
            <center><a href="#find_a_project" class="btn btn-outline btn-xl" style="background-color: black;">Visualize a project</a></center>
           </div>
         </div>

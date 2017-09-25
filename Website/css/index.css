@@ -114,6 +114,13 @@ section {
           #mainNav.navbar-shrink .navbar-nav > li > a:focus:hover {
             color: #fff; } }
 
+.skip-intro, .skip-intro:hover {
+  color: white;
+  text-decoration: none;
+  padding-left: 5px;
+  padding-top: 10px;
+}
+
 header.masthead {
   position: relative;
   width: 100%;

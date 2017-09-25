@@ -54,10 +54,8 @@ class Crawler:
 
             return body
 
-        except urllib2.URLError as error:
-
-            if 'HTTP Error 404' in error:
-                self.wait_internet_connection(request, parameters)
+        except (urllib2.URLError, urllib2.HTTPError) as error:
+            self.wait_internet_connection(request, parameters)
 
             with open('error.log', 'a') as error_file:
                 error_file.write('Found a error in request: \n')
@@ -71,6 +69,8 @@ class Crawler:
                                      '&' + '&'.join(parameters) + '\n')
 
                 error_file.write('Error type: ' + str(error) + '\n\n')
+            pass
+        except: 
             pass
 
     # Verify if GitHub API requests limit is over. If it's, the crawler process goes sleep.
@@ -105,16 +105,13 @@ class Crawler:
         return self.rate_limit_reset
 
     def wait_internet_connection(self, request, parameters):
-        number_of_attempts = 0
-
-        while number_of_attempts < 10:
+        while True:
             try:
                 response = urllib2.urlopen('https://github.com', timeout=1)
                 if response:
-                    self.request(request, parameters)
+                    print 'Internet is working!'
                 return
             except urllib2.URLError:
-                number_of_attempts = number_of_attempts + 1
-                print 'The connection does not seem to be working. Trying again. (' + str(number_of_attempts) + '/10)'
+                print 'The connection does not seem to be working. Trying again.'
                 time.sleep(30)
                 pass

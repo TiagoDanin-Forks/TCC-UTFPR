@@ -1,0 +1,48 @@
+Found a error in request: 
+https://api.github.com/repos/torvalds/linux/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/vuejs/vue/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/angular/angular.js/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/facebook/react/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/jquery/jquery/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/freeCodeCamp/freeCodeCamp/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/airbnb/javascript/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/d3/d3/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/twbs/bootstrap/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/facebook/react-native/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/atom/atom/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+
+Found a error in request: 
+https://api.github.com/repos/moby/moby/stargazers?client_id=4161a8257efaea420c94&client_secret=d814ec48927a6bd62c55c058cd028a949e5362d4&page=1334
+Error type: HTTP Error 422: Unprocessable Entity
+

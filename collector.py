@@ -6,6 +6,8 @@
 # questions, mail me.
 
 try:
+    import multiprocessing
+    from functools import partial
     import Crawler.crawler as GitCrawler
     import Crawler.search as GitSearch
     import Crawler.repository as GitRepository
@@ -37,6 +39,7 @@ def popular_projects_per_language(languages, crawler):
 class RepositoryCollector():
 
     def __init__(self, repository, folder, crawler):
+        self.repository = repository
         self.organization, self.name = repository['full_name'].split('/')
         self.folder = folder
         self.object = GitRepository.Repository(
@@ -46,7 +49,7 @@ class RepositoryCollector():
             os.makedirs(self.folder)
 
     def clone(self):
-        git_url = repository['git_url']
+        git_url = self.repository['git_url']
 
         if not os.path.exists(self.folder + '/repository'):
             os.makedirs(self.folder + '/repository')
@@ -61,7 +64,7 @@ class RepositoryCollector():
     def about(self):
         if not os.path.isfile(self.folder + '/about.json'):
             with open(self.folder + '/about.json', 'w') as about_file:
-                json.dump(repository, about_file, indent=4)
+                json.dump(self.repository, about_file, indent=4)
         else:
             print('Error processing ' + self.name + ' project.')
             print(
@@ -79,7 +82,9 @@ class RepositoryCollector():
                 '\033[97m\033[1m-> Languages file already exists.\033[0m Please, delete it first.')
 
     def stars(self):
-        if not os.path.isfile(self.folder + '/stars.json'):
+        stars_file_lines = sum(1 for line in open(self.folder + '/stars.json', 'r'))
+
+        if not os.path.isfile(self.folder + '/stars.json') or stars_file_lines < 10:
             stars = self.object.stars()
 
             with open(self.folder + '/stars.json', 'w') as stars_file:
@@ -90,7 +95,9 @@ class RepositoryCollector():
                 '\033[97m\033[1m-> Stars file already exists.\033[0m Please, delete it first.')
 
     def forks(self):
-        if not os.path.isfile(self.folder + '/forks.json'):
+        forks_file_lines = sum(1 for line in open(self.folder + '/forks.json', 'r'))
+
+        if not os.path.isfile(self.folder + '/forks.json') or forks_file_lines < 10:
             forks = self.object.forks()
 
             with open(self.folder + '/forks.json', 'w') as forks_file:
@@ -139,6 +146,22 @@ class RepositoryCollector():
             print(
                 '\033[97m\033[1m-> Newcomers file already exists.\033[0m Please, delete it first.')
 
+
+def repositories_in_parallel(repository, language):
+    folder = 'Dataset' + '/' + language + '/' + repository['name']
+    R = RepositoryCollector(repository, folder, crawler)
+    R.clone()  # Clone the repository
+    R.about()  # Creates a general information file
+    # Creates a file with the first contribution of each contributor in the
+    # repository
+    R.first_contributions()
+    R.languages()  # Creates a file with the languages used in the repository
+    R.pull_requests()  # Creates a file with all the pull requests submmited to the repository
+    R.contributions()  # Creates a file with all the contributions submmited to the repository
+    # R.stars()  # Creates a file with all stars evaluated in the repository (Include evaluation date)
+    # R.forks()  # Creates a file with all the copies created from the repository
+
+
 # Main method. Instantiate one object for each of the projects, and collects the data separately.
 # Please, retrieve your own client id and secret in this page:
 # https://github.com/settings/applications/new
@@ -146,6 +169,7 @@ class RepositoryCollector():
 api_client_id = '4161a8257efaea420c94'
 api_client_secret = 'd814ec48927a6bd62c55c058cd028a949e5362d4'
 crawler = GitCrawler.Crawler(api_client_id, api_client_secret)
+parallel = multiprocessing.Pool(processes=5)
 
 languages = ['C', 'CoffeeScript', 'Clojure', 'Erlang',
              'Go', 'Haskell', 'Java', 'JavaScript', 'Objective-C',
@@ -159,17 +183,7 @@ with open('projects.json', 'r') as file:
 
 for language in dictionary.keys():
     repositories = dictionary[language]['items']
-    for repository in repositories:
-        if 'CoffeeScript' in language and 'trix' in repository['name']:
-            folder = 'Dataset' + '/' + language + '/' + repository['name']
-            R = RepositoryCollector(repository, folder, crawler)
-            R.clone()  # Clone the repository
-            R.about()  # Creates a general information file
-            # Creates a file with the first contribution of each contributor in the
-            # repository
-            R.first_contributions()
-            R.languages()  # Creates a file with the languages used in the repository
-            R.pull_requests()  # Creates a file with all the pull requests submmited to the repository
-            R.contributions()  # Creates a file with all the contributions submmited to the repository
-            R.stars()  # Creates a file with all stars evaluated in the repository (Include evaluation date)
-            R.forks()  # Creates a file with all the copies created from the repository
+    # Collect projects data one by one is a too slow process.
+    # To make it faster, we use parallelism, dividing the process between
+    # multiple processes.
+    parallel.map(partial(repositories_in_parallel, language=language), repositories)

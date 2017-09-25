@@ -125,7 +125,7 @@ class RepositoryChart():
             ax_third.set_ylabel(u'# Commits')
             ax_third.set_ylim(ymin=0)
             ax_third.set_ylim(0, 1201)
-            ax_third.set_xlim(datetime(2010, 1, 1), datetime(2018, 1, 1))
+            ax_third.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
             ax_third.yaxis.set_major_locator(MultipleLocator(100))
             ax_third.yaxis.set_minor_locator(MultipleLocator(50))
             line_contribution, = ax_second.plot(contribution_x_axis,
@@ -141,7 +141,120 @@ class RepositoryChart():
         else:
             print('Error processing ' + self.project_name + ' project.')
             print(
-                '\033[97m\033[1m-> Newcomer or pull request file does not exist.\033[0m Please, collect them first.')
+                '\033[97m\033[1m-> Newcomer, pull request or contributions file does not exist.\033[0m Please, collect them first.')
+
+    # Line chart method. Creates a time series chart comparing pull requests,
+    # newcomers and commits.
+    def newcomers_stars_and_forks(self):
+        if os.path.isfile(self.folder + '/stars.json') and os.path.isfile(self.folder + '/forks.json') and os.path.isfile(self.folder + '/first_contributions.txt'):
+            stars_file = json.load(
+                open(self.folder + '/stars.json', 'r'))
+            forks_file = json.load(
+                open(self.folder + '/forks.json', 'r'))
+            newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
+
+            star_list = []
+            newcomer_list = []
+            fork_list = []
+
+            for line in newcomer_file:
+                entry_date = line.rsplit(',', 1)[1].strip()
+
+                if entry_date:
+                    newcomer_list.append(datetime.strptime(
+                        entry_date, '%Y-%m-%d').date().replace(day=15))
+
+            for line in stars_file:
+                star_date = line['starred_at']
+
+                if star_date:
+                    star_list.append(datetime.strptime(
+                        star_date, '%Y-%m-%dT%H:%M:%SZ').date().replace(day=15))
+
+            for line in forks_file:
+                fork_date = line['created_at']
+
+                if fork_date:
+                    fork_list.append(datetime.strptime(
+                        fork_date, '%Y-%m-%dT%H:%M:%SZ').date().replace(day=15))
+
+            fork_ordered_list = Counter(fork_list)
+            fork_ordered_list = sorted(fork_ordered_list.items())
+
+            star_ordered_list = Counter(star_list)
+            star_ordered_list = sorted(star_ordered_list.items())
+
+            newcomer_ordered_list = Counter(newcomer_list)
+            newcomer_ordered_list = sorted(newcomer_ordered_list.items())
+
+            fork_x_axis = [fork_tuple[0]
+                           for fork_tuple in fork_ordered_list]
+            fork_y_axis = [fork_tuple[1]
+                           for fork_tuple in fork_ordered_list]
+
+            star_x_axis = [star_tuple[0]
+                           for star_tuple in star_ordered_list]
+            star_y_axis = [star_tuple[1]
+                           for star_tuple in star_ordered_list]
+
+            newcomer_x_axis = [newcomer_tuple[0]
+                               for newcomer_tuple in newcomer_ordered_list]
+            newcomer_y_axis = [newcomer_tuple[1]
+                               for newcomer_tuple in newcomer_ordered_list]
+
+            ax = host_subplot(111, axes_class=AA.Axes)
+            plt.subplots_adjust(right=0.75)
+
+            ax_second = ax.twinx()
+            ax_third = ax.twinx()
+            offset = 60
+            new_fixed_axis = ax_third.get_grid_helper().new_fixed_axis
+            ax_third.axis["right"] = new_fixed_axis(loc="right", axes=ax_third,
+                                                    offset=(offset, 0))
+            ax_third.axis["right"].toggle(all=True)
+
+            ax.set_xlabel(u'Years')
+            ax.set_ylabel(u'# Newcomers')
+            ax.set_ylim(ymin=0)
+            ax.set_ylim(0, 141)
+            ax.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
+            ax.yaxis.set_major_locator(MultipleLocator(20))
+            ax.yaxis.set_minor_locator(MultipleLocator(5))
+            line_newcomer, = ax.plot(newcomer_x_axis, newcomer_y_axis,
+                                     '-', linewidth=2, label='Newcomers')
+
+            ax_second.set_xlabel(u'Years')
+            ax_second.set_ylabel(u'# Stars')
+            ax_second.set_ylim(ymin=0)
+            ax_second.set_ylim(0, 400)
+            ax_second.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
+            ax_second.yaxis.set_major_locator(MultipleLocator(50))
+            ax_second.yaxis.set_minor_locator(MultipleLocator(10))
+            line_star, = ax_second.plot(star_x_axis,
+                                        star_y_axis, '-.', color='green', linewidth=2, label='Stars')
+
+            ax_third.set_xlabel(u'Years')
+            ax_third.set_ylabel(u'# Forks')
+            ax_third.set_ylim(ymin=0)
+            ax_third.set_ylim(0, 1201)
+            ax_third.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
+            ax_third.yaxis.set_major_locator(MultipleLocator(100))
+            ax_third.yaxis.set_minor_locator(MultipleLocator(50))
+            line_fork, = ax_second.plot(fork_x_axis,
+                                                fork_y_axis, '--', color='crimson', linewidth=2, label='Forks')
+
+            plt.legend((line_newcomer, line_star, line_fork),
+                       ('Newcomers', 'Stars', 'Forks'))
+            plt.title(self.project_name)
+            plt.savefig(self.folder + '/newcomers_stars_forks.png',
+                        bbox_inches='tight')
+            plt.clf()
+
+        else:
+            print('Error processing ' + self.project_name + ' project.')
+            print(
+                '\033[97m\033[1m-> Newcomer, stars ou forks file does not exist.\033[0m Please, collect them first.')
+
 
     def newcomers_forecasting(self):
         if os.path.isfile(self.folder + '/first_contributions.txt'):
@@ -193,15 +306,7 @@ class RepositoryChart():
 
             results = mod.fit()
             last = max(y.index)
-            '''
-            No tipo estatico, os resultados do mean squared error foram muito altos. Deveriam ser baixos. 
-            pred = results.get_prediction(start=last.replace(month = last.month - 6).date(),dynamic=False)
-            pred_ci = pred.conf_int()
-            y_forecasted = pred.predicted_mean
-            mse = ((y_forecasted - y) ** 2).mean()
-            print('The Mean Squared Error of our forecasts is {}'.format(round(mse, 2)))
-            Abaixo eu tento usar a predicao dinamica:
-            '''
+
             pred_dynamic = results.get_prediction(start=last.replace(
                 month=last.month - 6).date(), dynamic=True, full_results=True)
             pred_dynamic_ci = pred_dynamic.conf_int()
@@ -226,10 +331,6 @@ class RepositoryChart():
 
 
 # Main method. Instantiate one object for each of the projects.
-languages = ['C', 'C++', 'Clojure', 'Erlang',
-             'Go', 'Haskell', 'Java', 'JavaScript', 'Objective-C',
-             'Perl', 'PHP', 'Python', 'Ruby', 'Scala', 'TypeScript']
-
 if os.path.isfile('projects.json'):
     with open('projects.json', 'r') as file:
         dictionary = json.load(file)
@@ -240,7 +341,8 @@ if os.path.isfile('projects.json'):
             folder = 'Dataset' + '/' + language + '/' + repository['name']
             Chart = RepositoryChart(folder, repository['name'])
             Chart.newcomers_pulls_and_contributions()
-            Chart.newcomers_forecasting()
+            Chart.newcomers_stars_and_forks()
+            # Chart.newcomers_forecasting()
 else:
     print('Error processing projects.json file.')
     print('\033[97m\033[1m-> A file with a projects list does not exist. \033[0m Please, collect it first.')
