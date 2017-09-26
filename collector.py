@@ -158,8 +158,8 @@ def repositories_in_parallel(repository, language):
     R.languages()  # Creates a file with the languages used in the repository
     R.pull_requests()  # Creates a file with all the pull requests submmited to the repository
     R.contributions()  # Creates a file with all the contributions submmited to the repository
-    # R.stars()  # Creates a file with all stars evaluated in the repository (Include evaluation date)
-    # R.forks()  # Creates a file with all the copies created from the repository
+    R.stars()  # Creates a file with all stars evaluated in the repository (Include evaluation date)
+    R.forks()  # Creates a file with all the copies created from the repository
 
 
 # Main method. Instantiate one object for each of the projects, and collects the data separately.

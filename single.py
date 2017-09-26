@@ -30,6 +30,7 @@ class RepositoryChart():
     def __init__(self, folder, project_name):
         self.folder = folder
         self.project_name = project_name
+        print 'Creating chart for ' + self.project_name + '!'
 
     # Line chart method. Creates a time series chart comparing pull requests,
     # newcomers and commits.
@@ -93,6 +94,8 @@ class RepositoryChart():
             ax = host_subplot(111, axes_class=AA.Axes)
             plt.subplots_adjust(right=0.75)
 
+            lower_year = min(min(newcomer_x_axis), min(pull_x_axis), min(contribution_x_axis)).year
+
             ax_second = ax.twinx()
             ax_third = ax.twinx()
             offset = 60
@@ -103,38 +106,38 @@ class RepositoryChart():
 
             ax.set_xlabel(u'Years')
             ax.set_ylabel(u'# Newcomers')
-            ax.set_ylim(ymin=0)
-            ax.set_ylim(0, 141)
-            ax.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
+            # ax.set_ylim(ymin=0)
+            # ax.set_ylim(0, max(newcomer_y_axis))
+            ax.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
             ax.yaxis.set_major_locator(MultipleLocator(20))
             ax.yaxis.set_minor_locator(MultipleLocator(5))
             line_newcomer, = ax.plot(newcomer_x_axis, newcomer_y_axis,
-                                     '-', linewidth=2, label='Newcomers')
+                                     '-', linewidth=1.5, label='Newcomer')
 
             ax_second.set_xlabel(u'Years')
             ax_second.set_ylabel(u'# Pull requests')
-            ax_second.set_ylim(ymin=0)
-            ax_second.set_ylim(0, 400)
-            ax_second.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
-            ax_second.yaxis.set_major_locator(MultipleLocator(50))
+            # ax_second.set_ylim(ymin=0)
+            # ax_second.set_ylim(0, max(pull_y_axis))
+            ax_second.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
+            ax_second.yaxis.set_major_locator(MultipleLocator(1000))
             ax_second.yaxis.set_minor_locator(MultipleLocator(10))
             line_pull, = ax_second.plot(pull_x_axis,
-                                        pull_y_axis, '-.', color='green', linewidth=2, label='Pull requests')
+                                        pull_y_axis, '--', color='green', linewidth=1.5, label='Pull request')
 
             ax_third.set_xlabel(u'Years')
             ax_third.set_ylabel(u'# Commits')
-            ax_third.set_ylim(ymin=0)
-            ax_third.set_ylim(0, 1201)
-            ax_third.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
+            # ax_third.set_ylim(ymin=0)
+            # ax_third.set_ylim(0, max(contribution_y_axis))
+            ax_third.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
             ax_third.yaxis.set_major_locator(MultipleLocator(100))
             ax_third.yaxis.set_minor_locator(MultipleLocator(50))
             line_contribution, = ax_second.plot(contribution_x_axis,
-                                                contribution_y_axis, '--', color='crimson', linewidth=2, label='Commits')
+                                                contribution_y_axis, '-.', color='crimson', linewidth=1.5, label='Contribution')
 
             plt.legend((line_newcomer, line_pull, line_contribution),
                        ('Newcomers', 'Pull requests', 'Commits'))
             plt.title(self.project_name)
-            plt.savefig(self.folder + '/newcomers_contributions_pulls.png',
+            plt.savefig(self.folder + '/newcomers_contributions_pulls.eps',
                         bbox_inches='tight')
             plt.clf()
 
@@ -221,7 +224,7 @@ class RepositoryChart():
             ax.yaxis.set_major_locator(MultipleLocator(20))
             ax.yaxis.set_minor_locator(MultipleLocator(5))
             line_newcomer, = ax.plot(newcomer_x_axis, newcomer_y_axis,
-                                     '-', linewidth=2, label='Newcomers')
+                                     '-', linewidth=2, label='Newcomer')
 
             ax_second.set_xlabel(u'Years')
             ax_second.set_ylabel(u'# Stars')
@@ -231,7 +234,7 @@ class RepositoryChart():
             ax_second.yaxis.set_major_locator(MultipleLocator(50))
             ax_second.yaxis.set_minor_locator(MultipleLocator(10))
             line_star, = ax_second.plot(star_x_axis,
-                                        star_y_axis, '-.', color='green', linewidth=2, label='Stars')
+                                        star_y_axis, '--', color='green', linewidth=2, label='Star')
 
             ax_third.set_xlabel(u'Years')
             ax_third.set_ylabel(u'# Forks')
@@ -241,12 +244,12 @@ class RepositoryChart():
             ax_third.yaxis.set_major_locator(MultipleLocator(100))
             ax_third.yaxis.set_minor_locator(MultipleLocator(50))
             line_fork, = ax_second.plot(fork_x_axis,
-                                                fork_y_axis, '--', color='crimson', linewidth=2, label='Forks')
+                                                fork_y_axis, '-.', color='crimson', linewidth=2, label='Fork')
 
             plt.legend((line_newcomer, line_star, line_fork),
                        ('Newcomers', 'Stars', 'Forks'))
             plt.title(self.project_name)
-            plt.savefig(self.folder + '/newcomers_stars_forks.png',
+            plt.savefig(self.folder + '/newcomers_stars_forks.eps',
                         bbox_inches='tight')
             plt.clf()
 
@@ -339,9 +342,14 @@ if os.path.isfile('projects.json'):
         repositories = dictionary[language]['items']
         for repository in repositories:
             folder = 'Dataset' + '/' + language + '/' + repository['name']
+
+            for f in os.listdir(folder):
+                if '.png' in f or '.eps' in f:
+                    os.remove(folder + '/' + f)
+
             Chart = RepositoryChart(folder, repository['name'])
             Chart.newcomers_pulls_and_contributions()
-            Chart.newcomers_stars_and_forks()
+            # Chart.newcomers_stars_and_forks()
             # Chart.newcomers_forecasting()
 else:
     print('Error processing projects.json file.')
