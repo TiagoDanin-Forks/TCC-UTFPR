@@ -11,7 +11,8 @@ try:
     import matplotlib.pyplot as plt
     from mpl_toolkits.axes_grid1 import host_subplot
     import mpl_toolkits.axisartist as AA
-    from matplotlib.ticker import MultipleLocator
+    from matplotlib.ticker import MultipleLocator, MaxNLocator
+    from matplotlib.dates import YearLocator
     import itertools
     import pandas
     import statsmodels.api as sm
@@ -20,9 +21,8 @@ try:
 except ImportError as error:
     raise ImportError(error)
 
-# Sets chart stylesheet (Matplotlib Gallery)
-plt.style.use('bmh')
-
+# Sets stylesheet
+plt.style.use('seaborn-colorblind')
 
 class RepositoryChart():
 
@@ -30,19 +30,19 @@ class RepositoryChart():
     def __init__(self, folder, project_name):
         self.folder = folder
         self.project_name = project_name
-        print 'Creating chart for ' + self.project_name + '!'
+        print('Executing charts for: ' + self.project_name + '.')
 
-    # Line chart method. Creates a time series chart comparing pull requests,
-    # newcomers and commits.
+    # Chart method. Creates a time series chart comparing pull requests, newcomers and contributions.
     def newcomers_pulls_and_contributions(self):
         if os.path.isfile(self.folder + '/pull_requests.json') and os.path.isfile(self.folder + '/first_contributions.txt') and os.path.isfile(self.folder + '/contributions.txt'):
+            # Data processing
+            newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
             contribution_file = open(self.folder + '/contributions.txt', 'r')
             pull_file = json.load(
                 open(self.folder + '/pull_requests.json', 'r'))
-            newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
 
-            pull_list = []
             newcomer_list = []
+            pull_list = []
             contribution_list = []
 
             for line in newcomer_file:
@@ -76,66 +76,50 @@ class RepositoryChart():
             contribution_ordered_list = sorted(
                 contribution_ordered_list.items())
 
-            pull_x_axis = [pull_tuple[0]
-                           for pull_tuple in pull_ordered_list]
-            pull_y_axis = [pull_tuple[1]
-                           for pull_tuple in pull_ordered_list]
-
             newcomer_x_axis = [newcomer_tuple[0]
                                for newcomer_tuple in newcomer_ordered_list]
             newcomer_y_axis = [newcomer_tuple[1]
                                for newcomer_tuple in newcomer_ordered_list]
+
+            pull_x_axis = [pull_tuple[0]
+                           for pull_tuple in pull_ordered_list]
+            pull_y_axis = [pull_tuple[1]
+                           for pull_tuple in pull_ordered_list]
 
             contribution_x_axis = [contribution_tuple[0]
                                    for contribution_tuple in contribution_ordered_list]
             contribution_y_axis = [contribution_tuple[1]
                                    for contribution_tuple in contribution_ordered_list]
 
-            ax = host_subplot(111, axes_class=AA.Axes)
-            plt.subplots_adjust(right=0.75)
+            # Generating charts
+            lower_year = min([min(newcomer_x_axis),min(pull_x_axis),min(contribution_x_axis)]).year
 
-            lower_year = min(min(newcomer_x_axis), min(pull_x_axis), min(contribution_x_axis)).year
+            # Y Left -- Newcomers and Pull requests
+            fig, axis_one = plt.subplots()
+            line_newcomer, = axis_one.plot(newcomer_x_axis, newcomer_y_axis, linestyle='-', linewidth=1.3, label='Newcomer')
+            line_pull, = axis_one.plot(pull_x_axis, pull_y_axis, linestyle='-.', linewidth=1.3, color='crimson', label='Pull request')
+            axis_one.set_ylabel('# Newcomer / Pull request')
+            axis_one.set_xlabel('Years')
+            axis_one.set_ylim(ymin=0)
+            axis_one.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
+            axis_one.xaxis.set_major_locator(YearLocator())
+            axis_one.yaxis.set_major_locator(MaxNLocator(integer=True))
 
-            ax_second = ax.twinx()
-            ax_third = ax.twinx()
-            offset = 60
-            new_fixed_axis = ax_third.get_grid_helper().new_fixed_axis
-            ax_third.axis["right"] = new_fixed_axis(loc="right", axes=ax_third,
-                                                    offset=(offset, 0))
-            ax_third.axis["right"].toggle(all=True)
+            # Y Right -- Contributions
+            axis_two = axis_one.twinx()
+            line_contribution, = axis_two.plot(contribution_x_axis, contribution_y_axis, linestyle='--', linewidth=1.3, color='green', label='Contribution')
+            axis_two.set_ylabel('# Contribution')
+            axis_two.set_xlabel('Years')
+            axis_two.set_ylim(ymin=0)
+            axis_two.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
+            axis_two.xaxis.set_major_locator(YearLocator())
+            axis_two.yaxis.set_major_locator(MaxNLocator(integer=True))
 
-            ax.set_xlabel(u'Years')
-            ax.set_ylabel(u'# Newcomers')
-            # ax.set_ylim(ymin=0)
-            # ax.set_ylim(0, max(newcomer_y_axis))
-            ax.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
-            ax.yaxis.set_major_locator(MultipleLocator(20))
-            ax.yaxis.set_minor_locator(MultipleLocator(5))
-            line_newcomer, = ax.plot(newcomer_x_axis, newcomer_y_axis,
-                                     '-', linewidth=1.5, label='Newcomer')
+            legend = plt.legend((line_newcomer, line_pull, line_contribution),
+                       ('Newcomer', 'Pull request', 'Contribution'), loc='upper center', bbox_to_anchor=(0.5, 1.1),  shadow=False, ncol=3)
+            legend.get_frame().set_edgecolor('black')
+            legend.get_frame().set_linewidth(0.8)
 
-            ax_second.set_xlabel(u'Years')
-            ax_second.set_ylabel(u'# Pull requests')
-            # ax_second.set_ylim(ymin=0)
-            # ax_second.set_ylim(0, max(pull_y_axis))
-            ax_second.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
-            ax_second.yaxis.set_major_locator(MultipleLocator(1000))
-            ax_second.yaxis.set_minor_locator(MultipleLocator(10))
-            line_pull, = ax_second.plot(pull_x_axis,
-                                        pull_y_axis, '--', color='green', linewidth=1.5, label='Pull request')
-
-            ax_third.set_xlabel(u'Years')
-            ax_third.set_ylabel(u'# Commits')
-            # ax_third.set_ylim(ymin=0)
-            # ax_third.set_ylim(0, max(contribution_y_axis))
-            ax_third.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
-            ax_third.yaxis.set_major_locator(MultipleLocator(100))
-            ax_third.yaxis.set_minor_locator(MultipleLocator(50))
-            line_contribution, = ax_second.plot(contribution_x_axis,
-                                                contribution_y_axis, '-.', color='crimson', linewidth=1.5, label='Contribution')
-
-            plt.legend((line_newcomer, line_pull, line_contribution),
-                       ('Newcomers', 'Pull requests', 'Commits'))
             plt.title(self.project_name)
             plt.savefig(self.folder + '/newcomers_contributions_pulls.eps',
                         bbox_inches='tight')
@@ -144,20 +128,20 @@ class RepositoryChart():
         else:
             print('Error processing ' + self.project_name + ' project.')
             print(
-                '\033[97m\033[1m-> Newcomer, pull request or contributions file does not exist.\033[0m Please, collect them first.')
+                '\033[97m\033[1m-> Newcomer, pull request or contribution file does not exist.\033[0m Please, collect them first.')
 
-    # Line chart method. Creates a time series chart comparing pull requests,
-    # newcomers and commits.
-    def newcomers_stars_and_forks(self):
+    # Chart method. Creates a time series chart comparing stars, newcomers and forks.
+    def newcomers_forks_and_stars(self):
         if os.path.isfile(self.folder + '/stars.json') and os.path.isfile(self.folder + '/forks.json') and os.path.isfile(self.folder + '/first_contributions.txt'):
+            # Data processing
+            newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
             stars_file = json.load(
                 open(self.folder + '/stars.json', 'r'))
             forks_file = json.load(
                 open(self.folder + '/forks.json', 'r'))
-            newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
 
-            star_list = []
             newcomer_list = []
+            star_list = []
             fork_list = []
 
             for line in newcomer_file:
@@ -181,83 +165,148 @@ class RepositoryChart():
                     fork_list.append(datetime.strptime(
                         fork_date, '%Y-%m-%dT%H:%M:%SZ').date().replace(day=15))
 
-            fork_ordered_list = Counter(fork_list)
-            fork_ordered_list = sorted(fork_ordered_list.items())
+            newcomer_ordered_list = Counter(newcomer_list)
+            newcomer_ordered_list = sorted(newcomer_ordered_list.items())
 
             star_ordered_list = Counter(star_list)
             star_ordered_list = sorted(star_ordered_list.items())
 
-            newcomer_ordered_list = Counter(newcomer_list)
-            newcomer_ordered_list = sorted(newcomer_ordered_list.items())
-
-            fork_x_axis = [fork_tuple[0]
-                           for fork_tuple in fork_ordered_list]
-            fork_y_axis = [fork_tuple[1]
-                           for fork_tuple in fork_ordered_list]
-
-            star_x_axis = [star_tuple[0]
-                           for star_tuple in star_ordered_list]
-            star_y_axis = [star_tuple[1]
-                           for star_tuple in star_ordered_list]
+            fork_ordered_list = Counter(fork_list)
+            fork_ordered_list = sorted(fork_ordered_list.items())
 
             newcomer_x_axis = [newcomer_tuple[0]
                                for newcomer_tuple in newcomer_ordered_list]
             newcomer_y_axis = [newcomer_tuple[1]
                                for newcomer_tuple in newcomer_ordered_list]
 
-            ax = host_subplot(111, axes_class=AA.Axes)
-            plt.subplots_adjust(right=0.75)
+            star_x_axis = [star_tuple[0]
+                           for star_tuple in star_ordered_list]
+            star_y_axis = [star_tuple[1]
+                           for star_tuple in star_ordered_list]
 
-            ax_second = ax.twinx()
-            ax_third = ax.twinx()
-            offset = 60
-            new_fixed_axis = ax_third.get_grid_helper().new_fixed_axis
-            ax_third.axis["right"] = new_fixed_axis(loc="right", axes=ax_third,
-                                                    offset=(offset, 0))
-            ax_third.axis["right"].toggle(all=True)
+            fork_x_axis = [fork_tuple[0]
+                           for fork_tuple in fork_ordered_list]
+            fork_y_axis = [fork_tuple[1]
+                           for fork_tuple in fork_ordered_list]
 
-            ax.set_xlabel(u'Years')
-            ax.set_ylabel(u'# Newcomers')
-            ax.set_ylim(ymin=0)
-            ax.set_ylim(0, 141)
-            ax.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
-            ax.yaxis.set_major_locator(MultipleLocator(20))
-            ax.yaxis.set_minor_locator(MultipleLocator(5))
-            line_newcomer, = ax.plot(newcomer_x_axis, newcomer_y_axis,
-                                     '-', linewidth=2, label='Newcomer')
+            # Generating charts
+            lower_year = min([min(newcomer_x_axis),min(fork_x_axis),min(star_x_axis)]).year
 
-            ax_second.set_xlabel(u'Years')
-            ax_second.set_ylabel(u'# Stars')
-            ax_second.set_ylim(ymin=0)
-            ax_second.set_ylim(0, 400)
-            ax_second.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
-            ax_second.yaxis.set_major_locator(MultipleLocator(50))
-            ax_second.yaxis.set_minor_locator(MultipleLocator(10))
-            line_star, = ax_second.plot(star_x_axis,
-                                        star_y_axis, '--', color='green', linewidth=2, label='Star')
+            # Y Left -- Newcomers and Forks
+            fig, axis_one = plt.subplots()
+            line_newcomer, = axis_one.plot(newcomer_x_axis, newcomer_y_axis, linestyle='-', linewidth=1.3, label='Newcomer')
+            line_fork, = axis_one.plot(fork_x_axis, fork_y_axis, linestyle='-.', linewidth=1.3, color='crimson', label='Fork')
+            axis_one.set_ylabel('# Newcomer / Fork')
+            axis_one.set_xlabel('Years')
+            axis_one.set_ylim(ymin=0)
+            axis_one.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
+            axis_one.xaxis.set_major_locator(YearLocator())
+            axis_one.yaxis.set_major_locator(MaxNLocator(integer=True))
 
-            ax_third.set_xlabel(u'Years')
-            ax_third.set_ylabel(u'# Forks')
-            ax_third.set_ylim(ymin=0)
-            ax_third.set_ylim(0, 1201)
-            ax_third.set_xlim(datetime(2004, 1, 1), datetime(2018, 1, 1))
-            ax_third.yaxis.set_major_locator(MultipleLocator(100))
-            ax_third.yaxis.set_minor_locator(MultipleLocator(50))
-            line_fork, = ax_second.plot(fork_x_axis,
-                                                fork_y_axis, '-.', color='crimson', linewidth=2, label='Fork')
+            # Y Right -- Contributions
+            axis_two = axis_one.twinx()
+            line_star, = axis_two.plot(star_x_axis, star_y_axis, linestyle='--', linewidth=1.3, color='green', label='Star')
+            axis_two.set_ylabel('# Star')
+            axis_two.set_xlabel('Years')
+            axis_two.set_ylim(ymin=0)
+            axis_two.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
+            axis_two.xaxis.set_major_locator(YearLocator())
+            axis_two.yaxis.set_major_locator(MaxNLocator(integer=True))
 
-            plt.legend((line_newcomer, line_star, line_fork),
-                       ('Newcomers', 'Stars', 'Forks'))
+            legend = plt.legend((line_newcomer, line_fork, line_star),
+                       ('Newcomer', 'Fork', 'Star'), loc='upper center', bbox_to_anchor=(0.5, 1.1),  shadow=False, ncol=3)
+            legend.get_frame().set_edgecolor('black')
+            legend.get_frame().set_linewidth(0.8)
+
             plt.title(self.project_name)
-            plt.savefig(self.folder + '/newcomers_stars_forks.eps',
+            plt.savefig(self.folder + '/newcomers_forks_stars.eps',
                         bbox_inches='tight')
             plt.clf()
 
         else:
             print('Error processing ' + self.project_name + ' project.')
             print(
-                '\033[97m\033[1m-> Newcomer, stars ou forks file does not exist.\033[0m Please, collect them first.')
+                '\033[97m\033[1m-> Newcomer, star ou fork file does not exist.\033[0m Please, collect them first.')
 
+    # Chart method. Creates a time series chart comparing pull requests and their status.
+    def pulls_opened_closed_and_merged(self):
+        if os.path.isfile(self.folder + '/pull_requests.json'):
+            # Data processing
+            pulls_file = json.load(
+                open(self.folder + '/pull_requests.json', 'r'))
+
+            opened_list = []
+            closed_list = []
+            merged_list = []
+
+            for line in pulls_file:
+                if line['closed_at'] is not None:
+                    if line['merged_at'] is not None:
+                        merged_date = line['merged_at']
+                        merged_list.append(datetime.strptime(
+                            merged_date, '%Y-%m-%dT%H:%M:%SZ').date().replace(day=15))
+                    else:
+                        closed_date = line['closed_at']
+                        closed_list.append(datetime.strptime(
+                            closed_date, '%Y-%m-%dT%H:%M:%SZ').date().replace(day=15))
+                else:
+                    opened_date = line['created_at']
+                    opened_list.append(datetime.strptime(
+                        opened_date, '%Y-%m-%dT%H:%M:%SZ').date().replace(day=15))
+
+            opened_ordered_list = Counter(opened_list)
+            opened_ordered_list = sorted(opened_ordered_list.items())
+
+            closed_ordered_list = Counter(closed_list)
+            closed_ordered_list = sorted(closed_ordered_list.items())
+
+            merged_ordered_list = Counter(merged_list)
+            merged_ordered_list = sorted(merged_ordered_list.items())
+
+            opened_x_axis = [opened_tuple[0]
+                               for opened_tuple in opened_ordered_list]
+            opened_y_axis = [opened_tuple[1]
+                               for opened_tuple in opened_ordered_list]
+
+            closed_x_axis = [closed_tuple[0]
+                           for closed_tuple in closed_ordered_list]
+            closed_y_axis = [closed_tuple[1]
+                           for closed_tuple in closed_ordered_list]
+
+            merged_x_axis = [merged_tuple[0]
+                           for merged_tuple in merged_ordered_list]
+            merged_y_axis = [merged_tuple[1]
+                           for merged_tuple in merged_ordered_list]
+
+            # Generating charts
+            lower_year = min([date.year for date in closed_x_axis])
+
+            # Y -- Opened, closed and merged pull requests
+            fig, axis_one = plt.subplots()
+            line_opened, = axis_one.plot(opened_x_axis, opened_y_axis, linestyle='-', linewidth=1.3, label='Open')
+            line_closed, = axis_one.plot(closed_x_axis, closed_y_axis, linestyle='-.', linewidth=1.3, color='crimson', label='Closed')
+            line_merged, = axis_one.plot(merged_x_axis, merged_y_axis, linestyle='-.', linewidth=1.3, color='green', label='Merged')
+            axis_one.set_ylabel('# Pull Request Opened / Closed / Merged')
+            axis_one.set_xlabel('Years')
+            axis_one.set_ylim(ymin=0)
+            axis_one.set_xlim(datetime(lower_year, 1, 1), datetime(2018, 1, 1))
+            axis_one.xaxis.set_major_locator(YearLocator())
+            axis_one.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+            legend = plt.legend((line_opened, line_closed, line_merged),
+                       ('Open', 'Closed', 'Merged'), loc='upper center', bbox_to_anchor=(0.5, 1.1),  shadow=False, ncol=3)
+            legend.get_frame().set_edgecolor('black')
+            legend.get_frame().set_linewidth(0.8)
+
+            plt.title(self.project_name)
+            plt.savefig(self.folder + '/pulls_opened_closed_merged.eps',
+                        bbox_inches='tight')
+            plt.clf()
+
+        else:
+            print('Error processing ' + self.project_name + ' project.')
+            print(
+                '\033[97m\033[1m-> Pull request file does not exist.\033[0m Please, collect it first.')
 
     def newcomers_forecasting(self):
         if os.path.isfile(self.folder + '/first_contributions.txt'):
@@ -332,7 +381,6 @@ class RepositoryChart():
                         bbox_inches='tight')
             plt.clf()
 
-
 # Main method. Instantiate one object for each of the projects.
 if os.path.isfile('projects.json'):
     with open('projects.json', 'r') as file:
@@ -341,16 +389,18 @@ if os.path.isfile('projects.json'):
     for language in dictionary.keys():
         repositories = dictionary[language]['items']
         for repository in repositories:
-            folder = 'Dataset' + '/' + language + '/' + repository['name']
+            if 'C' in language:
+                folder = 'Dataset' + '/' + language + '/' + repository['name']
 
-            for f in os.listdir(folder):
-                if '.png' in f or '.eps' in f:
-                    os.remove(folder + '/' + f)
+                for f in os.listdir(folder):
+                    if '.png' in f or '.eps' in f:
+                        os.remove(folder + '/' + f)
 
-            Chart = RepositoryChart(folder, repository['name'])
-            Chart.newcomers_pulls_and_contributions()
-            # Chart.newcomers_stars_and_forks()
-            # Chart.newcomers_forecasting()
+                Chart = RepositoryChart(folder, repository['name'])
+                Chart.newcomers_pulls_and_contributions()
+                Chart.newcomers_forks_and_stars()
+                Chart.pulls_opened_closed_and_merged()
+                # Chart.newcomers_forecasting()
 else:
     print('Error processing projects.json file.')
     print('\033[97m\033[1m-> A file with a projects list does not exist. \033[0m Please, collect it first.')
