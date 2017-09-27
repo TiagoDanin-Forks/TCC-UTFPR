@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 # Author:  Felipe Fronchetti
 # Contact: fronchettiemail@gmail.com
-# This code is responsible for generate each general chart used in our research.
-# Read each method or class docstring to understand how it works. If you have
-# questions, mail me.
+# This code is responsible for generate charts related to all the projects at once.
+# If you have questions, mail me.
 
 try:
     from matplotlib.ticker import MultipleLocator
@@ -12,38 +11,31 @@ try:
     import os
 except ImportError as error:
     raise ImportError(error)
-plt.style.use('bmh')
 
-def file_len(fname):
-    with open(fname) as f:
-        for i, l in enumerate(f):
+# Sets stylesheet
+plt.style.use('seaborn-colorblind')
+
+# Returns the file size in number of lines
+def get_file_size(file_name):
+    with open(file_name, 'r') as this:
+        for i, j in enumerate(this):
             pass
     return i + 1
 
 class GeneralChart():
 
+    # Initial method. Sets values used during the entire process.
     def __init__(self, dictionary):
         self.about_list = []
         self.dictionary = dictionary
-        self.populate_about_list()
 
-    def populate_about_list(self):
         for language in self.dictionary.keys():
             repositories = self.dictionary[language]['items']
             for repository in repositories:
-                folder = 'Dataset' + '/' + \
-                    language + '/' + repository['name']
+                self.about_list.append(repository)
 
-                if os.path.isfile(folder + '/about.json'):
-                    with open(folder + '/about.json', 'r') as about_file:
-                        json_about_file = json.load(about_file)
-                        self.about_list.append(json_about_file)
-
-                else:
-                    print('Error processing ' + repository['name'])
-                    print(
-                        '\033[97m\033[1m-> About file does not exist.\033[0m Please, collect it first.')
-
+    # Creates a boxplot chart based on projects stars, forks and watchers
+    # Charts are created using matplotlib library and the data we collect before.
     def stars_forks_and_watchers(self):
         stars = []
         forks = []
@@ -68,11 +60,13 @@ class GeneralChart():
         for patch in boxplot['boxes']:
             patch.set_facecolor('white')
 
-        plt.xticks([1, 2, 3], ['# Stars', '# Forks',
-                               '# Watchers'], fontsize=12)
-        plt.ylim(0, 35000)
-        plt.savefig('stars_forks_and_watchers.png', bbox_inches='tight')
+        plt.xticks([1, 2, 3], ['# Star', '# Fork',
+                               '# Watcher'], fontsize=12)
+        plt.ylim(ymin=0)
+        plt.savefig('stars_forks_and_watchers.eps', bbox_inches='tight')
 
+    # Creates a boxplot chart based on projects contributors, pull requests and contributions
+    # Charts are created using matplotlib library and the data we collect before.
     def contributors_pulls_and_commits(self):
         contributors = []
         pull_requests = []
@@ -81,11 +75,10 @@ class GeneralChart():
         for language in self.dictionary.keys():
             repositories = self.dictionary[language]['items']
             for repository in repositories:
-                folder = 'Dataset' + '/' + \
-                    language + '/' + repository['name']
+                folder = 'Dataset' + '/' + language + '/' + repository['name']
 
-                number_of_contributors = file_len(folder + '/first_contributions.txt')
-                number_of_commits = file_len(folder + '/first_contributions.txt')
+                number_of_contributors = get_file_size(folder + '/first_contributions.txt')
+                number_of_commits = get_file_size(folder + '/contributions.txt')
 
                 with open(folder + '/pull_requests.json', 'r') as pulls_file:
                     number_of_pulls = len(json.load(pulls_file))
@@ -108,11 +101,13 @@ class GeneralChart():
         for patch in boxplot['boxes']:
             patch.set_facecolor('white')
 
-        plt.xticks([1, 2, 3], ['# Contributors', '# Commits',
-                               '# Pull requests'], fontsize=12)
-        plt.ylim(0, 3001)
-        plt.savefig('contributors_pulls_and_commits.png', bbox_inches='tight')
+        plt.xticks([1, 2, 3], ['# Contributor', '# Contribution',
+                               '# Pull request'], fontsize=12)
+        plt.ylim(ymin=0)
+        plt.savefig('contributors_pulls_and_contributions.eps', bbox_inches='tight')
 
+    # Creates a bar chart based on projects features. These projects may or may not have these features.
+    # Charts are created using matplotlib library and the data we collect before.
     def has_issues_projects_and_wiki(self):
         has_issues = 0
         has_projects = 0
@@ -128,7 +123,6 @@ class GeneralChart():
                 has_wiki = has_wiki + 1
 
         fix, ax = plt.subplots()
-        print total_of_projects
         bar_width = 0.4
         bar_issues = plt.bar(1, has_issues, color='white',
                              edgecolor='black', linewidth=1, width=bar_width, label='Has the feature')
@@ -144,18 +138,19 @@ class GeneralChart():
                 edgecolor='black', linewidth=1, width=bar_width, bottom=has_wiki, hatch='//')
 
         plt.xticks([1, 2, 3], ('Issue Tracker', 'Project Board', 'Wiki'))
-        plt.ylabel('# of projects')
-        plt.ylim(0, total_of_projects + 51)
+        plt.ylabel('# Project')
+        plt.ylim(ymin=0)
         plt.legend()
-        plt.savefig('has_features.png', bbox_inches='tight')
+        plt.savefig('has_features.eps', bbox_inches='tight')
 
 if os.path.isfile('projects.json'):
     with open('projects.json', 'r') as file:
         projects_file = json.load(file)
+
     G = GeneralChart(projects_file)
     G.stars_forks_and_watchers()
-    # G.contributors_pulls_and_commits()
-    # G.has_issues_projects_and_wiki()
+    G.contributors_pulls_and_commits()
+    G.has_issues_projects_and_wiki()
 else:
     print('Error processing projects.json file.')
     print('\033[97m\033[1m-> A file with a projects list does not exist. \033[0m Please, collect it first.')

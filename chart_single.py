@@ -2,20 +2,17 @@
 # Author:  Felipe Fronchetti
 # Contact: fronchettiemail@gmail.com
 # This code is responsible for generate charts related to a single repository.
-# Read each method or docstring in RepositoryChart class to understand how it works. If you have
-# questions, mail me.
+# If you have questions, mail me.
 
 try:
     from datetime import datetime
     from collections import Counter
     import matplotlib.pyplot as plt
-    from mpl_toolkits.axes_grid1 import host_subplot
-    import mpl_toolkits.axisartist as AA
     from matplotlib.ticker import MultipleLocator, MaxNLocator
     from matplotlib.dates import YearLocator
     import itertools
     import pandas
-    import statsmodels.api as sm
+    import statsmodels.api as statsmodel
     import json
     import os
 except ImportError as error:
@@ -32,10 +29,12 @@ class RepositoryChart():
         self.project_name = project_name
         print('Executing charts for: ' + self.project_name + '.')
 
-    # Chart method. Creates a time series chart comparing pull requests, newcomers and contributions.
+    # Creates a time series chart comparing pull requests, newcomers and contributions.
+    # Charts are created using matplotlib library and the data we collect before.
     def newcomers_pulls_and_contributions(self):
         if os.path.isfile(self.folder + '/pull_requests.json') and os.path.isfile(self.folder + '/first_contributions.txt') and os.path.isfile(self.folder + '/contributions.txt'):
-            # Data processing
+            # Data processing step
+            # Each value is appended in a list based on its type.
             newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
             contribution_file = open(self.folder + '/contributions.txt', 'r')
             pull_file = json.load(
@@ -91,7 +90,7 @@ class RepositoryChart():
             contribution_y_axis = [contribution_tuple[1]
                                    for contribution_tuple in contribution_ordered_list]
 
-            # Generating charts
+            # Chart generation step
             lower_year = min([min(newcomer_x_axis),min(pull_x_axis),min(contribution_x_axis)]).year
 
             # Y Left -- Newcomers and Pull requests
@@ -130,10 +129,12 @@ class RepositoryChart():
             print(
                 '\033[97m\033[1m-> Newcomer, pull request or contribution file does not exist.\033[0m Please, collect them first.')
 
-    # Chart method. Creates a time series chart comparing stars, newcomers and forks.
+    # Creates a time series chart comparing stars, newcomers and forks.
+    # Charts are created using matplotlib library and the data we collect before.
     def newcomers_forks_and_stars(self):
         if os.path.isfile(self.folder + '/stars.json') and os.path.isfile(self.folder + '/forks.json') and os.path.isfile(self.folder + '/first_contributions.txt'):
-            # Data processing
+            # Data processing step
+            # Each value is appended in a list based on its type.
             newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
             stars_file = json.load(
                 open(self.folder + '/stars.json', 'r'))
@@ -189,10 +190,10 @@ class RepositoryChart():
             fork_y_axis = [fork_tuple[1]
                            for fork_tuple in fork_ordered_list]
 
-            # Generating charts
+            # Chart generation step
             lower_year = min([min(newcomer_x_axis),min(fork_x_axis),min(star_x_axis)]).year
 
-            # Y Left -- Newcomers and Forks
+            # Y Axis Left -- Newcomers and Forks
             fig, axis_one = plt.subplots()
             line_newcomer, = axis_one.plot(newcomer_x_axis, newcomer_y_axis, linestyle='-', linewidth=1.3, label='Newcomer')
             line_fork, = axis_one.plot(fork_x_axis, fork_y_axis, linestyle='-.', linewidth=1.3, color='crimson', label='Fork')
@@ -203,7 +204,7 @@ class RepositoryChart():
             axis_one.xaxis.set_major_locator(YearLocator())
             axis_one.yaxis.set_major_locator(MaxNLocator(integer=True))
 
-            # Y Right -- Contributions
+            # Y Axis Right -- Contributions
             axis_two = axis_one.twinx()
             line_star, = axis_two.plot(star_x_axis, star_y_axis, linestyle='--', linewidth=1.3, color='green', label='Star')
             axis_two.set_ylabel('# Star')
@@ -228,10 +229,12 @@ class RepositoryChart():
             print(
                 '\033[97m\033[1m-> Newcomer, star ou fork file does not exist.\033[0m Please, collect them first.')
 
-    # Chart method. Creates a time series chart comparing pull requests and their status.
+    # Creates a time series chart comparing pull requests based on their state.
+    # Charts are created using matplotlib library and the data we collect before.
     def pulls_opened_closed_and_merged(self):
         if os.path.isfile(self.folder + '/pull_requests.json'):
-            # Data processing
+            # Data processing step
+            # Each pull request is appended in a list based on its state.
             pulls_file = json.load(
                 open(self.folder + '/pull_requests.json', 'r'))
 
@@ -275,13 +278,11 @@ class RepositoryChart():
 
             merged_x_axis = [merged_tuple[0]
                            for merged_tuple in merged_ordered_list]
-            merged_y_axis = [merged_tuple[1]
+            merged_y_axis = [merged_tuple[Generating charts1]
                            for merged_tuple in merged_ordered_list]
 
-            # Generating charts
+            # Chart generation step
             lower_year = min([date.year for date in closed_x_axis])
-
-            # Y -- Opened, closed and merged pull requests
             fig, axis_one = plt.subplots()
             line_opened, = axis_one.plot(opened_x_axis, opened_y_axis, linestyle='-', linewidth=1.3, label='Open')
             line_closed, = axis_one.plot(closed_x_axis, closed_y_axis, linestyle='-.', linewidth=1.3, color='crimson', label='Closed')
@@ -311,7 +312,20 @@ class RepositoryChart():
     def newcomers_forecasting(self):
         if os.path.isfile(self.folder + '/first_contributions.txt'):
             newcomer_file = open(self.folder + '/first_contributions.txt', 'r')
-            dates = []
+            dates = []            # The folder where the files are located
+            folder = 'Dataset' + '/' + language + '/' + repository['name']
+
+            # Delete older .png and .eps files
+            for f in os.listdir(folder):
+                if '.png' in f or '.eps' in f:
+                    os.remove(folder + '/' + f)
+
+            # Methods that creates the charts
+            Chart = RepositoryChart(folder, repository['name'])
+            Chart.newcomers_pulls_and_contributions()
+            Chart.newcomers_forks_and_stars()
+            Chart.pulls_opened_closed_and_merged()
+            # Chart.newcomers_forecasting()
 
             for line in newcomer_file:
                 entry_date = line.rsplit(',', 1)[1].strip()
@@ -335,7 +349,7 @@ class RepositoryChart():
             for param in pdq:
                 for param_seasonal in seasonal_pdq:
                     try:
-                        mod = sm.tsa.statespace.SARIMAX(y,
+                        mod = statsmodel.tsa.statespace.SARIMAX(y,
                                                         order=param,
                                                         seasonal_order=param_seasonal,
                                                         enforce_stationarity=False,
@@ -350,7 +364,7 @@ class RepositoryChart():
                 min(aic_dictionary, key=aic_dictionary.get)]
             print min(aic_dictionary, key=aic_dictionary.get)
 
-            mod = sm.tsa.statespace.SARIMAX(y,
+            mod = statsmodel.tsa.statespace.SARIMAX(y,
                                             order=best_order,
                                             seasonal_order=best_seasonal_order,
                                             enforce_stationarity=False,
@@ -381,26 +395,29 @@ class RepositoryChart():
                         bbox_inches='tight')
             plt.clf()
 
-# Main method. Instantiate one object for each of the projects.
+# Main method. Instantiate one chart creator object for each of the projects.
 if os.path.isfile('projects.json'):
     with open('projects.json', 'r') as file:
         dictionary = json.load(file)
 
+    # For each repository folder within each language folder, execute:
     for language in dictionary.keys():
         repositories = dictionary[language]['items']
         for repository in repositories:
-            if 'C' in language:
-                folder = 'Dataset' + '/' + language + '/' + repository['name']
+            # The folder where the files are located
+            folder = 'Dataset' + '/' + language + '/' + repository['name']
 
-                for f in os.listdir(folder):
-                    if '.png' in f or '.eps' in f:
-                        os.remove(folder + '/' + f)
+            # Delete older .png and .eps files
+            for f in os.listdir(folder):
+                if '.png' in f or '.eps' in f:
+                    os.remove(folder + '/' + f)
 
-                Chart = RepositoryChart(folder, repository['name'])
-                Chart.newcomers_pulls_and_contributions()
-                Chart.newcomers_forks_and_stars()
-                Chart.pulls_opened_closed_and_merged()
-                # Chart.newcomers_forecasting()
+            # Methods that creates the charts
+            Chart = RepositoryChart(folder, repository['name'])
+            Chart.newcomers_pulls_and_contributions()
+            Chart.newcomers_forks_and_stars()
+            Chart.pulls_opened_closed_and_merged()
+            # Chart.newcomers_forecasting()
 else:
     print('Error processing projects.json file.')
     print('\033[97m\033[1m-> A file with a projects list does not exist. \033[0m Please, collect it first.')

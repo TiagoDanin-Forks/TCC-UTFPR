@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 # Author:  Felipe Fronchetti
 # Contact: fronchettiemail@gmail.com
-# This code is responsible for collect each project data used in our research.
-# Read each method or class docstring to understand how it works. If you have
-# questions, mail me.
+# This code is responsible for collect data of each used in our research.
+# If you have questions, mail me.
 
 try:
     import multiprocessing
@@ -17,24 +16,10 @@ try:
 except ImportError as error:
     raise ImportError(error)
 
-# This method collects, from a list of languages, the main projects listed
-# in GitHub, sorted by number of stars.
-
-
-def popular_projects_per_language(languages, crawler):
-    search = GitSearch.Search(crawler)
-    repositories = {}
-
-    for language in languages:
-        print 'Looking for repositories written in ' + language
-        repositories[language] = search.repositories(
-            keywords='language:' + language.lower(), sort='stars')
-
-    with open('projects.json', 'w') as file:
-        json.dump(repositories, file, indent=4)
-
-    return repositories
-
+# This class is responsible for collect data of each project.
+# To use it, send as parameter a repository main page, a folder to save the data
+# and a Crawler.crawler object.
+# Example of repository main page: https://api.github.com/repos/atom/atom
 
 class RepositoryCollector():
 
@@ -146,9 +131,30 @@ class RepositoryCollector():
             print(
                 '\033[97m\033[1m-> Newcomers file already exists.\033[0m Please, delete it first.')
 
+# This method collects, from a list of languages, the main projects listed
+# in GitHub, sorted by number of stars.
+
+def popular_projects_per_language(languages, crawler):
+    search = GitSearch.Search(crawler)
+    repositories = {}
+
+    for language in languages:
+        print 'Looking for repositories written in ' + language
+        repositories[language] = search.repositories(
+            keywords='language:' + language.lower(), sort='stars')
+
+    with open('projects.json', 'w') as file:
+        json.dump(repositories, file, indent=4)
+
+    return repositories
+
+# This method executes collection process in parallel, making the collector faster
+# If you want to learn more about it, visit: http://sebastianraschka.com/Articles/2014_multiprocessing.html
 
 def repositories_in_parallel(repository, language):
+    # Folder where repository data will be saved
     folder = 'Dataset' + '/' + language + '/' + repository['name']
+    # Collector object
     R = RepositoryCollector(repository, folder, crawler)
     R.clone()  # Clone the repository
     R.about()  # Creates a general information file
@@ -163,11 +169,11 @@ def repositories_in_parallel(repository, language):
 
 
 # Main method. Instantiate one object for each of the projects, and collects the data separately.
-# Please, retrieve your own client id and secret in this page:
+# Please, retrieve your own crawler client id and secret in this page:
 # https://github.com/settings/applications/new
 
-api_client_id = '4161a8257efaea420c94'
-api_client_secret = 'd814ec48927a6bd62c55c058cd028a949e5362d4'
+api_client_id = '4161a8257efaea420c94' # Please, specify your own client id
+api_client_secret = 'd814ec48927a6bd62c55c058cd028a949e5362d4' # Please, specify your own client secret
 crawler = GitCrawler.Crawler(api_client_id, api_client_secret)
 parallel = multiprocessing.Pool(processes=5)
 
@@ -176,6 +182,7 @@ languages = ['C', 'CoffeeScript', 'Clojure', 'Erlang',
              'Perl', 'PHP', 'Python', 'Ruby', 'Scala', 'TypeScript']
 
 if not os.path.isfile('projects.json'):
+    print('Most popular projects per language file does not exist. Generating one...')
     popular_projects_per_language(languages, crawler)
 
 with open('projects.json', 'r') as file:
@@ -184,6 +191,6 @@ with open('projects.json', 'r') as file:
 for language in dictionary.keys():
     repositories = dictionary[language]['items']
     # Collect projects data one by one is a too slow process.
-    # To make it faster, we use parallelism, dividing the process between
+    # To make it faster, we use multiprocessing, dividing the collection process between
     # multiple processes.
     parallel.map(partial(repositories_in_parallel, language=language), repositories)
