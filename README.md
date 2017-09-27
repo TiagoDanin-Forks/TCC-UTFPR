@@ -6,6 +6,8 @@ Read our paper at: #
 ## Data Collection
 The data collection process is based on two collection sources: <b>GitHub API </b> (V3) and <b>Git Repositories</b>. Data available in the API are collected using web requisitions in python, and data available in the repositories are collected using <i>git logs</i> in shellscript. All the source code is available at <a href="https://github.com/fronchetti/TCC-UTFPR/tree/master/Crawler">Crawler<a> folder. However, to make it simpler, we created a class that abstracts the execution process. If you want to reproduce our dataset, just execute <a href="https://github.com/fronchetti/TCC-UTFPR/blob/master/data_collector.py">this script</a>.
 
+`NOTE: Please, to a complete and successful execution, read the comments in the code and change values when necessary.`
+
 ## Contact
 Luiz Felipe Fronchetti Dias [Student] -- luizdias@alunos.utfpr.edu.br <br>
 Igor Scaliante Wiese [Advisor] -- igor@utfpr.edu.br <br>
