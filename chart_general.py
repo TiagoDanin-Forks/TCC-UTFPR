@@ -5,7 +5,6 @@
 # If you have questions, mail me.
 
 try:
-    import matplotlib
     from matplotlib.ticker import MultipleLocator
     import matplotlib.pyplot as plt
     import json
@@ -15,7 +14,6 @@ except ImportError as error:
 
 # Sets stylesheet
 plt.style.use('seaborn-colorblind')
-matplotlib.use('Agg')
 
 # Returns the file size in number of lines
 def get_file_size(file_name):

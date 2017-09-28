@@ -5,7 +5,6 @@
 # If you have questions, mail me.
 
 try:
-    import matplotlib
     from datetime import datetime
     from collections import Counter
     import matplotlib.pyplot as plt
@@ -21,7 +20,6 @@ except ImportError as error:
 
 # Sets stylesheet
 plt.style.use('seaborn-colorblind')
-matplotlib.use('Agg')
 
 class RepositoryChart():
 
