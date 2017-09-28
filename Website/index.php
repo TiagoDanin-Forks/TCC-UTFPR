@@ -28,7 +28,7 @@
 <body id="page-top">
 
 <?php
-$dataset_path = '../Dataset/';
+$dataset_path = './Dataset/';
 $dataset_dir = glob($dataset_path . '*', GLOB_ONLYDIR);
 $project_array = array();
 
@@ -39,7 +39,7 @@ foreach ($dataset_dir as &$language){
   foreach ($language_dir as &$project) {
     $project_name = substr($project, strrpos($project, '/') + 1);
     $project_array[$project_name] = $project;
-  } 
+  }
 }
 ?>
 
@@ -111,7 +111,7 @@ foreach ($dataset_dir as &$language){
              <p class="text-muted" style="color: #757575 !important;">An analysis of receptivity in open source projects</p>
            </div>
            <p>With the purpose of contributing with the entry of newcomers in open source projects, our research consists of an exploratory study on receptivity indicators. Receptivity indicators can be defined as a set of metrics ​​capable of scaling up how receptive open source projects are. These indicators were selected after a correlation between them and the time distribution of new contributors in a set of projects. Indicators that have a significant relationship with the number of new contributors in a project were defined as indicators of receptivity.<p>
-           
+
            <div class="row">
             <div class="col-md-6">
               <i class="research-indicators-icon fa fa-star" aria-hidden="true"></i>
@@ -164,7 +164,7 @@ foreach ($dataset_dir as &$language){
            <div class="row">
              <img class="img-responsive center-block" style="margin: 0 auto;" src="../has_features.png">
            </div>
-           <p>Now we invite you to check the data of each repository. Any questions or suggestions, please get in touch.</p>  
+           <p>Now we invite you to check the data of each repository. Any questions or suggestions, please get in touch.</p>
            <center><a href="#find_a_project" class="btn btn-outline btn-xl" style="background-color: black;">Visualize a project</a></center>
           </div>
         </div>
@@ -182,26 +182,26 @@ foreach ($dataset_dir as &$language){
                   <img src="img/profile_felipe.jpg" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
                   <p class="team-profile-name">Luiz Felipe Fronchetti Dias</p>
                   <p class="team-profile-email">luizdias@alunos.utfpr.edu.br</p>
-                  <p class="team-profile-university">Federal University of Technology – Paraná</p>         
+                  <p class="team-profile-university">Federal University of Technology – Paraná</p>
                 </div>
                 <div class="col-md-3">
                   <img src="img/profile_wiese.jpg" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
                   <p class="team-profile-name">Igor Scaliante Wiese</p>
                   <p class="team-profile-email">igor@utfpr.edu.br</p>
-                  <p class="team-profile-university">Federal University of Technology – Paraná</p>         
-                </div>  
+                  <p class="team-profile-university">Federal University of Technology – Paraná</p>
+                </div>
                 <div class="col-md-3">
                   <img src="img/profile_steinmacher.jpg" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
                   <p class="team-profile-name">Igor Steinmacher</p>
                   <p class="team-profile-email">igorfs@utfpr.edu.br</p>
-                  <p class="team-profile-university">Federal University of Technology – Paraná</p>         
+                  <p class="team-profile-university">Federal University of Technology – Paraná</p>
                 </div>
                 <div class="col-md-3">
                   <img src="img/profile_gustavo.jpg" alt="..." class="img-responsive" style="width: 150px; height: 150px; border-radius: 5px;">
                   <p class="team-profile-name">Gustavo Pinto</p>
                   <p class="team-profile-email">gpinto@ufpa.br</p>
-                  <p class="team-profile-university">Federal University of Pará</p>         
-                </div>      
+                  <p class="team-profile-university">Federal University of Pará</p>
+                </div>
               </div>
             </div>
           </div>

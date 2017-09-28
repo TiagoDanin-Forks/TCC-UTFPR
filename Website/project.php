@@ -39,8 +39,8 @@ function lineCounter($file_path) {
     fclose($handle);
     return $linecount;
 }
- 
-$dataset_path = '../Dataset/';
+
+$dataset_path = './Dataset/';
 $dataset_dir = glob($dataset_path . '*', GLOB_ONLYDIR);
 $get_project_name = $_GET['name'];
 $project_array = Array();
@@ -58,7 +58,7 @@ foreach ($dataset_dir as &$language){
           $project_about = json_decode(file_get_contents($project_path . '/about.json'), true);
           $contributors_count = lineCounter($project_path . '/first_contributions.txt');
     }
-  } 
+  }
 }
 ?>
 
