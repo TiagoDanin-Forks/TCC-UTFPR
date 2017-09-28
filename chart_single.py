@@ -5,6 +5,7 @@
 # If you have questions, mail me.
 
 try:
+    import matplotlib
     from datetime import datetime
     from collections import Counter
     import matplotlib.pyplot as plt

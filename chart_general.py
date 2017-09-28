@@ -5,6 +5,7 @@
 # If you have questions, mail me.
 
 try:
+    import matplotlib
     from matplotlib.ticker import MultipleLocator
     import matplotlib.pyplot as plt
     import json
