@@ -21,6 +21,7 @@
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
   <!-- Custom styles for this template -->
+  <link href="css/zoom.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/project.css">
   <link rel="stylesheet" type="text/css" href="css/awesomplete.css">
 </head>
@@ -114,14 +115,31 @@ foreach ($dataset_dir as &$language){
   <section class="project-content" id="project-content">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 mx-auto">
-          <img src="<?php echo $project_path . '/newcomers_contributions_pulls.png'?>">
-          <img src="<?php echo $project_path . '/newcomers_contributions_pulls.png'?>">
-          <img src="<?php echo $project_path . '/newcomers_contributions_pulls.png'?>">
+        <div class="col-md-12">
+          <div class="row">
+          <div class="col-md-6">
+            <img class="img-responsive col-md-12" data-action="zoom" src="<?php echo $project_path . '/newcomers_contributions_pulls.png'?>">
+            <p>Time series comparision between newcomers, contributions and pull requests.</p>
+          </div>
+          <div class="col-md-6">
+            <img class="img-responsive col-md-12" data-action="zoom"  src="<?php echo $project_path . '/newcomers_forks_stars.png'?>">
+            <p>Time series comparision between newcomers, stars and forks.</p>
+          </div>
         </div>
       </div>
     </div>
-   </section>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+        <div class="col-md-6">
+          <img class="img-responsive col-md-12" data-action="zoom" style="width: 500px; height: 380px; "  src="<?php echo $project_path . '/pulls_opened_closed_merged.png'?>">
+          <p>Time series comparision between pull requests open, closed and merged.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+ </section>
 
   <footer>
     <div class="container">
@@ -149,6 +167,8 @@ foreach ($dataset_dir as &$language){
 
 <!-- Custom scripts for this template -->
 <script src="js/index.js"></script>
+<script src="js/transition.js"></script>
+<script src="js/zoom.js"></script>
 <script src="js/awesomplete.min.js"></script>
 
 <?php
