@@ -91,7 +91,23 @@ class RepositoryChart():
                                    for contribution_tuple in contribution_ordered_list]
 
             # Chart generation step
-            lower_year = min([min(newcomer_x_axis),min(pull_x_axis),min(contribution_x_axis)]).year
+            lower_list = []
+            if newcomer_x_axis:
+                lower_newcomer = min([date for date in newcomer_x_axis])
+                lower_list.append(lower_newcomer.year)
+                newcomer_x_axis = [lower_newcomer] + newcomer_x_axis
+                newcomer_y_axis = [0] + newcomer_y_axis
+            if pull_x_axis:
+                lower_pull = min([date for date in pull_x_axis])
+                lower_list.append(lower_pull.year)
+                pull_x_axis = [lower_pull] + pull_x_axis
+                pull_y_axis = [0] + pull_y_axis
+            if contribution_x_axis:
+                lower_contribution = min([date for date in contribution_x_axis])
+                lower_list.append(lower_contribution.year)
+                contribution_x_axis = [lower_contribution] + contribution_x_axis
+                contribution_y_axis = [0] + contribution_y_axis
+            lower_year = min(lower_list)
 
             # Y Left -- Newcomers and Pull requests
             fig, axis_one = plt.subplots()
@@ -119,6 +135,7 @@ class RepositoryChart():
             legend.get_frame().set_edgecolor('black')
             legend.get_frame().set_linewidth(0.8)
 
+            fig.autofmt_xdate()
             plt.title(self.project_name)
             plt.savefig(self.folder + '/newcomers_contributions_pulls.eps',
                         bbox_inches='tight')
@@ -191,7 +208,23 @@ class RepositoryChart():
                            for fork_tuple in fork_ordered_list]
 
             # Chart generation step
-            lower_year = min([min(newcomer_x_axis),min(fork_x_axis),min(star_x_axis)]).year
+            lower_list = []
+            if newcomer_x_axis:
+                lower_newcomer = min([date for date in newcomer_x_axis])
+                lower_list.append(lower_newcomer.year)
+                newcomer_x_axis = [lower_newcomer] + newcomer_x_axis
+                newcomer_y_axis = [0] + newcomer_y_axis
+            if star_x_axis:
+                lower_star = min([date for date in star_x_axis])
+                lower_list.append(lower_star.year)
+                star_x_axis = [lower_star] + star_x_axis
+                star_y_axis = [0] + star_y_axis
+            if fork_x_axis:
+                lower_fork = min([date for date in fork_x_axis])
+                lower_list.append(lower_fork.year)
+                fork_x_axis = [lower_fork] + fork_x_axis
+                fork_y_axis = [0] + fork_y_axis
+            lower_year = min(lower_list)
 
             # Y Axis Left -- Newcomers and Forks
             fig, axis_one = plt.subplots()
@@ -219,6 +252,7 @@ class RepositoryChart():
             legend.get_frame().set_edgecolor('black')
             legend.get_frame().set_linewidth(0.8)
 
+            fig.autofmt_xdate()
             plt.title(self.project_name)
             plt.savefig(self.folder + '/newcomers_forks_stars.eps',
                         bbox_inches='tight')
@@ -278,11 +312,28 @@ class RepositoryChart():
 
             merged_x_axis = [merged_tuple[0]
                            for merged_tuple in merged_ordered_list]
-            merged_y_axis = [merged_tuple[Generating charts1]
+            merged_y_axis = [merged_tuple[1]
                            for merged_tuple in merged_ordered_list]
 
             # Chart generation step
-            lower_year = min([date.year for date in closed_x_axis])
+            lower_list = []
+            if closed_x_axis:
+                lower_closed = min([date for date in closed_x_axis])
+                lower_list.append(lower_closed.year)
+                closed_x_axis = [lower_closed] + closed_x_axis
+                closed_y_axis = [0] + closed_y_axis
+            if merged_x_axis:
+                lower_merged = min([date for date in merged_x_axis])
+                lower_list.append(lower_merged.year)
+                merged_x_axis = [lower_merged] + merged_x_axis
+                merged_y_axis = [0] + merged_y_axis
+            if opened_x_axis:
+                lower_opened = min([date for date in opened_x_axis])
+                lower_list.append(lower_opened.year)
+                opened_x_axis = [lower_opened] + opened_x_axis
+                opened_y_axis = [0] + opened_y_axis
+            lower_year = min(lower_list)
+
             fig, axis_one = plt.subplots()
             line_opened, = axis_one.plot(opened_x_axis, opened_y_axis, linestyle='-', linewidth=1.3, label='Open')
             line_closed, = axis_one.plot(closed_x_axis, closed_y_axis, linestyle='-.', linewidth=1.3, color='crimson', label='Closed')
@@ -299,6 +350,7 @@ class RepositoryChart():
             legend.get_frame().set_edgecolor('black')
             legend.get_frame().set_linewidth(0.8)
 
+            fig.autofmt_xdate()
             plt.title(self.project_name)
             plt.savefig(self.folder + '/pulls_opened_closed_merged.eps',
                         bbox_inches='tight')
