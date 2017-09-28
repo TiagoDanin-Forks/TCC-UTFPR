@@ -14,7 +14,7 @@ body {
 a {
   -webkit-transition: all .35s;
   -moz-transition: all .35s;
-  transition: all .35s; 
+  transition: all .35s;
 }
 
 hr {
@@ -229,7 +229,7 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    
+
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
@@ -241,7 +241,7 @@ footer {
     -o-transform: translate(0px, -100%) scale(0, 0);
     -ms-transform: translate(0px, -100%) scale(0, 0);
     transform: translate(0px, -100%) scale(0, 0);
-    
+
     opacity: 0;
 }
 
@@ -250,7 +250,7 @@ footer {
     -moz-transform: translate(0px, 0px) scale(1, 1);
     -o-transform: translate(0px, 0px) scale(1, 1);
     -ms-transform: translate(0px, 0px) scale(1, 1);
-    transform: translate(0px, 0px) scale(1, 1); 
+    transform: translate(0px, 0px) scale(1, 1);
     opacity: 1;
 }
 
@@ -286,7 +286,7 @@ footer {
     left: 50%;
     margin-top: 61px;
     margin-left: -45px;
-}  
+}
 
 #find_a_project .close {
     position: fixed;
@@ -298,4 +298,3 @@ footer {
     padding: 10px 17px;
     font-size: 27px;
 }
-
