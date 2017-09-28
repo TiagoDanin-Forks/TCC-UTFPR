@@ -20,6 +20,7 @@ except ImportError as error:
 
 # Sets stylesheet
 plt.style.use('seaborn-colorblind')
+matplotlib.use('Agg')
 
 class RepositoryChart():
 
