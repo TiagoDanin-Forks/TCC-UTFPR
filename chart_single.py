@@ -139,6 +139,8 @@ class RepositoryChart():
             plt.title(self.project_name)
             plt.savefig(self.folder + '/newcomers_contributions_pulls.eps',
                         bbox_inches='tight')
+            plt.savefig(self.folder + '/newcomers_contributions_pulls.png',
+                        bbox_inches='tight')
             plt.clf()
 
         else:
@@ -256,6 +258,8 @@ class RepositoryChart():
             plt.title(self.project_name)
             plt.savefig(self.folder + '/newcomers_forks_stars.eps',
                         bbox_inches='tight')
+            plt.savefig(self.folder + '/newcomers_forks_stars.png',
+                        bbox_inches='tight')
             plt.clf()
 
         else:
@@ -353,6 +357,8 @@ class RepositoryChart():
             fig.autofmt_xdate()
             plt.title(self.project_name)
             plt.savefig(self.folder + '/pulls_opened_closed_merged.eps',
+                        bbox_inches='tight')
+            plt.savefig(self.folder + '/pulls_opened_closed_merged.png',
                         bbox_inches='tight')
             plt.clf()
 

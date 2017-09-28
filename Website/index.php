@@ -28,7 +28,7 @@
 <body id="page-top">
 
 <?php
-$dataset_path = './Dataset/';
+$dataset_path = './dataset-website/';
 $dataset_dir = glob($dataset_path . '*', GLOB_ONLYDIR);
 $project_array = array();
 

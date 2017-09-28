@@ -40,7 +40,7 @@ function lineCounter($file_path) {
     return $linecount;
 }
 
-$dataset_path = './Dataset/';
+$dataset_path = './dataset-website/';
 $dataset_dir = glob($dataset_path . '*', GLOB_ONLYDIR);
 $get_project_name = $_GET['name'];
 $project_array = Array();
@@ -111,11 +111,13 @@ foreach ($dataset_dir as &$language){
     </div>
    </section>
 
-  <section class="project-header" id="project-header">
+  <section class="project-content" id="project-content">
     <div class="container">
       <div class="row">
         <div class="col-md-12 mx-auto">
-
+          <img src="<?php echo $project_path . '/newcomers_contributions_pulls.png'?>">
+          <img src="<?php echo $project_path . '/newcomers_contributions_pulls.png'?>">
+          <img src="<?php echo $project_path . '/newcomers_contributions_pulls.png'?>">
         </div>
       </div>
     </div>
