@@ -154,15 +154,15 @@ foreach ($dataset_dir as &$language){
 
             Number of contributors, commits and pull requests
            <div class="row">
-             <img class="img-responsive center-block" style="margin: 0 auto;" src="../contributors_pulls_and_commits.png">
+             <img class="img-responsive center-block" style="margin: 0 auto;" src="contributors_pulls_and_contributions.png">
            </div>
            Number of stars, forks and watchers
            <div class="row">
-             <img class="img-responsive center-block" style="margin: 0 auto;" src="../stars_forks_and_watchers.png">
+             <img class="img-responsive center-block" style="margin: 0 auto;" src="stars_forks_and_watchers.png">
            </div>
            Use of the features Issue Tracker, Project Board and Wiki on GitHub
            <div class="row">
-             <img class="img-responsive center-block" style="margin: 0 auto;" src="../has_features.png">
+             <img class="img-responsive center-block" style="margin: 0 auto;" src="has_features.png">
            </div>
            <p>Now we invite you to check the data of each repository. Any questions or suggestions, please get in touch.</p>
            <center><a href="#find_a_project" class="btn btn-outline btn-xl" style="background-color: black;">Visualize a project</a></center>
