@@ -13,9 +13,11 @@ except ImportError as error:
 
 def move_files_to_folder(source_folder, destination_folder):
     for source_file in os.listdir(source_folder):
-        if 'first_contributions' in source_file or 'about' in source_file:
+        if 'first_contributions' in source_file or 'about' in source_file or '.eps' in source_file:
             source = source_folder + '/' + source_file
             destination_file = destination_folder + '/' + source_file
+            if os.path.isfile(destination_file):
+                os.remove(destination_file)
             print('Creating a copy of ' + source + ' to website dataset...')
             os.system('cp ' + source + ' ' + destination_file)
 
