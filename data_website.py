@@ -21,7 +21,7 @@ def move_files_to_folder(source_folder, destination_folder):
             print('Creating a copy of ' + source + ' to website dataset...')
             os.system('cp ' + source + ' ' + destination_file)
 
-website_folder = 'Website/Dataset'
+website_folder = 'Website/dataset-website'
 if not os.path.isdir(website_folder):
     os.mkdir(website_folder)
 
