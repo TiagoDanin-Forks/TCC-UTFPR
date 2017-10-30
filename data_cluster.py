@@ -171,7 +171,7 @@ class ProjectClusterData():
             return 0
 
 
-def newcomers_cluster_data(folder, latest_created_at):
+def newcomers_per_week(folder, latest_created_at):
     newcomer_file = open(folder + '/first_contributions.txt', 'r')
     newcomer_list = []
 
@@ -183,7 +183,7 @@ def newcomers_cluster_data(folder, latest_created_at):
                 entry_date, '%Y-%m-%d').date()
 
             if entry_date >= latest_created_at:
-                newcomer_list.append(entry_date)
+                newcomer_list.append(entry_date.isocalendar()[1])
 
     newcomer_ordered_list = Counter(newcomer_list)
 
@@ -201,6 +201,7 @@ else:
 # In this first step, we'll create the projects cluster data.
 # The respective file in the repository is projects_cluster_data.csv
 
+'''
 fieldnames = ['project_name', 'pull_total_mean',
               'pull_opened_mean', 'pull_closed_mean',
               'pull_merged_mean', 'commits_mean',
@@ -211,8 +212,6 @@ fieldnames = ['project_name', 'pull_total_mean',
 with open('projects_cluster_data.csv', 'w') as statistics_file:
     writer = csv.DictWriter(statistics_file, fieldnames=fieldnames)
     writer.writeheader()
-
-created_at = []
 
 for language in dictionary.keys():
     repositories = dictionary[language]['items']
@@ -249,18 +248,24 @@ for language in dictionary.keys():
                              'has_wiki': has_wiki,
                              'has_project_board': has_project_board,
                              'has_issue_tracker': has_issue_tracker})
-
-        created_at.append(repository['created_at'])
+'''
 
 # In this second step, we'll create the newcomers daily cluster data.
 # The respective file in the repository is newcomers_cluster_data.csv
+
+created_at = []
+
+for language in dictionary.keys():
+    repositories = dictionary[language]['items']
+
+    for repository in repositories:
+        created_at.append(repository['created_at'])
 
 latest_created_at = max(created_at)
 latest_created_at = datetime.strptime(latest_created_at,
                                       '%Y-%m-%dT%H:%M:%SZ').date()
 
-latest_newcomer_date = None
-time_series_dictionary = {}
+week_series_dictionary = {}
 
 for language in dictionary.keys():
     repositories = dictionary[language]['items']
@@ -269,47 +274,50 @@ for language in dictionary.keys():
         dataset_folder = 'Dataset' + '/' + \
             language + '/' + repository['name']
 
-        newcomer_time_series = newcomers_cluster_data(
+        newcomers = newcomers_per_week(
             dataset_folder, latest_created_at)
 
-        if newcomer_time_series:
-            if latest_newcomer_date is None:
-                latest_newcomer_date = max(newcomer_time_series)
-            else:
-                if latest_newcomer_date < max(newcomer_time_series):
-                    latest_newcomer_date = max(newcomer_time_series)
+        week_series_dictionary[repository['name']] = newcomers
 
-        time_series_dictionary[repository['name']] = newcomer_time_series
+week_list = []
+week_max = None
+week_min = None
 
-time_series_days = []
-while latest_created_at < latest_newcomer_date:
-    time_series_days.append(latest_created_at)
-    latest_created_at = latest_created_at + timedelta(days=1)
+for week_series in week_series_dictionary.values():
+    if week_series:
+        if week_min is None:
+            week_min = min(week_series)
+        else:
+            if min(week_series) < week_min:
+                week_min = min(week_series)
+
+        if week_max is None:
+            week_max = max(week_series)
+        else:
+            if max(week_series) > week_max:
+                week_max = max(week_series)
+
+print 'The first week is ' + str(week_min) + ' and the last week is ' + str(week_max)
+
+fieldnames = [week for week in range(week_min, week_max + 1)]
 
 with open('newcomers_cluster_data.csv', 'w') as newcomers_file:
     writer = csv.DictWriter(newcomers_file, fieldnames=[
-                            'project_name'] + time_series_days)
+                            'project_name'] + fieldnames)
     writer.writeheader()
 
-for language in dictionary.keys():
-    repositories = dictionary[language]['items']
+for project in week_series_dictionary:
+    csv_data = {}
 
-    for repository in repositories:
-        dataset_folder = 'Dataset' + '/' + \
-            language + '/' + repository['name']
+    csv_data['project_name'] = project
 
-        newcomer_time_series = time_series_dictionary[repository['name']]
+    for week in fieldnames:
+        if week in week_series_dictionary[project]:
+            csv_data[week] = week_series_dictionary[project][week]
+        else:
+            csv_data[week] = 0
 
-        newcomers_cluster_dictionary = {}
-        newcomers_cluster_dictionary['project_name'] = repository['name']
-
-        for day in time_series_days:
-            if day in newcomer_time_series:
-                newcomers_cluster_dictionary[day] = newcomer_time_series[day]
-            else:
-                newcomers_cluster_dictionary[day] = 0
-
-        with open('newcomers_cluster_data.csv', 'a') as newcomers_file:
-            writer = csv.DictWriter(newcomers_file, fieldnames=[
-                                    'project_name'] + time_series_days)
-            writer.writerow(newcomers_cluster_dictionary)
+    with open('newcomers_cluster_data.csv', 'a') as newcomers_file:
+        writer = csv.DictWriter(newcomers_file, fieldnames=[
+                                'project_name'] + fieldnames)
+        writer.writerow(csv_data)
