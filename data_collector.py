@@ -21,7 +21,7 @@ except ImportError as error:
 # and a Crawler.crawler object.
 # Example of repository main page: https://api.github.com/repos/atom/atom
 
-class RepositoryCollector():
+class Collector():
 
     def __init__(self, repository, folder, crawler):
         self.repository = repository
@@ -155,7 +155,7 @@ def repositories_in_parallel(repository, language):
     # Folder where repository data will be saved
     folder = 'Dataset' + '/' + language + '/' + repository['name']
     # Collector object
-    R = RepositoryCollector(repository, folder, crawler)
+    R = Collector(repository, folder, crawler)
     R.clone()  # Clone the repository
     R.about()  # Creates a general information file
     # Creates a file with the first contribution of each contributor in the
