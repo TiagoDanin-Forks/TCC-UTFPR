@@ -201,7 +201,6 @@ else:
 # In this first step, we'll create the projects cluster data.
 # The respective file in the repository is projects_cluster_data.csv
 
-'''
 fieldnames = ['project_name', 'pull_total_mean',
               'pull_opened_mean', 'pull_closed_mean',
               'pull_merged_mean', 'commits_mean',
@@ -248,7 +247,6 @@ for language in dictionary.keys():
                              'has_wiki': has_wiki,
                              'has_project_board': has_project_board,
                              'has_issue_tracker': has_issue_tracker})
-'''
 
 # In this second step, we'll create the newcomers daily cluster data.
 # The respective file in the repository is newcomers_cluster_data.csv

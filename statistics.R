@@ -1,6 +1,7 @@
 # Tutorial: http://www.sthda.com/english/articles/25-cluster-analysis-in-r-practical-guide/111-types-of-clustering-methods-overview-and-quick-start-r-code/
-
 install.packages("factoextra")
+install.packages("factoextra")
+install.packages("Hmisc")
 install.packages("cluster")
 install.packages("magrittr")
 library("ggplot2")
@@ -8,6 +9,7 @@ library("cluster")
 library("factoextra")
 library("magrittr")
 library(dplyr)
+library("Hmisc")
 
 data_project <- read.csv("/var/www/html/TCC-UTFPR/projects_cluster_data.csv")
 # data_newcomers <- read.csv("/var/www/html/TCC-UTFPR/newcomers_cluster_data.csv")
@@ -18,17 +20,22 @@ values <- values %>%
           na.omit() %>%          # Remove missing values (NA)
           scale()                # Scale variables
 
-# fviz_nbclust(values, kmeans, method = "gap_stat") # Suggested number of cluster: 8
+variaveis_independentes = subset(values, select = c(2,4,5,6,8))
+correlationCluster = varclus(~., data=variaveis_independentes,trans="abs")
+plot(correlationCluster, main="2013")
+thresh = 0.7
+abline(h = 1 - thresh , col="#bf0000", lty =2, lwd=3)
+
+fviz_nbclust(values, kmeans, method = "gap_stat") # Suggested number of cluster: 8
 
 set.seed(123)
 km.res <- kmeans(values, 8, nstart = 25)
+km.res$cluster
 # Visualize
-png(filename="/var/www/html/TCC-UTFPR/cluster.png")
 fviz_cluster(km.res, data = values,
              ellipse.type = "convex",
              palette = "jco",
              ggtheme = theme_minimal())
-dev.off()
 
 pam.res <- pam(values, 8)
 fviz_cluster(pam.res)

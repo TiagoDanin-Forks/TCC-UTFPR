@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script written by Gustavo Pinto and aprimorated by Felipe Fronchetti
+# Script written by Gustavo Pinto and Felipe Fronchetti
 # Given a path to a git repository, this script is able to collect the date of
 # each contributor's first contribution in the respective repository.
 
