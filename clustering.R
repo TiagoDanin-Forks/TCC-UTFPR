@@ -26,10 +26,10 @@ plot(correlationCluster, main="2013")
 thresh = 0.7
 abline(h = 1 - thresh , col="#bf0000", lty =2, lwd=3)
 
-fviz_nbclust(values, kmeans, method = "gap_stat") # Suggested number of cluster: 8
+fviz_nbclust(variaveis_independentes, kmeans, method = "gap_stat") # Suggested number of cluster: 8
 
 set.seed(123)
-km.res <- kmeans(values, 8, nstart = 25)
+km.res <- kmeans(variaveis_independentes, 3, nstart = 25)
 km.res$cluster
 # Visualize
 fviz_cluster(km.res, data = values,

@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 # Author:  Felipe Fronchetti
 # Contact: fronchettiemail@gmail.com
-# Dataset folder have a large size with a huge amount of files depending of what you collect.
-# This code is responsible for retrieve the necessary data of each project and move it to the website folder.
-# If you have questions, mail me.
 
 try:
     import os
@@ -16,7 +13,7 @@ try:
 except ImportError as error:
     raise ImportError(error)
 
-class PrepareClusterData():
+class Indicators():
 
     def __init__(self, repository, folder):
         self.folder = folder
@@ -150,26 +147,6 @@ class PrepareClusterData():
         else:
             return 0
 
-
-def newcomers_per_week(folder, latest_created_at):
-    newcomer_file = open(folder + '/first_contributions.txt', 'r')
-    newcomer_list = []
-
-    for line in newcomer_file:
-        entry_date = line.rsplit(',', 1)[1].strip()
-
-        if entry_date:
-            entry_date = datetime.strptime(
-                entry_date, '%Y-%m-%d').date()
-
-            if entry_date >= latest_created_at:
-                newcomer_list.append(entry_date.isocalendar()[1])
-
-    newcomer_ordered_list = Counter(newcomer_list)
-
-    return newcomer_ordered_list
-
-
 if os.path.isfile('projects.json'):
     with open('projects.json', 'r') as file:
         dictionary = json.load(file)
@@ -178,8 +155,8 @@ else:
     print('\033[97m\033[1m-> A file with a projects list does not exist. \033[0m Please, collect it first.')
     raise
 
-# In this first step, we'll create the projects cluster data.
-# The respective file in the repository is projects_cluster_data.csv
+# In this step, we'll create the indicators data per project.
+# The respective file in the repository is data_indicators_output.csv
 
 fieldnames = ['project_name', 'pull_total_mean',
               'pull_opened_mean', 'pull_closed_mean',
@@ -188,7 +165,7 @@ fieldnames = ['project_name', 'pull_total_mean',
               'has_readme', 'has_contributing',
               'has_wiki', 'has_project_board', 'has_issue_tracker']
 
-with open('projects_cluster_data.csv', 'w') as statistics_file:
+with open('data_indicators_output.csv', 'w') as statistics_file:
     writer = csv.DictWriter(statistics_file, fieldnames=fieldnames)
     writer.writeheader()
 
@@ -199,7 +176,7 @@ for language in dictionary.keys():
         dataset_folder = 'Dataset' + '/' + \
             language + '/' + repository['name']
 
-        A = PrepareClusterData(repository, dataset_folder)
+        A = Indicators(repository, dataset_folder)
         pull_total_mean, pull_opened_mean, pull_closed_mean, pull_merged_mean = A.pulls_per_month()
         commits_mean = A.commits_per_month()
         stars_mean = A.stars_per_month()
@@ -211,7 +188,7 @@ for language in dictionary.keys():
         has_project_board = A.has_project_board()
         has_issue_tracker = A.has_issue_tracker()
 
-        with open('projects_cluster_data.csv', 'a') as statistics_file:
+        with open('data_indicators_output.csv', 'a') as statistics_file:
             writer = csv.DictWriter(statistics_file, fieldnames=fieldnames)
             writer.writerow({'project_name': repository['name'],
                              'pull_total_mean': int(numpy.nan_to_num(pull_total_mean)),
@@ -227,82 +204,3 @@ for language in dictionary.keys():
                              'has_wiki': has_wiki,
                              'has_project_board': has_project_board,
                              'has_issue_tracker': has_issue_tracker})
-
-# In this second step, we'll create the newcomers daily cluster data.
-# The respective file in the repository is newcomers_cluster_data.csv
-
-created_at = []
-
-for language in dictionary.keys():
-    repositories = dictionary[language]['items']
-
-    for repository in repositories:
-        created_at.append(repository['created_at'])
-
-latest_created_at = max(created_at)
-latest_created_at = datetime.strptime(latest_created_at,
-                                      '%Y-%m-%dT%H:%M:%SZ').date()
-
-week_series_dictionary = {}
-
-for language in dictionary.keys():
-    repositories = dictionary[language]['items']
-
-    for repository in repositories:
-        dataset_folder = 'Dataset' + '/' + \
-            language + '/' + repository['name']
-
-        newcomers = newcomers_per_week(
-            dataset_folder, latest_created_at)
-
-        week_series_dictionary[repository['name']] = newcomers
-
-week_list = []
-week_max = None
-week_min = None
-
-for week_series in week_series_dictionary.values():
-    if week_series:
-        if week_min is None:
-            week_min = min(week_series)
-        else:
-            if min(week_series) < week_min:
-                week_min = min(week_series)
-
-        if week_max is None:
-            week_max = max(week_series)
-        else:
-            if max(week_series) > week_max:
-                week_max = max(week_series)
-
-print 'The first week is ' + str(week_min) + ' and the last week is ' + str(week_max)
-
-fieldnames = [week for week in range(week_min, week_max + 1)]
-
-with open('newcomers_cluster_data.csv', 'w') as newcomers_file:
-    writer = csv.DictWriter(newcomers_file, fieldnames=[
-                            'project_name'] + fieldnames + ['average'])
-    writer.writeheader()
-
-for project in week_series_dictionary:
-    csv_data = {}
-    average_list = []
-
-    csv_data['project_name'] = project
-
-    for week in fieldnames:
-        if week in week_series_dictionary[project]:
-            average_list.append(week_series_dictionary[project][week])
-            csv_data[week] = week_series_dictionary[project][week]
-        else:
-            csv_data[week] = 0
-
-    if sum(average_list) > 0:
-        csv_data['average'] = sum(average_list) / float(len(average_list))
-    else:
-        csv_data['average'] = 0
-        
-    with open('newcomers_cluster_data.csv', 'a') as newcomers_file:
-        writer = csv.DictWriter(newcomers_file, fieldnames=[
-                                'project_name'] + fieldnames + ['average'])
-        writer.writerow(csv_data)
