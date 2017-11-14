@@ -78,7 +78,7 @@ class Receptivity():
             if row[0] in receptive_projects.keys() and row[0] in projects_information.keys():
                 for project in receptive_projects:
                     if row[0] == project:
-                        row.append(receptive_projects[project])
+                        row.append(float(round(receptive_projects[project], 3)))
                         row.append(projects_information[project]['language'])
                         row.append(projects_information[project]['age'])
                         row.append(projects_information[project]['domain'])
@@ -88,7 +88,7 @@ class Receptivity():
             elif row[0] in nonreceptive_projects.keys() and row[0] in projects_information.keys():
                 for project in nonreceptive_projects:
                     if row[0] == project:
-                        row.append(nonreceptive_projects[project])
+                        row.append(float(round(nonreceptive_projects[project], 3)))
                         row.append(projects_information[project]['language'])
                         row.append(projects_information[project]['age'])
                         row.append(projects_information[project]['domain'])
