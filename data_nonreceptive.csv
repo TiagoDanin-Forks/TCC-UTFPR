@@ -1,318 +1,318 @@
-project_name,pull_total_mean,pull_opened_mean,pull_closed_mean,pull_merged_mean,commits_mean,stars_mean,forks_mean,languages_count,has_readme,has_contributing,has_wiki,has_project_board,has_issue_tracker,newcomers_mean
-redis,19,7,9,5,61,246,68,7,1,1,0,1,1,1.4285714285714286
-How-to-Make-a-Computer-Operating-System,3,2,3,3,15,346,59,6,1,0,0,1,1,0.0
-ijkplayer,3,1,3,1,48,314,90,7,1,0,1,1,1,1.5
-wrk,1,1,2,0,3,217,16,5,1,0,1,1,1,0.0
-the_silver_searcher,8,1,2,5,27,192,12,7,1,1,1,1,1,1.4
-emscripten,32,2,7,23,219,162,19,18,1,1,1,1,1,0.0
-The-Art-Of-Programming-By-July,12,1,3,14,97,253,104,15,0,0,1,1,1,0.0
-JSPatch,5,1,2,3,14,346,71,5,1,0,1,1,1,1.0
-vim,24,3,21,0,49,387,48,25,1,1,0,1,1,0.0
-jq,5,1,3,3,23,155,8,9,1,0,1,1,1,0.0
-toxcore,22,1,5,19,101,158,19,6,1,0,0,1,1,0.0
-Telegram,6,2,6,1,8,169,68,10,1,0,0,1,0,0.0
-tmux,6,0,6,0,55,278,20,6,1,1,1,0,1,0.0
-torch7,11,1,2,10,19,158,45,4,1,1,1,1,1,1.2857142857142858
-twemproxy,3,1,2,2,10,105,19,6,1,0,1,1,1,0.0
-h2o,19,1,2,16,117,183,13,14,1,1,1,1,1,1.0
-masscan,2,1,1,3,13,135,22,3,1,0,1,1,1,0.0
-swoole-src,6,1,2,5,84,117,30,9,1,0,1,1,1,1.0
-disque,5,1,2,7,33,211,14,4,1,0,1,1,1,0.0
-TypeScript,126,8,17,106,489,665,97,7,1,1,1,1,1,1.4444444444444444
-upterm,20,1,12,11,99,605,18,2,1,1,1,1,1,1.3333333333333333
-ui-router,9,1,5,5,31,237,57,2,1,1,1,1,1,1.5
-NativeScript,56,1,5,51,130,360,28,5,1,1,1,1,1,1.0
-satellizer,8,2,3,7,75,207,33,2,1,0,0,1,1,0.0
-rxjs,50,5,26,22,80,262,25,4,1,1,1,1,1,1.2727272727272727
-ng2-admin,35,2,30,7,36,456,149,5,1,0,1,1,1,1.3333333333333333
-cyclejs,5,2,1,3,78,213,8,6,1,1,1,1,1,1.5
-blueprint,63,2,7,56,56,578,36,5,1,1,1,1,1,1.5
-Eve,12,1,2,12,200,230,9,3,1,0,0,1,1,1.0
-playground,2,2,1,3,23,304,53,4,1,1,1,1,1,0.0
-reactxp,17,4,3,13,47,880,55,2,1,0,1,1,1,1.2222222222222223
-winjs,4,2,2,3,53,92,12,4,1,1,1,1,1,0.0
-esprima,10,1,10,2,19,55,6,3,1,1,1,1,1,1.0
-intern,3,1,3,1,19,70,5,4,1,1,1,1,1,1.0
-ng-bootstrap,37,3,33,4,36,151,25,3,1,1,1,1,1,1.1428571428571428
-shumway,34,1,3,33,194,50,5,12,1,0,1,1,1,0.0
-retrofit,10,1,3,7,18,288,72,5,1,0,1,0,1,1.0
-java-design-patterns,7,1,2,5,47,647,199,7,1,1,1,1,1,1.25
-MPAndroidChart,8,3,4,5,50,434,126,1,1,1,1,1,1,0.0
-glide,4,1,2,3,31,350,69,2,1,1,1,1,1,1.4285714285714286
-leakcanary,8,1,3,9,20,581,95,2,1,0,1,0,1,1.0
-spring-framework,20,2,16,2,137,199,150,17,1,1,1,0,0,1.25
-EventBus,1,1,1,2,10,258,61,2,1,1,1,1,1,0.0
-Android-Universal-Image-Loader,2,1,2,1,20,220,92,1,1,0,1,1,1,0.0
-lottie-android,12,1,2,11,54,1579,282,2,1,0,0,1,1,1.25
-iosched,3,1,2,3,44,354,123,5,1,1,0,1,1,0.0
-picasso,8,1,3,6,19,268,67,4,1,1,0,0,1,1.0
-fresco,8,1,6,4,54,434,109,8,1,1,1,1,1,1.4444444444444444
-AndroidUtilCode,5,1,3,3,35,877,276,1,1,0,1,1,1,1.5
-PhotoView,2,0,2,1,10,180,49,1,1,0,0,1,1,1.0
-material-dialogs,5,1,2,4,43,318,60,1,1,0,0,1,1,1.3333333333333333
-Hystrix,12,2,2,12,34,187,37,6,1,1,1,1,1,1.0
-dubbo,3,2,3,3,49,184,124,7,1,0,1,1,1,1.5
-SlidingMenu,3,1,2,2,17,167,86,2,1,0,1,1,1,0.0
-LightTable,8,1,3,6,26,157,15,5,1,1,1,1,1,0.0
-om,5,1,2,6,45,136,7,4,1,0,1,1,1,1.0
-leiningen,8,1,2,7,46,58,13,6,1,1,1,0,1,1.25
-overtone,2,1,2,3,39,45,4,2,1,0,1,1,1,1.5
-icepick,1,0,1,1,8,67,4,2,1,0,1,1,1,0.0
-riemann,7,1,2,6,25,51,6,4,0,0,0,1,1,1.0
-compojure,1,1,1,1,12,29,2,2,1,0,1,1,1,0.0
-clojure-koans,2,0,1,1,5,34,19,4,1,0,1,1,1,0.0
-mori,3,1,1,4,16,47,2,5,1,0,1,1,1,0.0
-reagent,1,1,1,1,20,59,4,5,1,1,1,1,1,1.0
-alda,4,0,1,4,18,80,7,2,1,1,0,1,1,1.0
-re-frame,7,1,2,5,42,82,8,5,1,1,1,1,1,1.5
-datascript,2,1,1,1,11,63,4,4,1,0,1,1,1,1.0
-jepsen,2,0,1,2,24,47,5,6,1,0,0,1,1,1.3333333333333333
-modern-cljs,6,1,3,6,43,42,4,2,1,0,0,1,1,1.0
-ring,2,1,1,2,10,37,4,5,1,0,1,1,1,1.0
-lein-figwheel,3,1,1,3,33,54,4,5,1,0,1,1,1,1.5
-quil,2,1,1,2,15,30,2,4,1,0,1,1,1,0.0
-incanter,2,1,1,2,17,18,3,5,0,0,1,1,1,0.0
-aleph,2,1,1,1,13,22,2,1,1,0,0,1,1,0.0
-clojure-cookbook,14,1,3,12,59,35,6,2,1,1,0,1,1,0.0
-instaparse,1,1,1,1,19,33,2,1,1,0,1,1,1,0.0
-pedestal,4,1,1,4,27,32,3,6,1,1,1,1,1,1.5
-schema,4,1,1,4,19,36,4,2,1,1,1,1,1,0.0
-hiccup,1,1,1,1,6,17,1,1,1,0,1,1,1,0.0
-onyx,6,0,2,5,143,41,4,2,1,0,1,1,1,0.0
-transit-format,2,0,1,0,5,38,2,2,1,0,1,1,1,0.0
-specter,1,0,1,1,27,46,2,3,1,0,1,1,1,1.0
-incubator-predictionio,7,1,5,6,80,182,30,5,1,1,0,1,0,1.0
-shadowsocks-android,3,1,1,3,34,159,77,9,1,1,1,1,1,0.0
-scala,85,4,21,63,156,127,29,10,1,1,0,1,0,1.0
-gitbucket,10,1,2,8,72,121,16,6,1,0,1,0,1,1.0
-ArnoldC,2,1,2,1,5,115,6,1,1,0,1,1,1,0.0
-aerosolve,10,1,1,9,40,146,18,4,1,0,0,1,1,1.0
-kafka-manager,4,1,1,4,16,129,33,5,1,0,1,1,1,1.0
-chronos,8,2,2,8,25,68,9,5,1,0,0,1,1,0.0
-snowflake,1,1,2,0,11,42,8,0,1,0,0,1,1,0.0
-snowplow,4,1,3,1,85,55,13,12,1,1,1,1,1,1.0
-marathon,46,2,7,39,111,68,15,10,1,0,0,1,1,1.4
-bfg-repo-cleaner,1,1,1,1,11,60,3,2,1,1,1,1,1,0.0
-fpinscala,3,2,2,4,11,54,29,3,1,0,1,1,1,0.0
-scalaz,14,2,3,12,56,35,6,2,1,1,1,0,1,0.0
-sbt,17,2,5,14,56,33,6,4,1,1,1,1,1,1.0
-flockdb,2,0,2,2,28,35,3,4,0,0,0,1,0,0.0
-scala-js,31,1,3,28,75,55,4,6,1,1,1,1,1,1.0
-diffy,2,1,1,2,5,115,10,7,1,0,0,1,1,0.0
-scalding,17,1,3,14,58,43,9,5,1,1,1,1,1,0.0
-kestrel,1,0,3,1,18,24,3,4,1,0,1,1,1,0.0
-linkerd,44,2,6,38,50,132,11,8,1,1,1,1,1,1.25
-spray,8,1,2,9,46,33,8,5,0,1,1,1,1,0.0
-scalatra,4,1,1,4,31,22,3,4,0,0,0,1,1,1.0
-awesome-python,20,10,6,9,29,970,176,2,1,1,0,1,1,1.5
-thefuck,11,1,3,10,46,1032,50,2,1,1,1,1,1,1.0
-flask,13,1,5,9,34,331,104,4,1,0,0,1,1,1.2307692307692308
-big-list-of-naughty-strings,7,3,3,8,17,841,32,3,1,0,1,1,1,0.0
-shadowsocks,2,1,1,1,1,304,139,2,1,0,1,1,1,0.0
-system-design-primer,11,1,3,7,24,2803,303,1,1,1,1,1,1,1.0
-XX-Net,11,1,3,9,42,509,160,8,1,0,1,1,1,1.0
-YouCompleteMe,10,1,3,7,34,222,29,4,1,1,1,1,1,0.0
-you-get,9,2,3,7,28,242,49,3,1,0,1,1,1,1.5
-reddit,10,3,10,1,83,125,27,11,1,1,1,1,1,0.0
-Deep-Learning-Papers-Reading-Roadmap,4,2,2,2,13,1138,205,1,1,0,1,1,1,1.0
-python-patterns,3,0,1,3,9,200,45,2,1,0,1,1,1,1.25
-macOS-Security-and-Privacy-Guide,4,0,1,3,17,457,27,1,1,0,0,0,1,1.3333333333333333
-d3,13,1,8,6,50,655,212,1,1,0,1,0,1,0.0
-angular.js,89,3,79,7,91,571,316,5,1,1,1,1,1,1.4444444444444444
-jquery,26,1,23,4,46,444,138,4,1,1,1,1,1,1.1666666666666667
-html5-boilerplate,10,1,8,5,19,412,103,3,1,0,1,1,1,1.1666666666666667
-Semantic-UI,14,4,5,6,120,744,80,3,1,1,1,1,1,1.0
-reveal.js,8,2,5,4,29,481,147,3,1,1,1,1,1,0.0
-socket.io,8,1,5,5,24,394,74,2,0,0,0,1,1,1.25
-express,9,1,6,3,59,340,64,3,0,0,1,1,1,1.5
-impress.js,4,1,4,2,7,461,93,3,1,0,1,1,1,0.0
-resume.github.com,4,1,8,4,9,445,11,4,0,0,1,1,1,0.0
-hacker-scripts,9,1,4,10,16,1279,226,14,1,0,0,0,1,0.0
-brackets,73,2,14,59,250,401,83,8,1,1,1,1,1,1.4444444444444444
-jQuery-File-Upload,4,1,3,1,14,335,88,7,1,1,1,1,0,1.0
-gulp,10,1,3,7,21,538,78,2,1,1,0,1,1,1.5
-diff-so-fancy,7,1,3,6,23,431,8,2,0,0,1,1,1,1.3333333333333333
-gitolite,2,1,2,1,10,68,8,3,0,1,1,1,0,1.0
-FlameGraph,2,1,1,2,5,71,8,5,1,0,1,1,1,1.25
-Expose,2,1,1,3,12,154,8,5,0,0,1,1,1,0.0
-MySQLTuner-perl,2,0,2,3,12,38,8,4,1,1,1,1,1,1.3333333333333333
-cloc,2,1,1,2,16,136,10,62,1,0,1,1,1,1.0
-EQGRP,8,1,3,12,33,545,333,11,1,0,1,1,1,0.0
-sicp-pdf,1,2,0,1,4,35,4,4,1,0,1,1,1,1.0
-ua-parser,6,1,2,6,25,22,7,15,0,1,0,1,1,0.0
-mojo,5,1,4,2,102,17,4,4,1,0,1,1,1,0.0
-nginx-tutorials,1,0,1,1,14,26,5,3,0,0,1,1,1,0.0
-nikto,5,1,1,4,17,30,5,3,1,0,1,1,1,1.0
-rcm,3,1,2,2,6,32,2,6,1,1,1,1,1,0.0
-duckduckgo,2,1,1,2,11,17,3,2,1,1,1,1,1,0.0
-ack2,2,1,2,2,33,19,2,16,1,1,1,1,1,0.0
-sqitch,1,1,1,1,42,21,2,4,1,0,1,1,1,1.0
-pgbadger,1,1,1,1,13,17,2,3,1,1,1,1,1,1.0
-ABTestingGateway,1,0,1,1,8,42,15,8,1,0,1,1,1,0.0
-dotfiles,1,1,1,2,13,38,6,4,1,0,0,1,0,1.0
-munin,9,1,2,8,44,16,5,11,0,1,1,1,1,1.0
-owasp-modsecurity-crs,7,1,2,6,18,17,6,5,1,0,1,1,1,0.0
-lua-resty-auto-ssl,1,1,1,1,10,48,2,4,1,0,1,1,1,0.0
-rsnapshot,2,1,1,2,13,17,2,4,1,1,1,1,1,1.0
-git-cal,3,1,2,3,8,19,2,1,1,0,1,1,1,0.0
-contrib,11,1,2,10,52,13,8,10,1,0,0,1,1,1.4
-Linux_Exploit_Suggester,1,1,0,1,8,19,5,1,1,0,1,1,1,0.0
-MultiMarkdown,1,1,1,0,8,9,5,2,0,0,1,1,1,0.0
-rainbarf,1,0,1,1,9,16,3,1,1,0,1,1,1,0.0
-AirChat,2,0,1,1,3,22,3,1,1,0,1,1,1,0.0
-prey-bash-client,1,1,2,1,27,8,1,3,1,0,1,1,1,0.0
-atom,52,4,11,39,445,869,178,6,1,1,0,1,1,1.4285714285714286
-coffeescript,10,1,4,7,47,151,17,2,1,1,1,1,1,1.0
-trix,3,1,2,2,53,331,14,5,1,0,1,1,1,0.0
-zxcvbn,1,1,1,2,10,118,7,4,1,0,0,1,1,0.0
-vimium,9,2,4,6,41,77,10,5,1,1,1,1,1,1.0
-SwitchyOmega,1,0,1,1,14,133,27,4,1,0,1,1,1,1.0
-morris.js,3,1,2,3,10,97,16,5,1,0,1,1,1,0.0
-dynamics.js,2,0,1,1,10,156,11,1,1,0,0,1,1,0.0
-marp,4,1,2,5,27,360,20,5,1,0,1,1,1,1.0
-bacon.js,5,1,2,4,40,91,4,4,1,1,1,1,1,1.0
-codecombat,57,2,8,50,303,124,63,7,1,1,1,1,1,1.5
-At.js,2,1,1,2,10,68,8,4,1,1,1,1,1,1.0
-chroma.js,1,1,1,1,9,70,5,3,0,0,1,1,1,1.0
-sharelatex,1,3,1,2,7,102,11,2,1,1,1,1,1,1.5
-textures,2,1,2,2,7,136,7,2,1,0,1,1,1,0.0
-turbolinks,3,1,1,2,14,211,13,4,1,0,1,1,1,0.0
-vibrant.js,1,1,1,1,3,141,5,3,1,0,1,1,1,0.0
-bootstrap-tour,3,1,2,2,14,62,12,4,1,0,0,1,1,1.0
-jquery.payment,2,0,3,2,7,64,9,2,1,0,0,1,1,0.0
-turbolinks-classic,6,1,3,4,16,59,7,5,1,0,1,1,1,0.0
-hubot-scripts,22,1,5,23,62,47,26,2,1,1,1,1,1,0.0
-pow,2,1,3,1,20,43,3,3,1,0,1,1,1,0.0
-Log.io,1,1,1,1,6,45,6,3,1,0,1,0,1,0.0
-activate-power-mode,4,1,2,4,15,146,19,2,1,0,1,1,1,1.0
-aglio,2,1,2,2,9,70,7,4,1,0,1,1,1,0.0
-wintersmith,2,1,2,1,10,50,4,2,1,0,1,1,1,0.0
-Keypress,2,1,1,2,6,51,5,4,1,0,1,1,1,0.0
-chinese-copywriting-guidelines,1,1,1,1,7,70,7,1,1,0,0,0,1,0.0
-chaplin,8,1,2,8,33,44,4,2,1,1,1,1,1,0.0
-AFNetworking,17,3,9,9,40,389,120,3,1,1,1,1,1,1.0
-SDWebImage,7,1,4,4,15,191,55,2,1,0,1,1,1,1.4
-GPUImage,6,2,2,6,20,240,57,4,1,0,1,1,1,0.0
-Masonry,2,1,1,2,10,302,57,3,1,0,0,1,1,0.0
-MBProgressHUD,2,1,3,1,7,135,32,2,0,0,1,1,1,1.0
-fmdb,3,1,1,2,6,136,30,4,0,0,1,1,1,0.0
-realm-cocoa,44,2,8,37,164,274,36,7,1,1,1,1,1,1.0
-MJRefresh,3,1,2,2,10,266,79,2,1,0,1,1,1,0.0
-JSQMessagesViewController,8,0,5,4,34,192,44,4,1,0,0,0,1,1.0
-Mantle,5,1,2,4,26,181,23,3,1,1,0,1,1,1.0
-YYKit,3,1,2,3,15,235,86,2,1,0,0,1,1,1.0
-MagicalRecord,5,2,4,3,15,120,22,4,1,1,1,1,1,0.0
-lottie-ios,18,1,5,19,25,1066,136,4,1,0,0,1,1,1.5
-RestKit,8,1,6,4,38,110,25,5,1,1,1,1,1,1.0
-SVProgressHUD,3,1,3,2,9,128,26,2,1,0,0,1,1,1.0
-Alcatraz,4,1,2,3,19,186,23,4,1,1,0,1,1,1.0
-IQKeyboardManager,2,1,1,2,17,202,33,3,1,0,1,1,1,1.0
-iCarousel,1,1,1,1,5,125,29,1,1,0,1,1,1,0.0
-CocoaLumberjack,5,1,1,5,15,119,23,4,1,0,1,1,1,1.3333333333333333
-WebViewJavascriptBridge,2,1,1,2,8,130,27,7,1,0,1,1,1,0.0
-DZNEmptyDataSet,3,1,1,3,14,230,32,4,1,0,1,1,1,0.0
-CocoaAsyncSocket,2,1,2,2,5,129,33,4,0,0,1,1,1,1.0
-PNChart,3,1,1,3,12,187,36,2,1,0,1,1,1,0.0
-VVDocumenter-Xcode,2,1,1,2,8,165,32,1,1,0,1,1,1,0.0
-FLEX,2,1,1,2,15,210,22,2,1,1,1,1,1,1.0
-bitbar,8,1,4,11,35,186,9,4,1,0,0,1,1,1.0
-spectacle,1,1,1,1,14,96,6,2,1,1,0,1,1,0.0
-Shimmer,1,1,1,1,3,184,23,2,1,1,1,1,1,0.0
-UITableView-FDTemplateLayoutCell,1,1,1,1,9,269,58,2,1,0,1,1,1,0.0
-postgrest,10,1,2,8,33,283,12,3,1,1,1,1,1,1.3333333333333333
-pandoc,9,1,2,8,72,104,13,11,1,1,1,1,1,1.1666666666666667
-shellcheck,2,1,1,1,15,157,9,2,1,0,1,1,1,1.3333333333333333
-elm-compiler,9,1,3,7,67,65,4,3,1,0,0,1,1,1.0
-Haxl,2,1,2,2,6,70,6,1,0,0,1,1,1,1.0
-write-you-a-haskell,3,1,1,3,14,55,4,14,1,0,1,1,1,0.0
-yesod,7,1,1,5,44,18,4,5,1,0,1,1,1,1.2
-ghcjs,2,1,1,2,16,22,2,9,0,0,1,1,1,1.0
-corrode,3,1,1,3,34,97,6,4,1,1,0,1,1,0.0
-hakyll,3,1,1,3,18,18,3,4,0,0,1,1,1,1.0
-IHaskell,5,1,2,4,31,31,3,6,1,0,1,1,1,1.0
-gitit,2,1,1,2,16,14,2,9,0,0,1,1,1,0.0
-lamdu,1,1,1,1,97,22,1,4,1,0,1,1,1,1.0
-HLearn,1,1,2,1,19,22,2,8,1,0,1,1,1,0.0
-haste-compiler,2,0,1,1,27,19,2,10,1,0,1,1,1,0.0
-unison,3,0,1,3,33,40,2,5,1,0,1,1,1,0.0
-fay,4,0,2,2,20,18,2,3,1,0,1,1,1,1.0
-lens,5,1,1,4,63,19,3,2,0,0,1,1,1,1.25
-yi,5,1,2,4,42,15,2,4,1,0,1,1,1,1.3333333333333333
-scotty,2,1,1,1,7,18,2,2,1,0,1,1,1,1.0
-Carp,6,1,3,5,76,52,2,4,1,0,1,1,1,0.0
-wiwinwlh,4,1,1,3,21,30,4,12,1,0,0,1,0,1.0
-zsh-git-prompt,1,1,1,1,6,12,3,3,1,0,0,1,1,0.0
-grenade,2,1,1,2,13,55,3,3,1,0,1,1,1,1.0
-lantern,16,1,3,15,92,444,119,19,1,0,1,1,1,0.0
-gogs,27,1,8,20,111,476,55,6,1,0,1,0,1,1.2
-syncthing,33,1,19,20,95,372,31,7,1,1,1,1,1,1.0
-gin,10,1,4,8,26,297,34,3,1,1,0,0,1,1.4444444444444444
-hub,6,1,3,5,28,123,11,6,1,1,0,1,1,1.2
-ngrok,1,1,1,1,11,206,31,4,1,0,0,1,1,0.0
-cayley,8,1,3,7,30,262,22,9,1,0,0,1,1,1.0
-nsq,9,1,2,8,28,161,21,7,1,1,0,0,1,1.0
-fzf,4,1,2,3,30,213,9,5,1,0,1,0,1,1.2857142857142858
-martini,5,0,2,5,18,205,21,1,1,0,0,1,1,0.0
-revel,8,1,4,6,23,125,17,4,1,1,1,1,1,0.0
-websocketd,2,1,1,2,7,160,8,3,1,0,1,1,1,0.0
-cowboy,5,1,3,4,20,54,10,3,0,0,0,0,1,0.0
-couchdb,9,1,5,5,93,32,6,10,0,1,0,1,1,1.0
-ejabberd,6,1,2,6,33,34,10,9,1,0,1,1,1,1.0
-rabbitmq-server,12,1,2,14,149,38,10,5,1,1,0,1,1,1.5
-emqttd,9,1,1,9,58,43,11,2,1,0,1,1,1,0.0
-ChicagoBoss,5,1,2,4,20,17,3,7,1,0,1,1,1,0.0
-theBeamBook,10,0,0,10,22,262,22,8,1,0,1,1,1,1.0
-mochiweb,1,1,1,1,6,17,4,4,1,0,1,1,1,1.0
-lfe,3,1,1,2,10,15,1,5,1,0,1,1,1,0.0
-disco,5,1,1,6,43,13,2,8,1,0,1,1,1,0.0
-webmachine,3,1,2,2,7,15,3,5,1,0,1,1,1,0.0
-tsung,2,1,1,2,12,15,4,8,1,0,0,1,1,1.0
-rebar,7,1,7,2,26,12,3,3,1,1,0,1,0,0.0
-n2o,5,0,1,4,34,19,3,5,1,0,1,1,1,1.0
-leofs,3,1,1,3,20,18,2,7,1,0,1,1,1,0.0
-yaws,2,0,1,1,13,9,2,14,1,0,1,1,1,1.0
-vernemq,6,2,1,6,37,35,3,6,0,0,1,1,1,1.0
-actordb,1,0,0,1,13,22,2,5,1,0,1,1,1,1.0
-poolboy,1,1,1,1,5,12,2,2,1,0,1,1,1,0.0
-rebar,7,1,7,2,26,12,3,3,1,1,0,1,0,0.0
-lager,3,0,2,3,12,12,4,3,1,0,1,1,1,0.0
-riak_core,9,1,2,7,23,10,3,2,1,0,1,1,1,0.0
-nitrogen,2,1,1,2,12,8,1,9,0,0,1,1,1,1.0
-alpaca,8,1,1,8,40,51,2,2,1,0,1,1,1,1.0
-logplex,3,1,1,2,30,11,1,4,1,0,1,1,1,0.0
-reia,1,0,0,1,37,7,1,3,1,0,1,1,1,0.0
-gproc,1,1,1,1,4,8,2,2,1,0,1,1,1,0.0
-legacy-homebrew,460,0,470,3,717,285,133,3,1,0,0,0,1,0.0
-awesome-awesomeness,7,0,11,8,11,503,62,1,1,1,0,1,1,1.0
-devise,12,2,5,7,36,182,41,2,1,1,1,1,1,0.0
-huginn,17,2,3,13,52,309,33,6,1,0,1,1,1,1.2857142857142858
-ruby,20,3,18,2,215,141,35,22,1,1,0,0,0,0.0
-bootstrap-sass,5,1,3,3,18,169,43,5,1,1,0,1,1,0.0
-diaspora,38,2,16,23,218,134,32,6,1,1,1,1,1,1.3333333333333333
-sass,5,1,3,3,49,122,22,4,1,1,0,1,1,1.0
-capistrano,9,1,3,7,28,94,13,3,1,1,0,1,1,1.1666666666666667
-CocoaPods,15,2,4,12,94,132,24,2,1,1,1,1,1,1.1666666666666667
-sinatra,8,1,3,6,33,91,14,6,1,1,0,1,1,1.4
-octopress,13,2,9,5,14,99,31,4,0,0,1,1,1,0.0
-paperclip,9,2,6,3,16,77,15,3,1,1,1,1,1,0.0
-grape,11,1,3,7,23,94,11,1,1,1,0,1,1,1.0
-laravel,36,0,23,13,72,462,149,4,0,0,0,1,0,1.4444444444444444
-CodeIgniter,35,1,19,16,72,203,93,8,0,0,1,1,1,1.1666666666666667
-DesignPatternsPHP,4,1,1,3,14,217,44,6,1,0,1,1,1,1.0
-Faker,13,2,5,8,30,162,24,2,0,1,0,1,1,1.2857142857142858
-yii2,107,5,41,62,222,164,108,9,1,0,1,0,1,1.5
-guzzle,10,1,3,7,40,125,20,3,1,0,0,1,1,1.0
-WordPress,4,1,5,0,213,139,75,3,0,0,0,1,0,1.0
-PHPMailer,4,1,2,3,17,131,67,2,1,0,1,1,1,1.3333333333333333
-PHPExcel,6,2,4,2,17,143,48,2,1,0,1,1,1,0.0
-phabricator,4,0,2,4,179,109,14,9,1,0,0,1,0,0.0
-sage,11,1,4,7,26,107,31,4,1,0,1,1,1,1.3333333333333333
-Slim,12,2,6,9,40,98,19,2,1,1,1,1,1,1.0
-koel,9,1,4,6,53,372,37,6,1,0,1,1,1,0.0
-piwik,39,3,7,35,201,101,19,11,1,1,1,0,1,1.5
-Mobile-Detect,3,1,1,2,11,116,31,1,1,0,1,1,1,1.0
-SecLists,2,2,2,5,7,129,51,6,1,0,1,1,1,0.0
-Cachet,35,2,6,28,137,199,22,4,1,1,0,0,1,1.3333333333333333
-api,7,2,3,6,32,154,22,1,0,1,1,1,1,0.0
-paperwork,10,3,2,10,35,155,16,7,1,0,1,1,1,0.0
-Carbon,11,3,4,13,25,104,13,1,0,0,1,1,1,0.0
+project_name,pull_total_mean,pull_opened_mean,pull_closed_mean,pull_merged_mean,commits_mean,stars_mean,forks_mean,languages_count,has_readme,has_contributing,has_wiki,has_project_board,has_issue_tracker,newcomers_mean,language,age,domain,owner
+redis,19,7,9,5,61,246,68,7,1,1,0,1,1,1.4285714285714286,C,8,System software,User
+How-to-Make-a-Computer-Operating-System,3,2,3,3,15,346,59,6,1,0,0,1,1,0.0,C,4,Documentation,User
+ijkplayer,3,1,3,1,48,314,90,7,1,0,1,1,1,1.5,C,4,Non-web libraries and frameworks,Organization
+wrk,1,1,2,0,3,217,16,5,1,0,1,1,1,0.0,C,5,Software tools,User
+the_silver_searcher,8,1,2,5,27,192,12,7,1,1,1,1,1,1.4,C,6,Software tools,User
+emscripten,32,2,7,23,219,162,19,18,1,1,1,1,1,0.0,C,6,Software tools,User
+The-Art-Of-Programming-By-July,12,1,3,14,97,253,104,15,0,0,1,1,1,0.0,C,4,Documentation,User
+JSPatch,5,1,2,3,14,346,71,5,1,0,1,1,1,1.0,C,2,Non-web libraries and frameworks,User
+vim,24,3,21,0,49,387,48,25,1,1,0,1,1,0.0,C,2,Software tools,Organization
+jq,5,1,3,3,23,155,8,9,1,0,1,1,1,0.0,C,5,Software tools,User
+toxcore,22,1,5,19,101,158,19,6,1,0,0,1,1,0.0,C,4,Software tools,User
+Telegram,6,2,6,1,8,169,68,10,1,0,0,1,0,0.0,C,4,Application software,User
+tmux,6,0,6,0,55,278,20,6,1,1,1,0,1,0.0,C,2,Application software,Organization
+torch7,11,1,2,10,19,158,45,4,1,1,1,1,1,1.2857142857142858,C,4,Non-web libraries and frameworks,Organization
+twemproxy,3,1,2,2,10,105,19,6,1,0,1,1,1,0.0,C,5,Software tools,Organization
+h2o,19,1,2,16,117,183,13,14,1,1,1,1,1,1.0,C,3,System software,Organization
+masscan,2,1,1,3,13,135,22,3,1,0,1,1,1,0.0,C,4,Software tools,User
+swoole-src,6,1,2,5,84,117,30,9,1,0,1,1,1,1.0,C,5,Non-web libraries and frameworks,Organization
+disque,5,1,2,7,33,211,14,4,1,0,1,1,1,0.0,C,2,Non-web libraries and frameworks,User
+TypeScript,126,8,17,106,489,665,97,7,1,1,1,1,1,1.4444444444444444,TypeScript,3,Software tools,Organization
+upterm,20,1,12,11,99,605,18,2,1,1,1,1,1,1.3333333333333333,TypeScript,2,Software tools,Organization
+ui-router,9,1,5,5,31,237,57,2,1,1,1,1,1,1.5,TypeScript,4,Web libraries and frameworks,Organization
+NativeScript,56,1,5,51,130,360,28,5,1,1,1,1,1,1.0,TypeScript,2,Non-web libraries and frameworks,Organization
+satellizer,8,2,3,7,75,207,33,2,1,0,0,1,1,0.0,TypeScript,3,Web libraries and frameworks,User
+rxjs,50,5,26,22,80,262,25,4,1,1,1,1,1,1.2727272727272727,TypeScript,2,Web libraries and frameworks,Organization
+ng2-admin,35,2,30,7,36,456,149,5,1,0,1,1,1,1.3333333333333333,TypeScript,1,Web libraries and frameworks,Organization
+cyclejs,5,2,1,3,78,213,8,6,1,1,1,1,1,1.5,TypeScript,3,Web libraries and frameworks,Organization
+blueprint,63,2,7,56,56,578,36,5,1,1,1,1,1,1.5,TypeScript,1,Web libraries and frameworks,Organization
+Eve,12,1,2,12,200,230,9,3,1,0,0,1,1,1.0,TypeScript,4,Software tools,Organization
+playground,2,2,1,3,23,304,53,4,1,1,1,1,1,0.0,TypeScript,1,Web libraries and frameworks,Organization
+reactxp,17,4,3,13,47,880,55,2,1,0,1,1,1,1.2222222222222223,TypeScript,0,,Organization
+winjs,4,2,2,3,53,92,12,4,1,1,1,1,1,0.0,TypeScript,3,Web libraries and frameworks,Organization
+esprima,10,1,10,2,19,55,6,3,1,1,1,1,1,1.0,TypeScript,6,Web libraries and frameworks,Organization
+intern,3,1,3,1,19,70,5,4,1,1,1,1,1,1.0,TypeScript,4,Non-web libraries and frameworks,Organization
+ng-bootstrap,37,3,33,4,36,151,25,3,1,1,1,1,1,1.1428571428571428,TypeScript,2,Web libraries and frameworks,Organization
+shumway,34,1,3,33,194,50,5,12,1,0,1,1,1,0.0,TypeScript,6,Web libraries and frameworks,Organization
+retrofit,10,1,3,7,18,288,72,5,1,0,1,0,1,1.0,Java,7,Non-web libraries and frameworks,Organization
+java-design-patterns,7,1,2,5,47,647,199,7,1,1,1,1,1,1.25,Java,3,Documentation,User
+MPAndroidChart,8,3,4,5,50,434,126,1,1,1,1,1,1,0.0,Java,3,Non-web libraries and frameworks,User
+glide,4,1,2,3,31,350,69,2,1,1,1,1,1,1.4285714285714286,Java,4,Software tools,Organization
+leakcanary,8,1,3,9,20,581,95,2,1,0,1,0,1,1.0,Java,2,Software tools,Organization
+spring-framework,20,2,16,2,137,199,150,17,1,1,1,0,0,1.25,Java,7,Web libraries and frameworks,Organization
+EventBus,1,1,1,2,10,258,61,2,1,1,1,1,1,0.0,Java,5,Non-web libraries and frameworks,User
+Android-Universal-Image-Loader,2,1,2,1,20,220,92,1,1,0,1,1,1,0.0,Java,6,Non-web libraries and frameworks,User
+lottie-android,12,1,2,11,54,1579,282,2,1,0,0,1,1,1.25,Java,1,,Organization
+iosched,3,1,2,3,44,354,123,5,1,1,0,1,1,0.0,Java,3,Application software,Organization
+picasso,8,1,3,6,19,268,67,4,1,1,0,0,1,1.0,Java,4,Non-web libraries and frameworks,Organization
+fresco,8,1,6,4,54,434,109,8,1,1,1,1,1,1.4444444444444444,Java,2,Non-web libraries and frameworks,Organization
+AndroidUtilCode,5,1,3,3,35,877,276,1,1,0,1,1,1,1.5,Java,1,Documentation,User
+PhotoView,2,0,2,1,10,180,49,1,1,0,0,1,1,1.0,Java,5,Non-web libraries and frameworks,User
+material-dialogs,5,1,2,4,43,318,60,1,1,0,0,1,1,1.3333333333333333,Java,3,Web libraries and frameworks,User
+Hystrix,12,2,2,12,34,187,37,6,1,1,1,1,1,1.0,Java,5,Software tools,Organization
+dubbo,3,2,3,3,49,184,124,7,1,0,1,1,1,1.5,Java,5,Non-web libraries and frameworks,Organization
+SlidingMenu,3,1,2,2,17,167,86,2,1,0,1,1,1,0.0,Java,5,Non-web libraries and frameworks,User
+LightTable,8,1,3,6,26,157,15,5,1,1,1,1,1,0.0,Clojure,5,Software tools,Organization
+om,5,1,2,6,45,136,7,4,1,0,1,1,1,1.0,Clojure,4,Non-web libraries and frameworks,Organization
+leiningen,8,1,2,7,46,58,13,6,1,1,1,0,1,1.25,Clojure,8,Software tools,User
+overtone,2,1,2,3,39,45,4,2,1,0,1,1,1,1.5,Clojure,7,Non-web libraries and frameworks,Organization
+icepick,1,0,1,1,8,67,4,2,1,0,1,1,1,0.0,Clojure,4,Non-web libraries and frameworks,User
+riemann,7,1,2,6,25,51,6,4,0,0,0,1,1,1.0,Clojure,5,Software tools,Organization
+compojure,1,1,1,1,12,29,2,2,1,0,1,1,1,0.0,Clojure,9,Web libraries and frameworks,User
+clojure-koans,2,0,1,1,5,34,19,4,1,0,1,1,1,0.0,Clojure,7,Documentation,Organization
+mori,3,1,1,4,16,47,2,5,1,0,1,1,1,0.0,Clojure,5,Web libraries and frameworks,User
+reagent,1,1,1,1,20,59,4,5,1,1,1,1,1,1.0,Clojure,4,Web libraries and frameworks,Organization
+alda,4,0,1,4,18,80,7,2,1,1,0,1,1,1.0,Clojure,3,Non-web libraries and frameworks,Organization
+re-frame,7,1,2,5,42,82,8,5,1,1,1,1,1,1.5,Clojure,3,Documentation,Organization
+datascript,2,1,1,1,11,63,4,4,1,0,1,1,1,1.0,Clojure,3,Non-web libraries and frameworks,User
+jepsen,2,0,1,2,24,47,5,6,1,0,0,1,1,1.3333333333333333,Clojure,4,,Organization
+modern-cljs,6,1,3,6,43,42,4,2,1,0,0,1,1,1.0,Clojure,5,,User
+ring,2,1,1,2,10,37,4,5,1,0,1,1,1,1.0,Clojure,5,,Organization
+lein-figwheel,3,1,1,3,33,54,4,5,1,0,1,1,1,1.5,Clojure,3,,User
+quil,2,1,1,2,15,30,2,4,1,0,1,1,1,0.0,Clojure,5,,Organization
+incanter,2,1,1,2,17,18,3,5,0,0,1,1,1,0.0,Clojure,8,,Organization
+aleph,2,1,1,1,13,22,2,1,1,0,0,1,1,0.0,Clojure,7,,User
+clojure-cookbook,14,1,3,12,59,35,6,2,1,1,0,1,1,0.0,Clojure,4,,Organization
+instaparse,1,1,1,1,19,33,2,1,1,0,1,1,1,0.0,Clojure,4,,User
+pedestal,4,1,1,4,27,32,3,6,1,1,1,1,1,1.5,Clojure,4,,Organization
+schema,4,1,1,4,19,36,4,2,1,1,1,1,1,0.0,Clojure,4,,Organization
+hiccup,1,1,1,1,6,17,1,1,1,0,1,1,1,0.0,Clojure,8,,User
+onyx,6,0,2,5,143,41,4,2,1,0,1,1,1,0.0,Clojure,4,,Organization
+transit-format,2,0,1,0,5,38,2,2,1,0,1,1,1,0.0,Clojure,3,,Organization
+specter,1,0,1,1,27,46,2,3,1,0,1,1,1,1.0,Clojure,2,,User
+incubator-predictionio,7,1,5,6,80,182,30,5,1,1,0,1,0,1.0,Scala,4,System software,Organization
+shadowsocks-android,3,1,1,3,34,159,77,9,1,1,1,1,1,0.0,Scala,5,Non-web libraries and frameworks,Organization
+scala,85,4,21,63,156,127,29,10,1,1,0,1,0,1.0,Scala,6,System software,Organization
+gitbucket,10,1,2,8,72,121,16,6,1,0,1,0,1,1.0,Scala,4,Application software,Organization
+ArnoldC,2,1,2,1,5,115,6,1,1,0,1,1,1,0.0,Scala,4,System software,User
+aerosolve,10,1,1,9,40,146,18,4,1,0,0,1,1,1.0,Scala,2,Non-web libraries and frameworks,Organization
+kafka-manager,4,1,1,4,16,129,33,5,1,0,1,1,1,1.0,Scala,2,Software tools,Organization
+chronos,8,2,2,8,25,68,9,5,1,0,0,1,1,0.0,Scala,4,Application software,Organization
+snowflake,1,1,2,0,11,42,8,0,1,0,0,1,1,0.0,Scala,7,Web libraries and frameworks,Organization
+snowplow,4,1,3,1,85,55,13,12,1,1,1,1,1,1.0,Scala,5,Web libraries and frameworks,Organization
+marathon,46,2,7,39,111,68,15,10,1,0,0,1,1,1.4,Scala,4,Software tools,Organization
+bfg-repo-cleaner,1,1,1,1,11,60,3,2,1,1,1,1,1,0.0,Scala,5,Software tools,User
+fpinscala,3,2,2,4,11,54,29,3,1,0,1,1,1,0.0,Scala,5,Documentation,Organization
+scalaz,14,2,3,12,56,35,6,2,1,1,1,0,1,0.0,Scala,7,Non-web libraries and frameworks,Organization
+sbt,17,2,5,14,56,33,6,4,1,1,1,1,1,1.0,Scala,8,Software tools,Organization
+flockdb,2,0,2,2,28,35,3,4,0,0,0,1,0,0.0,Scala,7,System software,Organization
+scala-js,31,1,3,28,75,55,4,6,1,1,1,1,1,1.0,Scala,4,Software tools,Organization
+diffy,2,1,1,2,5,115,10,7,1,0,0,1,1,0.0,Scala,2,Web libraries and frameworks,Organization
+scalding,17,1,3,14,58,43,9,5,1,1,1,1,1,0.0,Scala,5,Non-web libraries and frameworks,Organization
+kestrel,1,0,3,1,18,24,3,4,1,0,1,1,1,0.0,Scala,9,Software tools,Organization
+linkerd,44,2,6,38,50,132,11,8,1,1,1,1,1,1.25,Scala,1,,Organization
+spray,8,1,2,9,46,33,8,5,0,1,1,1,1,0.0,Scala,6,Web libraries and frameworks,Organization
+scalatra,4,1,1,4,31,22,3,4,0,0,0,1,1,1.0,Scala,8,,Organization
+awesome-python,20,10,6,9,29,970,176,2,1,1,0,1,1,1.5,Python,3,Documentation,User
+thefuck,11,1,3,10,46,1032,50,2,1,1,1,1,1,1.0,Python,2,Software tools,User
+flask,13,1,5,9,34,331,104,4,1,0,0,1,1,1.2307692307692308,Python,7,Web libraries and frameworks,Organization
+big-list-of-naughty-strings,7,3,3,8,17,841,32,3,1,0,1,1,1,0.0,Python,2,Documentation,User
+shadowsocks,2,1,1,1,1,304,139,2,1,0,1,1,1,0.0,Python,5,Software tools,Organization
+system-design-primer,11,1,3,7,24,2803,303,1,1,1,1,1,1,1.0,Python,0,,User
+XX-Net,11,1,3,9,42,509,160,8,1,0,1,1,1,1.0,Python,2,Non-web libraries and frameworks,Organization
+YouCompleteMe,10,1,3,7,34,222,29,4,1,1,1,1,1,0.0,Python,5,Software tools,User
+you-get,9,2,3,7,28,242,49,3,1,0,1,1,1,1.5,Python,5,Application software,User
+reddit,10,3,10,1,83,125,27,11,1,1,1,1,1,0.0,Python,9,Application software,Organization
+Deep-Learning-Papers-Reading-Roadmap,4,2,2,2,13,1138,205,1,1,0,1,1,1,1.0,Python,1,Documentation,User
+python-patterns,3,0,1,3,9,200,45,2,1,0,1,1,1,1.25,Python,5,Documentation,User
+macOS-Security-and-Privacy-Guide,4,0,1,3,17,457,27,1,1,0,0,0,1,1.3333333333333333,Python,2,Documentation,User
+d3,13,1,8,6,50,655,212,1,1,0,1,0,1,0.0,JavaScript,7,Web libraries and frameworks,Organization
+angular.js,89,3,79,7,91,571,316,5,1,1,1,1,1,1.4444444444444444,JavaScript,7,Web libraries and frameworks,Organization
+jquery,26,1,23,4,46,444,138,4,1,1,1,1,1,1.1666666666666667,JavaScript,8,Web libraries and frameworks,Organization
+html5-boilerplate,10,1,8,5,19,412,103,3,1,0,1,1,1,1.1666666666666667,JavaScript,7,Web libraries and frameworks,Organization
+Semantic-UI,14,4,5,6,120,744,80,3,1,1,1,1,1,1.0,JavaScript,4,Web libraries and frameworks,Organization
+reveal.js,8,2,5,4,29,481,147,3,1,1,1,1,1,0.0,JavaScript,6,Web libraries and frameworks,User
+socket.io,8,1,5,5,24,394,74,2,0,0,0,1,1,1.25,JavaScript,7,Non-web libraries and frameworks,Organization
+express,9,1,6,3,59,340,64,3,0,0,1,1,1,1.5,JavaScript,8,Web libraries and frameworks,Organization
+impress.js,4,1,4,2,7,461,93,3,1,0,1,1,1,0.0,JavaScript,6,Web libraries and frameworks,Organization
+resume.github.com,4,1,8,4,9,445,11,4,0,0,1,1,1,0.0,JavaScript,6,Application software,Organization
+hacker-scripts,9,1,4,10,16,1279,226,14,1,0,0,0,1,0.0,JavaScript,2,Application software,User
+brackets,73,2,14,59,250,401,83,8,1,1,1,1,1,1.4444444444444444,JavaScript,6,Application software,Organization
+jQuery-File-Upload,4,1,3,1,14,335,88,7,1,1,1,1,0,1.0,JavaScript,7,Web libraries and frameworks,User
+gulp,10,1,3,7,21,538,78,2,1,1,0,1,1,1.5,JavaScript,4,Software tools,Organization
+diff-so-fancy,7,1,3,6,23,431,8,2,0,0,1,1,1,1.3333333333333333,Perl,1,Software tools,Organization
+gitolite,2,1,2,1,10,68,8,3,0,1,1,1,0,1.0,Perl,8,Software tools,User
+FlameGraph,2,1,1,2,5,71,8,5,1,0,1,1,1,1.25,Perl,6,Web libraries and frameworks,User
+Expose,2,1,1,3,12,154,8,5,0,0,1,1,1,0.0,Perl,2,Documentation,User
+MySQLTuner-perl,2,0,2,3,12,38,8,4,1,1,1,1,1,1.3333333333333333,Perl,8,Software tools,User
+cloc,2,1,1,2,16,136,10,62,1,0,1,1,1,1.0,Perl,2,Software tools,User
+EQGRP,8,1,3,12,33,545,333,11,1,0,1,1,1,0.0,Perl,0,,User
+sicp-pdf,1,2,0,1,4,35,4,4,1,0,1,1,1,1.0,Perl,6,Documentation,User
+ua-parser,6,1,2,6,25,22,7,15,0,1,0,1,1,0.0,Perl,7,,User
+mojo,5,1,4,2,102,17,4,4,1,0,1,1,1,0.0,Perl,9,,User
+nginx-tutorials,1,0,1,1,14,26,5,3,0,0,1,1,1,0.0,Perl,6,,Organization
+nikto,5,1,1,4,17,30,5,3,1,0,1,1,1,1.0,Perl,5,,User
+rcm,3,1,2,2,6,32,2,6,1,1,1,1,1,0.0,Perl,4,,Organization
+duckduckgo,2,1,1,2,11,17,3,2,1,1,1,1,1,0.0,Perl,6,,Organization
+ack2,2,1,2,2,33,19,2,16,1,1,1,1,1,0.0,Perl,6,,Organization
+sqitch,1,1,1,1,42,21,2,4,1,0,1,1,1,1.0,Perl,5,,User
+pgbadger,1,1,1,1,13,17,2,3,1,1,1,1,1,1.0,Perl,5,,Organization
+ABTestingGateway,1,0,1,1,8,42,15,8,1,0,1,1,1,0.0,Perl,2,,Organization
+dotfiles,1,1,1,2,13,38,6,4,1,0,0,1,0,1.0,Perl,2,Software tools,User
+munin,9,1,2,8,44,16,5,11,0,1,1,1,1,1.0,Perl,5,,Organization
+owasp-modsecurity-crs,7,1,2,6,18,17,6,5,1,0,1,1,1,0.0,Perl,5,,Organization
+lua-resty-auto-ssl,1,1,1,1,10,48,2,4,1,0,1,1,1,0.0,Perl,1,,User
+rsnapshot,2,1,1,2,13,17,2,4,1,1,1,1,1,1.0,Perl,5,,Organization
+git-cal,3,1,2,3,8,19,2,1,1,0,1,1,1,0.0,Perl,4,,User
+contrib,11,1,2,10,52,13,8,10,1,0,0,1,1,1.4,Perl,6,,Organization
+Linux_Exploit_Suggester,1,1,0,1,8,19,5,1,1,0,1,1,1,0.0,Perl,4,,User
+MultiMarkdown,1,1,1,0,8,9,5,2,0,0,1,1,1,0.0,Perl,8,,User
+rainbarf,1,0,1,1,9,16,3,1,1,0,1,1,1,0.0,Perl,4,,User
+AirChat,2,0,1,1,3,22,3,1,1,0,1,1,1,0.0,Perl,3,,User
+prey-bash-client,1,1,2,1,27,8,1,3,1,0,1,1,1,0.0,Perl,8,,Organization
+atom,52,4,11,39,445,869,178,6,1,1,0,1,1,1.4285714285714286,CoffeeScript,5,Application software,Organization
+coffeescript,10,1,4,7,47,151,17,2,1,1,1,1,1,1.0,CoffeeScript,8,System software,User
+trix,3,1,2,2,53,331,14,5,1,0,1,1,1,0.0,CoffeeScript,4,Web libraries and frameworks,Organization
+zxcvbn,1,1,1,2,10,118,7,4,1,0,0,1,1,0.0,CoffeeScript,5,Web libraries and frameworks,Organization
+vimium,9,2,4,6,41,77,10,5,1,1,1,1,1,1.0,CoffeeScript,8,Application software,User
+SwitchyOmega,1,0,1,1,14,133,27,4,1,0,1,1,1,1.0,CoffeeScript,5,Software tools,User
+morris.js,3,1,2,3,10,97,16,5,1,0,1,1,1,0.0,CoffeeScript,5,Web libraries and frameworks,Organization
+dynamics.js,2,0,1,1,10,156,11,1,1,0,0,1,1,0.0,CoffeeScript,3,Web libraries and frameworks,User
+marp,4,1,2,5,27,360,20,5,1,0,1,1,1,1.0,CoffeeScript,1,Web libraries and frameworks,User
+bacon.js,5,1,2,4,40,91,4,4,1,1,1,1,1,1.0,CoffeeScript,5,Non-web libraries and frameworks,Organization
+codecombat,57,2,8,50,303,124,63,7,1,1,1,1,1,1.5,CoffeeScript,4,Application software,Organization
+At.js,2,1,1,2,10,68,8,4,1,1,1,1,1,1.0,CoffeeScript,5,Web libraries and frameworks,User
+chroma.js,1,1,1,1,9,70,5,3,0,0,1,1,1,1.0,CoffeeScript,6,Web libraries and frameworks,User
+sharelatex,1,3,1,2,7,102,11,2,1,1,1,1,1,1.5,CoffeeScript,3,Application software,Organization
+textures,2,1,2,2,7,136,7,2,1,0,1,1,1,0.0,CoffeeScript,2,Web libraries and frameworks,User
+turbolinks,3,1,1,2,14,211,13,4,1,0,1,1,1,0.0,CoffeeScript,1,Web libraries and frameworks,Organization
+vibrant.js,1,1,1,1,3,141,5,3,1,0,1,1,1,0.0,CoffeeScript,2,Web libraries and frameworks,User
+bootstrap-tour,3,1,2,2,14,62,12,4,1,0,0,1,1,1.0,CoffeeScript,5,Documentation,User
+jquery.payment,2,0,3,2,7,64,9,2,1,0,0,1,1,0.0,CoffeeScript,5,Web libraries and frameworks,Organization
+turbolinks-classic,6,1,3,4,16,59,7,5,1,0,1,1,1,0.0,CoffeeScript,5,Web libraries and frameworks,Organization
+hubot-scripts,22,1,5,23,62,47,26,2,1,1,1,1,1,0.0,CoffeeScript,6,Software tools,Organization
+pow,2,1,3,1,20,43,3,3,1,0,1,1,1,0.0,CoffeeScript,6,Software tools,Organization
+Log.io,1,1,1,1,6,45,6,3,1,0,1,0,1,0.0,CoffeeScript,6,Web libraries and frameworks,Organization
+activate-power-mode,4,1,2,4,15,146,19,2,1,0,1,1,1,1.0,CoffeeScript,2,Software tools,User
+aglio,2,1,2,2,9,70,7,4,1,0,1,1,1,0.0,CoffeeScript,4,Web libraries and frameworks,User
+wintersmith,2,1,2,1,10,50,4,2,1,0,1,1,1,0.0,CoffeeScript,5,Application software,User
+Keypress,2,1,1,2,6,51,5,4,1,0,1,1,1,0.0,CoffeeScript,5,Web libraries and frameworks,User
+chinese-copywriting-guidelines,1,1,1,1,7,70,7,1,1,0,0,0,1,0.0,CoffeeScript,3,Documentation,User
+chaplin,8,1,2,8,33,44,4,2,1,1,1,1,1,0.0,CoffeeScript,5,Web libraries and frameworks,Organization
+AFNetworking,17,3,9,9,40,389,120,3,1,1,1,1,1,1.0,Objective-C,6,Software tools,Organization
+SDWebImage,7,1,4,4,15,191,55,2,1,0,1,1,1,1.4,Objective-C,8,Web libraries and frameworks,User
+GPUImage,6,2,2,6,20,240,57,4,1,0,1,1,1,0.0,Objective-C,5,Non-web libraries and frameworks,User
+Masonry,2,1,1,2,10,302,57,3,1,0,0,1,1,0.0,Objective-C,4,Non-web libraries and frameworks,Organization
+MBProgressHUD,2,1,3,1,7,135,32,2,0,0,1,1,1,1.0,Objective-C,8,Non-web libraries and frameworks,User
+fmdb,3,1,1,2,6,136,30,4,0,0,1,1,1,0.0,Objective-C,7,System software,User
+realm-cocoa,44,2,8,37,164,274,36,7,1,1,1,1,1,1.0,Objective-C,5,System software,Organization
+MJRefresh,3,1,2,2,10,266,79,2,1,0,1,1,1,0.0,Objective-C,3,Non-web libraries and frameworks,User
+JSQMessagesViewController,8,0,5,4,34,192,44,4,1,0,0,0,1,1.0,Objective-C,4,Non-web libraries and frameworks,User
+Mantle,5,1,2,4,26,181,23,3,1,1,0,1,1,1.0,Objective-C,5,Non-web libraries and frameworks,Organization
+YYKit,3,1,2,3,15,235,86,2,1,0,0,1,1,1.0,Objective-C,4,Non-web libraries and frameworks,User
+MagicalRecord,5,2,4,3,15,120,22,4,1,1,1,1,1,0.0,Objective-C,7,Software tools,Organization
+lottie-ios,18,1,5,19,25,1066,136,4,1,0,0,1,1,1.5,Objective-C,1,,Organization
+RestKit,8,1,6,4,38,110,25,5,1,1,1,1,1,1.0,Objective-C,7,Web libraries and frameworks,Organization
+SVProgressHUD,3,1,3,2,9,128,26,2,1,0,0,1,1,1.0,Objective-C,6,Non-web libraries and frameworks,Organization
+Alcatraz,4,1,2,3,19,186,23,4,1,1,0,1,1,1.0,Objective-C,4,Software tools,Organization
+IQKeyboardManager,2,1,1,2,17,202,33,3,1,0,1,1,1,1.0,Objective-C,4,Non-web libraries and frameworks,User
+iCarousel,1,1,1,1,5,125,29,1,1,0,1,1,1,0.0,Objective-C,6,Non-web libraries and frameworks,User
+CocoaLumberjack,5,1,1,5,15,119,23,4,1,0,1,1,1,1.3333333333333333,Objective-C,6,Non-web libraries and frameworks,Organization
+WebViewJavascriptBridge,2,1,1,2,8,130,27,7,1,0,1,1,1,0.0,Objective-C,6,Non-web libraries and frameworks,User
+DZNEmptyDataSet,3,1,1,3,14,230,32,4,1,0,1,1,1,0.0,Objective-C,3,Non-web libraries and frameworks,User
+CocoaAsyncSocket,2,1,2,2,5,129,33,4,0,0,1,1,1,1.0,Objective-C,6,Non-web libraries and frameworks,User
+PNChart,3,1,1,3,12,187,36,2,1,0,1,1,1,0.0,Objective-C,4,Non-web libraries and frameworks,User
+VVDocumenter-Xcode,2,1,1,2,8,165,32,1,1,0,1,1,1,0.0,Objective-C,4,Software tools,User
+FLEX,2,1,1,2,15,210,22,2,1,1,1,1,1,1.0,Objective-C,3,Software tools,Organization
+bitbar,8,1,4,11,35,186,9,4,1,0,0,1,1,1.0,Objective-C,4,Software tools,User
+spectacle,1,1,1,1,14,96,6,2,1,1,0,1,1,0.0,Objective-C,7,Web libraries and frameworks,User
+Shimmer,1,1,1,1,3,184,23,2,1,1,1,1,1,0.0,Objective-C,3,Non-web libraries and frameworks,Organization
+UITableView-FDTemplateLayoutCell,1,1,1,1,9,269,58,2,1,0,1,1,1,0.0,Objective-C,2,Non-web libraries and frameworks,Organization
+postgrest,10,1,2,8,33,283,12,3,1,1,1,1,1,1.3333333333333333,Haskell,3,Web libraries and frameworks,User
+pandoc,9,1,2,8,72,104,13,11,1,1,1,1,1,1.1666666666666667,Haskell,7,Non-web libraries and frameworks,User
+shellcheck,2,1,1,1,15,157,9,2,1,0,1,1,1,1.3333333333333333,Haskell,5,Software tools,User
+elm-compiler,9,1,3,7,67,65,4,3,1,0,0,1,1,1.0,Haskell,5,Software tools,Organization
+Haxl,2,1,2,2,6,70,6,1,0,0,1,1,1,1.0,Haskell,3,Non-web libraries and frameworks,Organization
+write-you-a-haskell,3,1,1,3,14,55,4,14,1,0,1,1,1,0.0,Haskell,2,,User
+yesod,7,1,1,5,44,18,4,5,1,0,1,1,1,1.2,Haskell,8,,Organization
+ghcjs,2,1,1,2,16,22,2,9,0,0,1,1,1,1.0,Haskell,7,,Organization
+corrode,3,1,1,3,34,97,6,4,1,1,0,1,1,0.0,Haskell,1,,User
+hakyll,3,1,1,3,18,18,3,4,0,0,1,1,1,1.0,Haskell,8,,User
+IHaskell,5,1,2,4,31,31,3,6,1,0,1,1,1,1.0,Haskell,4,,User
+gitit,2,1,1,2,16,14,2,9,0,0,1,1,1,0.0,Haskell,9,,User
+lamdu,1,1,1,1,97,22,1,4,1,0,1,1,1,1.0,Haskell,6,,Organization
+HLearn,1,1,2,1,19,22,2,8,1,0,1,1,1,0.0,Haskell,5,,User
+haste-compiler,2,0,1,1,27,19,2,10,1,0,1,1,1,0.0,Haskell,5,,User
+unison,3,0,1,3,33,40,2,5,1,0,1,1,1,0.0,Haskell,2,,Organization
+fay,4,0,2,2,20,18,2,3,1,0,1,1,1,1.0,Haskell,5,,Organization
+lens,5,1,1,4,63,19,3,2,0,0,1,1,1,1.25,Haskell,5,,User
+yi,5,1,2,4,42,15,2,4,1,0,1,1,1,1.3333333333333333,Haskell,6,,Organization
+scotty,2,1,1,1,7,18,2,2,1,0,1,1,1,1.0,Haskell,6,,Organization
+Carp,6,1,3,5,76,52,2,4,1,0,1,1,1,0.0,Haskell,1,,Organization
+wiwinwlh,4,1,1,3,21,30,4,12,1,0,0,1,0,1.0,Haskell,3,,User
+zsh-git-prompt,1,1,1,1,6,12,3,3,1,0,0,1,1,0.0,Haskell,7,,User
+grenade,2,1,1,2,13,55,3,3,1,0,1,1,1,1.0,Haskell,1,,User
+lantern,16,1,3,15,92,444,119,19,1,0,1,1,1,0.0,Go,6,Application software,Organization
+gogs,27,1,8,20,111,476,55,6,1,0,1,0,1,1.2,Go,3,Software tools,Organization
+syncthing,33,1,19,20,95,372,31,7,1,1,1,1,1,1.0,Go,4,Software tools,Organization
+gin,10,1,4,8,26,297,34,3,1,1,0,0,1,1.4444444444444444,Go,3,Web libraries and frameworks,Organization
+hub,6,1,3,5,28,123,11,6,1,1,0,1,1,1.2,Go,8,Software tools,Organization
+ngrok,1,1,1,1,11,206,31,4,1,0,0,1,1,0.0,Go,4,Software tools,User
+cayley,8,1,3,7,30,262,22,9,1,0,0,1,1,1.0,Go,3,System software,Organization
+nsq,9,1,2,8,28,161,21,7,1,1,0,0,1,1.0,Go,5,System software,Organization
+fzf,4,1,2,3,30,213,9,5,1,0,1,0,1,1.2857142857142858,Go,4,Software tools,User
+martini,5,0,2,5,18,205,21,1,1,0,0,1,1,0.0,Go,4,Web libraries and frameworks,Organization
+revel,8,1,4,6,23,125,17,4,1,1,1,1,1,0.0,Go,6,Web libraries and frameworks,Organization
+websocketd,2,1,1,2,7,160,8,3,1,0,1,1,1,0.0,Go,4,Software tools,User
+cowboy,5,1,3,4,20,54,10,3,0,0,0,0,1,0.0,Erlang,6,System software,Organization
+couchdb,9,1,5,5,93,32,6,10,0,1,0,1,1,1.0,Erlang,8,System software,Organization
+ejabberd,6,1,2,6,33,34,10,9,1,0,1,1,1,1.0,Erlang,7,Non-web libraries and frameworks,Organization
+rabbitmq-server,12,1,2,14,149,38,10,5,1,1,0,1,1,1.5,Erlang,7,System software,Organization
+emqttd,9,1,1,9,58,43,11,2,1,0,1,1,1,0.0,Erlang,5,,Organization
+ChicagoBoss,5,1,2,4,20,17,3,7,1,0,1,1,1,0.0,Erlang,8,,Organization
+theBeamBook,10,0,0,10,22,262,22,8,1,0,1,1,1,1.0,Erlang,0,,User
+mochiweb,1,1,1,1,6,17,4,4,1,0,1,1,1,1.0,Erlang,7,,Organization
+lfe,3,1,1,2,10,15,1,5,1,0,1,1,1,0.0,Erlang,9,,User
+disco,5,1,1,6,43,13,2,8,1,0,1,1,1,0.0,Erlang,9,,Organization
+webmachine,3,1,2,2,7,15,3,5,1,0,1,1,1,0.0,Erlang,7,,Organization
+tsung,2,1,1,2,12,15,4,8,1,0,0,1,1,1.0,Erlang,7,,Organization
+rebar,7,1,7,2,26,12,3,3,1,1,0,1,0,0.0,Erlang,5,,Organization
+n2o,5,0,1,4,34,19,3,5,1,0,1,1,1,1.0,Erlang,4,,Organization
+leofs,3,1,1,3,20,18,2,7,1,0,1,1,1,0.0,Erlang,5,,Organization
+yaws,2,0,1,1,13,9,2,14,1,0,1,1,1,1.0,Erlang,8,,User
+vernemq,6,2,1,6,37,35,3,6,0,0,1,1,1,1.0,Erlang,2,,Organization
+actordb,1,0,0,1,13,22,2,5,1,0,1,1,1,1.0,Erlang,3,,Organization
+poolboy,1,1,1,1,5,12,2,2,1,0,1,1,1,0.0,Erlang,7,,User
+rebar,7,1,7,2,26,12,3,3,1,1,0,1,0,0.0,Erlang,5,,Organization
+lager,3,0,2,3,12,12,4,3,1,0,1,1,1,0.0,Erlang,6,,Organization
+riak_core,9,1,2,7,23,10,3,2,1,0,1,1,1,0.0,Erlang,7,,Organization
+nitrogen,2,1,1,2,12,8,1,9,0,0,1,1,1,1.0,Erlang,9,,Organization
+alpaca,8,1,1,8,40,51,2,2,1,0,1,1,1,1.0,Erlang,1,,Organization
+logplex,3,1,1,2,30,11,1,4,1,0,1,1,1,0.0,Erlang,7,,Organization
+reia,1,0,0,1,37,7,1,3,1,0,1,1,1,0.0,Erlang,9,,User
+gproc,1,1,1,1,4,8,2,2,1,0,1,1,1,0.0,Erlang,7,,User
+legacy-homebrew,460,0,470,3,717,285,133,3,1,0,0,0,1,0.0,Ruby,8,Software tools,Organization
+awesome-awesomeness,7,0,11,8,11,503,62,1,1,1,0,1,1,1.0,Ruby,3,Documentation,User
+devise,12,2,5,7,36,182,41,2,1,1,1,1,1,0.0,Ruby,8,Non-web libraries and frameworks,Organization
+huginn,17,2,3,13,52,309,33,6,1,0,1,1,1,1.2857142857142858,Ruby,4,Software tools,Organization
+ruby,20,3,18,2,215,141,35,22,1,1,0,0,0,0.0,Ruby,7,System software,Organization
+bootstrap-sass,5,1,3,3,18,169,43,5,1,1,0,1,1,0.0,Ruby,6,Web libraries and frameworks,Organization
+diaspora,38,2,16,23,218,134,32,6,1,1,1,1,1,1.3333333333333333,Ruby,7,Application software,Organization
+sass,5,1,3,3,49,122,22,4,1,1,0,1,1,1.0,Ruby,7,Software tools,Organization
+capistrano,9,1,3,7,28,94,13,3,1,1,0,1,1,1.1666666666666667,Ruby,8,Software tools,Organization
+CocoaPods,15,2,4,12,94,132,24,2,1,1,1,1,1,1.1666666666666667,Ruby,6,Software tools,Organization
+sinatra,8,1,3,6,33,91,14,6,1,1,0,1,1,1.4,Ruby,8,Web libraries and frameworks,Organization
+octopress,13,2,9,5,14,99,31,4,0,0,1,1,1,0.0,Ruby,8,Application software,User
+paperclip,9,2,6,3,16,77,15,3,1,1,1,1,1,0.0,Ruby,9,Non-web libraries and frameworks,Organization
+grape,11,1,3,7,23,94,11,1,1,1,0,1,1,1.0,Ruby,7,Web libraries and frameworks,Organization
+laravel,36,0,23,13,72,462,149,4,0,0,0,1,0,1.4444444444444444,PHP,6,Web libraries and frameworks,Organization
+CodeIgniter,35,1,19,16,72,203,93,8,0,0,1,1,1,1.1666666666666667,PHP,6,Web libraries and frameworks,Organization
+DesignPatternsPHP,4,1,1,3,14,217,44,6,1,0,1,1,1,1.0,PHP,6,Documentation,User
+Faker,13,2,5,8,30,162,24,2,0,1,0,1,1,1.2857142857142858,PHP,6,Web libraries and frameworks,User
+yii2,107,5,41,62,222,164,108,9,1,0,1,0,1,1.5,PHP,5,Web libraries and frameworks,Organization
+guzzle,10,1,3,7,40,125,20,3,1,0,0,1,1,1.0,PHP,6,Web libraries and frameworks,Organization
+WordPress,4,1,5,0,213,139,75,3,0,0,0,1,0,1.0,PHP,6,Application software,Organization
+PHPMailer,4,1,2,3,17,131,67,2,1,0,1,1,1,1.3333333333333333,PHP,6,Non-web libraries and frameworks,Organization
+PHPExcel,6,2,4,2,17,143,48,2,1,0,1,1,1,0.0,PHP,5,Non-web libraries and frameworks,Organization
+phabricator,4,0,2,4,179,109,14,9,1,0,0,1,0,0.0,PHP,6,Documentation,Organization
+sage,11,1,4,7,26,107,31,4,1,0,1,1,1,1.3333333333333333,PHP,6,Web libraries and frameworks,Organization
+Slim,12,2,6,9,40,98,19,2,1,1,1,1,1,1.0,PHP,7,Web libraries and frameworks,Organization
+koel,9,1,4,6,53,372,37,6,1,0,1,1,1,0.0,PHP,2,Application software,User
+piwik,39,3,7,35,201,101,19,11,1,1,1,0,1,1.5,PHP,6,Software tools,Organization
+Mobile-Detect,3,1,1,2,11,116,31,1,1,0,1,1,1,1.0,PHP,5,Web libraries and frameworks,User
+SecLists,2,2,2,5,7,129,51,6,1,0,1,1,1,0.0,PHP,5,Documentation,User
+Cachet,35,2,6,28,137,199,22,4,1,1,0,0,1,1.3333333333333333,PHP,3,Software tools,Organization
+api,7,2,3,6,32,154,22,1,0,1,1,1,1,0.0,PHP,3,Web libraries and frameworks,Organization
+paperwork,10,3,2,10,35,155,16,7,1,0,1,1,1,0.0,PHP,3,Application software,Organization
+Carbon,11,3,4,13,25,104,13,1,0,0,1,1,1,0.0,PHP,5,Web libraries and frameworks,User
