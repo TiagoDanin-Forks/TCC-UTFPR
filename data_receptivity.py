@@ -26,6 +26,7 @@ class Receptivity():
         receptivity_average = sum(projects.values()) / len(projects.values())
         receptive_projects = {}
         nonreceptive_projects = {}
+	print receptivity_average
 
         for project in projects:
             if projects[project] >= receptivity_average:

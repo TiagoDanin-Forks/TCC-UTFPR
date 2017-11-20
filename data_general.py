@@ -44,7 +44,7 @@ class GeneralData():
 
                 projects[repository['name']] = {'Contributors': int(number_of_contributors), 'Contributions': int(number_of_commits), 'Pull-requests': int(number_of_pulls)}
 
-        fieldnames=['Project', 'Age', 'Stars', 'Watchers', 'Forks', 'Contributors', 'Contributions', 'Total_pulls', 'Has_issues', 'Has_project', 'Has_wiki']
+        fieldnames=['Project', 'Age', 'Language', 'Stars', 'Watchers', 'Forks', 'Contributors', 'Contributions', 'Total_pulls', 'Has_issues', 'Has_project', 'Has_wiki']
         general_file = open('data_general.csv', 'w')
         writer = csv.DictWriter(general_file, fieldnames=fieldnames)
         writer.writeheader()
@@ -66,6 +66,7 @@ class GeneralData():
             age = 2017 - int(datetime.strptime(project['created_at'], '%Y-%m-%dT%H:%M:%SZ').date().year)
             writer.writerow({'Project': project['name'],
                              'Age': age,
+                             'Language': project['language'],
                              'Stars': project['stargazers_count'],
                              'Watchers': project['watchers_count'],
                              'Forks': project['forks_count'],

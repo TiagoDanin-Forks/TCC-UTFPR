@@ -11,6 +11,23 @@ setwd("/var/www/html/TCC-UTFPR")
 receptive <- read.csv("data_receptive.csv")
 nonreceptive <- read.csv("data_nonreceptive.csv")
 
+x <- receptive$newcomers_mean
+h<-hist(x, breaks=10, col="gray", xlab="# Novos contribuidores", ylab = "# Projetos", main = "") 
+xfit<-seq(min(x),max(x),length=40) 
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x)) 
+yfit <- yfit*diff(h$mids[1:2])*length(x) 
+lines(xfit, yfit, col="black", lwd=2)
+
+x <- nonreceptive$newcomers_mean
+h<-hist(x, breaks=10, col="gray", xlab="# Novos contribuidores", ylab="# Projetos", main = "") 
+xfit<-seq(min(x),max(x),length=40) 
+yfit<-dnorm(xfit,mean=mean(x),sd=sd(x)) 
+yfit <- yfit*diff(h$mids[1:2])*length(x) 
+lines(xfit, yfit, col="black", lwd=2)
+
+
+summary(receptive$newcomers_mean)
+summary(nonreceptive$newcomers_mean)
 # Calculating MWW and Effect Size for receptive data
 # Newcomers x Open pull requests
 wilcox.test(receptive$newcomers_mean, receptive$pull_opened_mean)
