@@ -3,18 +3,19 @@
 
 require("effsize")
 library(ggplot2)
+install.packages('plyr')
 
 # Define your own working directory
 setwd("/var/www/html/TCC-UTFPR")
 
 # Reading files
 general <- read.csv("data_general.csv")
-help("boxplot")
 
-mean(subset(general, Language == "JavaScript", select=c(Contributors))$Contributors)
-mean(subset(general, Language == "C", select=c(Contributors))$Contributors)
-mean(subset(general, Language == "Ruby", select=c(Contributors))$Contributors)
-     
+# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+#          CHARTS 
+# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+# Contributors per language 
 languagens_mean <- c(mean(subset(general, Language == "Perl", select=c(Contributors))$Contributors),
                      mean(subset(general, Language == "Clojure", select=c(Contributors))$Contributors),
                      mean(subset(general, Language == "Erlang", select=c(Contributors))$Contributors),
@@ -31,14 +32,14 @@ languagens_mean <- c(mean(subset(general, Language == "Perl", select=c(Contribut
                      mean(subset(general, Language == "C", select=c(Contributors))$Contributors),
                      mean(subset(general, Language == "Ruby", select=c(Contributors))$Contributors)
                                                                )
-help("barplot")
 barplot(languagens_mean,beside=T, horiz = TRUE, space = 0.25, border = TRUE, xlim = c(0,1000), xlab = "", names.arg = c("Perl", "Clojure", "Erlang", "Objective-C", "Haskell", "CoffeeScript", "Java", "Scala", "TypeScript", "PHP", "Go", "Python", "JavaScript", "C", "Ruby"), las=1,  cex.names=0.7, cex.axis = 0.75)
 title(xlab = "# Contribuidores", line = 2, cex.lab = 0.7)
 
-boxplot(general$Stars, outline=FALSE, ylab="Estrelas", cex.lab=1.2, cex.axis=1.1)
-boxplot(general$Age, outline=FALSE, ylab="Idade (Anos)", cex.lab=1.2, cex.axis=1.1)
-boxplot(general$Contributors, outline=FALSE, ylab="Contribuidores", cex.lab=1.2, cex.axis=1.1)
-boxplot(general$Contributions, outline=FALSE, ylab="Contribuições", cex.lab=1.2, cex.axis=1.1)
-boxplot(general$Total_pulls, outline=FALSE, ylab="Requisições", cex.lab=1.2, cex.axis=1.1)
-boxplot(general$Forks, outline=FALSE, ylab="Cópias", cex.lab=1.2, cex.axis=1.1)
+# Boxplots: Stars, Age, Contributors, Contributions, Pull requests and Forks
+boxplot(general$Stars, outline=FALSE, ylab="# Estrelas", cex.lab=1.2, cex.axis=1.1)
+boxplot(general$Age, outline=FALSE, ylab="# Idade (Anos)", cex.lab=1.2, cex.axis=1.1)
+boxplot(general$Contributors, outline=FALSE, ylab="# Contribuidores", cex.lab=1.2, cex.axis=1.1)
+boxplot(general$Contributions, outline=FALSE, ylab="# Contribuições", cex.lab=1.2, cex.axis=1.1)
+boxplot(general$Total_pulls, outline=FALSE, ylab="# Requisições", cex.lab=1.2, cex.axis=1.1)
+boxplot(general$Forks, outline=FALSE, ylab="# Cópias", cex.lab=1.2, cex.axis=1.1)
 
