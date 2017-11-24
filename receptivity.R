@@ -2,13 +2,27 @@
 # Questions? fronchettiemail@gmail.com
 require("effsize")
 library(ggplot2)
-
+library("plyr")
 # Define your own working directory
 setwd("/var/www/html/TCC-UTFPR")
 
 # Reading files
 receptive <- read.csv("data_receptive.csv")
 nonreceptive <- read.csv("data_nonreceptive.csv")
+
+count(receptive$domain)
+count(nonreceptive$domain)
+
+language_frequency <- read.csv("languages_frequency.csv")
+domain_frequency <- read.csv("domain_frequency.csv")
+
+ggplot(domain_frequency, aes(factor(domain), count, fill = type)) + 
+  geom_bar(stat="identity", position = "dodge", colour="black", width = 0.6) + labs(y="Frequência", x = "") + guides(fill=guide_legend(title="")) + 
+  scale_fill_manual(values=c("white","gray")) + theme(axis.text=element_text(size=14, colour = "black"), axis.text.x = element_text(angle = 45, hjust = 1), axis.title.y = element_text(size = 14), legend.text=element_text(size=14)) + theme(legend.position="top") + theme(legend.key.width=unit(3,"line"))
+
+ggplot(language_frequency, aes(factor(language), count, fill = type)) + 
+  geom_bar(stat="identity", position = "dodge", colour="black") + labs(y="Frequência", x = "") + guides(fill=guide_legend(title="")) + 
+  scale_fill_manual(values=c("white","gray")) + theme(axis.text=element_text(size=14, colour = "black"), axis.text.x = element_text(angle = 45, hjust = 1), axis.title.y = element_text(size = 14), legend.text=element_text(size=14)) + theme(legend.position="top") + theme(legend.key.width=unit(3,"line"))
 
 cor.test(receptive$pull_opened_mean, receptive$newcomers_mean, method="spearman")
 cor.test(receptive$pull_closed_mean, receptive$newcomers_mean, method="spearman")
