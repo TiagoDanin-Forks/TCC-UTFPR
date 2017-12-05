@@ -172,8 +172,8 @@ def repositories_in_parallel(repository, language):
 # Please, retrieve your own crawler client id and secret in this page:
 # https://github.com/settings/applications/new
 
-api_client_id = '4161a8257efaea420c94' # Please, specify your own client id
-api_client_secret = 'd814ec48927a6bd62c55c058cd028a949e5362d4' # Please, specify your own client secret
+api_client_id = str(os.environ['github_client_id']) # Please, specify your own client id
+api_client_secret = str(os.environ['github_client_secret']) # Please, specify your own client secret
 crawler = GitCrawler.Crawler(api_client_id, api_client_secret)
 parallel = multiprocessing.Pool(processes=5)
 
