@@ -67,9 +67,7 @@ class Collector():
                 '\033[97m\033[1m-> Languages file already exists.\033[0m Please, delete it first.')
 
     def stars(self):
-        stars_file_lines = sum(1 for line in open(self.folder + '/stars.json', 'r'))
-
-        if not os.path.isfile(self.folder + '/stars.json') or stars_file_lines < 10:
+        if not os.path.isfile(self.folder + '/stars.json'):
             stars = self.object.stars()
 
             with open(self.folder + '/stars.json', 'w') as stars_file:
@@ -80,9 +78,7 @@ class Collector():
                 '\033[97m\033[1m-> Stars file already exists.\033[0m Please, delete it first.')
 
     def forks(self):
-        forks_file_lines = sum(1 for line in open(self.folder + '/forks.json', 'r'))
-
-        if not os.path.isfile(self.folder + '/forks.json') or forks_file_lines < 10:
+        if not os.path.isfile(self.folder + '/forks.json'):
             forks = self.object.forks()
 
             with open(self.folder + '/forks.json', 'w') as forks_file:
