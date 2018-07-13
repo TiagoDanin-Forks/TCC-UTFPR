@@ -152,30 +152,31 @@ def popular_projects_per_language(languages, crawler):
 # If you want to learn more about it, visit: http://sebastianraschka.com/Articles/2014_multiprocessing.html
 
 def repositories_in_parallel(repository, language):
-    # Folder where repository data will be saved
-    folder = 'Dataset' + '/' + language + '/' + repository['name']
-    # Collector object
-    R = Collector(repository, folder, crawler)
-    R.clone()  # Clone the repository
-    R.about()  # Creates a general information file
-    # Creates a file with the first contribution of each contributor in the
-    # repository
-    R.first_contributions()
-    R.languages()  # Creates a file with the languages used in the repository
-    R.pull_requests()  # Creates a file with all the pull requests submmited to the repository
-    R.contributions()  # Creates a file with all the contributions submmited to the repository
-    R.stars()  # Creates a file with all stars evaluated in the repository (Include evaluation date)
-    R.forks()  # Creates a file with all the copies created from the repository
+    if not 'linux' in repository['name']:
+        # Folder where repository data will be saved
+        folder = 'Dataset' + '/' + language + '/' + repository['name']
+        # Collector object
+        R = Collector(repository, folder, crawler)
+        R.clone()  # Clone the repository
+        R.about()  # Creates a general information file
+        # Creates a file with the first contribution of each contributor in the
+        # repository
+        R.first_contributions()
+        R.languages()  # Creates a file with the languages used in the repository
+        R.pull_requests()  # Creates a file with all the pull requests submmited to the repository
+        R.contributions()  # Creates a file with all the contributions submmited to the repository
+        R.stars()  # Creates a file with all stars evaluated in the repository (Include evaluation date)
+        R.forks()  # Creates a file with all the copies created from the repository
 
 
 # Main method. Instantiate one object for each of the projects, and collects the data separately.
 # Please, retrieve your own crawler client id and secret in this page:
 # https://github.com/settings/applications/new
 
-api_client_id = str(os.environ['github_client_id']) # Please, specify your own client id
-api_client_secret = str(os.environ['github_client_secret']) # Please, specify your own client secret
+api_client_id = str('4161a8257efaea420c94') # Please, specify your own client id
+api_client_secret = str('d814ec48927a6bd62c55c058cd028a949e5362d4') # Please, specify your own client secret
 crawler = GitCrawler.Crawler(api_client_id, api_client_secret)
-parallel = multiprocessing.Pool(processes=5)
+parallel = multiprocessing.Pool(processes=1)
 
 languages = ['C', 'CoffeeScript', 'Clojure', 'Erlang',
              'Go', 'Haskell', 'Java', 'JavaScript', 'Objective-C',
